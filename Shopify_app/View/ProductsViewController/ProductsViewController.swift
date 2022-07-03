@@ -19,9 +19,7 @@ class ProductsViewController: UIViewController {
     var collectionId = ""
     var filtered = false
 
-    @IBOutlet weak var productsCollection: UICollectionView!
-    var arrayOfProducts = [Product]()
-    let floaty = Floaty()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,15 +119,7 @@ class ProductsViewController: UIViewController {
     }
     
 
-        floaty.addItem("T-Shirts", icon: UIImage(named: "shirt")) { _ in
-        }
-        floaty.addItem("Shoes", icon: UIImage(named: "shoes")){ _ in
-        }
-        floaty.addItem("Accessories", icon: UIImage(named: "acc")){ _ in
-
-        }
-        view.addSubview(floaty)
-    }
+     
 
 }
 extension ProductsViewController:UICollectionViewDelegate,UICollectionViewDataSource{

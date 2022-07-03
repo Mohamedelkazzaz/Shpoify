@@ -14,7 +14,6 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     
 
-    var array: [String] = ["My Whishlist","My Adrresses","About us","Contact us"]
 
     var array: [String] = ["My Whishlist","My Adrresses","About us"]
 
@@ -28,26 +27,18 @@ class SettingViewController: UIViewController {
     @IBAction func logoutButton(_ sender: UIButton) {
         
     }
-    
-
-
-}
-extension SettingViewController: UITableViewDelegate,UITableViewDataSource{
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        
-//        return 1
-//        
-//    }
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        title = "My Account"
-//    }
-
     @IBAction func cartButton(_ sender: UIBarButtonItem) {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CartsViewController") as! CartsViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
+
+
 }
+
+
+   
+    
+
 extension SettingViewController: UITableViewDelegate,UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -81,18 +72,7 @@ extension SettingViewController: UITableViewDelegate,UITableViewDataSource{
             cell.cellName?.text = array[indexPath.row]
 
             cell.accessoryType = .disclosureIndicator
-        case 2:
-            cell.cellImage.image = UIImage(named: "icons8-info")
-            cell.cellImage?.tintColor = .label
-            cell.cellName?.text = array[indexPath.row]
-            cell.accessoryType = .disclosureIndicator
-        default:
-            cell.cellImage.image = UIImage(named: "icons8-last_24_hours")
-            cell.cellImage?.tintColor = .label
-            cell.cellName?.text = array[indexPath.row]
 
-            cell.selectionStyle = .none
-            cell.accessoryType = .disclosureIndicator
         default:
             cell.cellImage.image = UIImage(named: "icons8-info")
             cell.cellImage?.tintColor = .label

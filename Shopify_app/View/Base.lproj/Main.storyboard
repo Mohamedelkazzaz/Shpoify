@@ -355,7 +355,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="My Profile" id="4Re-Xo-EML">
 
-                        <barButtonItem key="rightBarButtonItem" image="cart" catalog="system" id="Pdm-Be-pu9"/>
+                        
 
                         <barButtonItem key="rightBarButtonItem" image="cart" catalog="system" id="Pdm-Be-pu9">
                             <connections>
@@ -601,7 +601,7 @@
 
                     <tabBarItem key="tabBarItem" title="Item" image="icons8-home" id="im7-X3-uMZ"/>
 
-                    <tabBarItem key="tabBarItem" title="Item" image="homekit" catalog="system" id="im7-X3-uMZ"/>
+                    
 
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="SnY-7f-N6z">
