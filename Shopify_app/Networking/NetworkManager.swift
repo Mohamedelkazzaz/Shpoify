@@ -11,6 +11,8 @@ import SwiftyJSON
 
 
 class NetworkManager: ApiService{
+
+
     
     func getAllBrands(complition: @escaping (Brands?, Error?)->Void){
         
@@ -59,6 +61,7 @@ class NetworkManager: ApiService{
             }
         }.resume()
     }
+
     
     func getProductsByCategory(collectionId:String,complition: @escaping (Products?, Error?) -> Void) {
         guard let url = Url.shared.getProductsByCategory(collectionId: collectionId) else {return}
@@ -82,4 +85,5 @@ class NetworkManager: ApiService{
             }
         }.resume()
     }
+
 }

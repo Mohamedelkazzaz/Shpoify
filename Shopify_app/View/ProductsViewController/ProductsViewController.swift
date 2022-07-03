@@ -10,6 +10,7 @@ import Floaty
 
 class ProductsViewController: UIViewController {
 
+
     @IBOutlet weak var SegmentControle: UISegmentedControl!
     @IBOutlet weak var productsCollection: UICollectionView!
     var arrayOfProducts = [Product]()
@@ -17,6 +18,11 @@ class ProductsViewController: UIViewController {
     let floaty = Floaty()
     var collectionId = ""
     var filtered = false
+
+    @IBOutlet weak var productsCollection: UICollectionView!
+    var arrayOfProducts = [Product]()
+    let floaty = Floaty()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         productsCollection.dataSource = self
@@ -47,6 +53,7 @@ class ProductsViewController: UIViewController {
         floaty.buttonImage = UIImage(named: "plus")
         floaty.itemButtonColor = .orange
         floaty.itemTitleColor = .white
+
         floaty.addItem("T-Shirts", icon: UIImage(named: "tshirt")) { _ in
             let filterArray = self.arrayOfProducts.filter { element in
                 return element.product_type == "T-SHIRTS"
@@ -113,10 +120,22 @@ class ProductsViewController: UIViewController {
         }
     }
     
+
+        floaty.addItem("T-Shirts", icon: UIImage(named: "shirt")) { _ in
+        }
+        floaty.addItem("Shoes", icon: UIImage(named: "shoes")){ _ in
+        }
+        floaty.addItem("Accessories", icon: UIImage(named: "acc")){ _ in
+
+        }
+        view.addSubview(floaty)
+    }
+
 }
 extension ProductsViewController:UICollectionViewDelegate,UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+
         if (filtered) {
             print(arrayFiltered.count)
            return arrayFiltered.count
@@ -124,16 +143,23 @@ extension ProductsViewController:UICollectionViewDelegate,UICollectionViewDataSo
         else{
            return arrayOfProducts.count
         }
+
+        arrayOfProducts.count
+
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell =  productsCollection.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as? ProductCell
+
         if(filtered){
             cell?.configureCell(productName: arrayFiltered[indexPath.row].title!, productImage: (arrayFiltered[indexPath.row].image?.src!)!, productPrice: arrayFiltered[indexPath.row].variants![0].price ?? "0")
         }
         else{
             cell?.configureCell(productName: arrayOfProducts[indexPath.row].title!, productImage: (arrayOfProducts[indexPath.row].image?.src!)!, productPrice: arrayOfProducts[indexPath.row].variants![0].price ?? "0")
         }
+
+        cell?.configureCell(productName: arrayOfProducts[indexPath.row].title!, productImage: (arrayOfProducts[indexPath.row].image?.src!)!, productPrice: arrayOfProducts[indexPath.row].variants![0].price ?? "0")
+
         
         return cell!
     }

@@ -101,6 +101,7 @@ extension ViewController:UICollectionViewDelegate,UICollectionViewDataSource,UIC
         }
        
     }
+
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("push")
@@ -109,6 +110,17 @@ extension ViewController:UICollectionViewDelegate,UICollectionViewDataSource,UIC
         navigationController?.pushViewController(vc, animated: true)
         
     }
+
+
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+//    {
+//        let leftAndRightPaddings: CGFloat = 10
+//        let numberOfItemsPerRow: CGFloat = 2.0
+//
+//        let width = (collectionView.frame.width-leftAndRightPaddings)/numberOfItemsPerRow
+//        return CGSize(width: width, height: width) // You can change width and height here as pr your requirement
+//
+//    }
 
    
     

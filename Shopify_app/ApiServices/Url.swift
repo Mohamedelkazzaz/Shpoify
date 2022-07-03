@@ -19,8 +19,10 @@ struct Url {
     func getAllProductsURL()-> URL?{
         return URL(string: baseURL + "products.json")
     }
+
   
     func getProductsByCategory(collectionId:String)-> URL?{
         return URL(string: baseURL + "products.json?collection_id=\(collectionId)")
     }
+
 }
