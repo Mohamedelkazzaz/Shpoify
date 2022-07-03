@@ -347,7 +347,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Profile" id="4Re-Xo-EML">
-                        <barButtonItem key="rightBarButtonItem" image="cart" catalog="system" id="Pdm-Be-pu9"/>
+                        <barButtonItem key="rightBarButtonItem" image="cart" catalog="system" id="Pdm-Be-pu9">
+                            <connections>
+                                <action selector="cartButton:" destination="Xfa-4Z-HAH" id="8qY-G2-FwJ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="nameLabel" destination="ShI-nO-PCb" id="zgM-sn-SX2"/>
@@ -625,6 +629,72 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jwA-YE-7Vw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2080" y="607"/>
+        </scene>
+        <!--About View Controller-->
+        <scene sceneID="Vyb-Xa-iWE">
+            <objects>
+                <viewController storyboardIdentifier="AboutViewController" id="EiW-19-6EH" customClass="AboutViewController" customModule="Shopify_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wpO-PW-Hv3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This our final project in iTi 3-Month track iOS mobile application development" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lf0-0b-abU">
+                                <rect key="frame" x="20" y="177" width="374" height="166.5"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="22"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Our Team : " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1u-eT-Jgd">
+                                <rect key="frame" x="20" y="345" width="374" height="113"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="113" id="NBE-1E-qRF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="22"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mohamed Elkazzaz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wci-4S-Zxe">
+                                <rect key="frame" x="20" y="451" width="374" height="24"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="20"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ahmed Hussien" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYo-Qf-9WT">
+                                <rect key="frame" x="20" y="538" width="374" height="25"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="21"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ahmed Ashraf" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nI6-mU-PMZ">
+                                <rect key="frame" x="20" y="495" width="374" height="23"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="19"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZDM-Nm-v3Y"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bYo-Qf-9WT" firstAttribute="centerX" secondItem="nI6-mU-PMZ" secondAttribute="centerX" id="6Ny-Gs-d9Q"/>
+                            <constraint firstItem="nI6-mU-PMZ" firstAttribute="top" secondItem="wci-4S-Zxe" secondAttribute="bottom" constant="20" id="7b4-Ys-ViB"/>
+                            <constraint firstItem="ZDM-Nm-v3Y" firstAttribute="trailing" secondItem="wci-4S-Zxe" secondAttribute="trailing" constant="20" id="D9S-mR-ey6"/>
+                            <constraint firstItem="e1u-eT-Jgd" firstAttribute="trailing" secondItem="Lf0-0b-abU" secondAttribute="trailing" id="DfZ-ul-C8C"/>
+                            <constraint firstItem="wci-4S-Zxe" firstAttribute="top" secondItem="e1u-eT-Jgd" secondAttribute="bottom" constant="-7" id="Glr-PE-eTM"/>
+                            <constraint firstItem="bYo-Qf-9WT" firstAttribute="top" secondItem="nI6-mU-PMZ" secondAttribute="bottom" constant="20" id="L91-TQ-ItE"/>
+                            <constraint firstItem="ZDM-Nm-v3Y" firstAttribute="trailing" secondItem="bYo-Qf-9WT" secondAttribute="trailing" constant="20" id="NB3-Xp-pSj"/>
+                            <constraint firstItem="bYo-Qf-9WT" firstAttribute="leading" secondItem="ZDM-Nm-v3Y" secondAttribute="leading" constant="20" id="SD4-pN-7Hd"/>
+                            <constraint firstItem="e1u-eT-Jgd" firstAttribute="leading" secondItem="Lf0-0b-abU" secondAttribute="leading" id="UJN-gd-VsE"/>
+                            <constraint firstItem="Lf0-0b-abU" firstAttribute="top" secondItem="ZDM-Nm-v3Y" secondAttribute="top" constant="133" id="Vft-AH-ip1"/>
+                            <constraint firstItem="wci-4S-Zxe" firstAttribute="leading" secondItem="ZDM-Nm-v3Y" secondAttribute="leading" constant="20" id="W0f-dL-ZuA"/>
+                            <constraint firstItem="e1u-eT-Jgd" firstAttribute="firstBaseline" secondItem="Lf0-0b-abU" secondAttribute="baseline" constant="28" symbolType="layoutAnchor" id="WaI-Jb-BGs"/>
+                            <constraint firstItem="ZDM-Nm-v3Y" firstAttribute="trailing" secondItem="nI6-mU-PMZ" secondAttribute="trailing" constant="20" id="WbK-zN-sdm"/>
+                            <constraint firstItem="wci-4S-Zxe" firstAttribute="centerX" secondItem="wpO-PW-Hv3" secondAttribute="centerX" id="YaV-aD-AYY"/>
+                            <constraint firstItem="ZDM-Nm-v3Y" firstAttribute="bottom" secondItem="e1u-eT-Jgd" secondAttribute="bottom" constant="404" id="etx-J1-dOr"/>
+                            <constraint firstItem="ZDM-Nm-v3Y" firstAttribute="trailing" secondItem="Lf0-0b-abU" secondAttribute="trailing" constant="20" id="i3I-I0-gpn"/>
+                            <constraint firstItem="nI6-mU-PMZ" firstAttribute="leading" secondItem="ZDM-Nm-v3Y" secondAttribute="leading" constant="20" id="pLq-MT-6wA"/>
+                            <constraint firstItem="Lf0-0b-abU" firstAttribute="leading" secondItem="ZDM-Nm-v3Y" secondAttribute="leading" constant="20" id="vBD-BX-Hf4"/>
+                            <constraint firstItem="nI6-mU-PMZ" firstAttribute="centerX" secondItem="wci-4S-Zxe" secondAttribute="centerX" id="vHC-1G-nb2"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="91J-hK-jIB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4010" y="607"/>
         </scene>
     </scenes>
     <resources>
