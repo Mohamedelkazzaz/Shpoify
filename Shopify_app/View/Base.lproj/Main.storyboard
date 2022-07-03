@@ -163,6 +163,9 @@
                                     <segment title="Kids"/>
                                     <segment title="sale"/>
                                 </segments>
+                                <connections>
+                                    <action selector="subCategories:" destination="RTt-FO-kxe" eventType="valueChanged" id="qOk-5G-MDv"/>
+                                </connections>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aRv-LS-coQ">
                                 <rect key="frame" x="0.0" y="126" width="414" height="687"/>
@@ -251,6 +254,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="SegmentControle" destination="cDg-lD-A5D" id="tqh-Qp-n6s"/>
                         <outlet property="productsCollection" destination="aRv-LS-coQ" id="Oom-28-UMo"/>
                     </connections>
                 </viewController>
@@ -441,7 +445,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rcl-jY-0Pl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1005.7971014492755" y="1285.7142857142856"/>
+            <point key="canvasLocation" x="2826.0869565217395" y="1285.0446428571429"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="cHX-Kx-6Eh">
@@ -552,7 +556,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="37p-ah-Yao" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1824" y="1294"/>
+            <point key="canvasLocation" x="3643.4782608695655" y="1293.75"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="bnw-jX-agY">
@@ -567,13 +571,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sBJ-7u-MhK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2580" y="1294"/>
+            <point key="canvasLocation" x="4400" y="1293.75"/>
         </scene>
         <!--Item-->
         <scene sceneID="ZrE-lq-ouB">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cqi-wG-DiW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="homekit" catalog="system" id="im7-X3-uMZ"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="icons8-home" id="im7-X3-uMZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="SnY-7f-N6z">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -631,7 +635,7 @@
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="command.circle" catalog="system" width="128" height="121"/>
         <image name="heart" catalog="system" width="128" height="109"/>
-        <image name="homekit" catalog="system" width="128" height="106"/>
+        <image name="icons8-home" width="25" height="25"/>
         <image name="icons8-logout" width="25" height="25"/>
         <image name="icons8-settings" width="25" height="25"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>

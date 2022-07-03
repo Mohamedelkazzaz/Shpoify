@@ -32,6 +32,10 @@
 		F909DF73B2562104EE70063F /* Pods_Shopify_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A0DDA4F1D09B3BBE7BF937 /* Pods_Shopify_app.framework */; };
 		FC3866D7286D1440000EDC64 /*  BrandsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3866D6286D1440000EDC64 /*  BrandsViewModel.swift */; };
 		FC3866D9286D1AE5000EDC64 /* BrandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3866D8286D1AE5000EDC64 /* BrandCell.swift */; };
+		FC4A66782871F599005D3BBB /* ProductsByCategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4A66772871F598005D3BBB /* ProductsByCategoriesViewModel.swift */; };
+		FC4A667E2871F68E005D3BBB /* ProductsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4A667C2871F68D005D3BBB /* ProductsListViewController.swift */; };
+		FC4A667F2871F68E005D3BBB /* ProductListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4A667D2871F68E005D3BBB /* ProductListCell.swift */; };
+		FC4A668428724DAA005D3BBB /* ProductList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC4A668328724DAA005D3BBB /* ProductList.storyboard */; };
 		FC94285C286DD76B0059E6D4 /* Brands.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC94285B286DD76B0059E6D4 /* Brands.swift */; };
 		FC94285F286E510A0059E6D4 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC94285E286E510A0059E6D4 /* Products.swift */; };
 		FC942861286E56D00059E6D4 /* ProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC942860286E56D00059E6D4 /* ProductsViewModel.swift */; };
@@ -92,6 +96,10 @@
 		F0F6B28AEBAEF318031ED2FF /* Pods-Shopify_app-Shopify_appUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopify_app-Shopify_appUITests.debug.xcconfig"; path = "Target Support Files/Pods-Shopify_app-Shopify_appUITests/Pods-Shopify_app-Shopify_appUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FC3866D6286D1440000EDC64 /*  BrandsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = " BrandsViewModel.swift"; path = "Shopify_app/ViewModel/Brands/ BrandsViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		FC3866D8286D1AE5000EDC64 /* BrandCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandCell.swift; sourceTree = "<group>"; };
+		FC4A66772871F598005D3BBB /* ProductsByCategoriesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsByCategoriesViewModel.swift; sourceTree = "<group>"; };
+		FC4A667C2871F68D005D3BBB /* ProductsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsListViewController.swift; sourceTree = "<group>"; };
+		FC4A667D2871F68E005D3BBB /* ProductListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListCell.swift; sourceTree = "<group>"; };
+		FC4A668328724DAA005D3BBB /* ProductList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductList.storyboard; sourceTree = "<group>"; };
 		FC94285B286DD76B0059E6D4 /* Brands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brands.swift; sourceTree = "<group>"; };
 		FC94285E286E510A0059E6D4 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 		FC942860286E56D00059E6D4 /* ProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewModel.swift; sourceTree = "<group>"; };
@@ -152,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				FC942860286E56D00059E6D4 /* ProductsViewModel.swift */,
+				FC4A66772871F598005D3BBB /* ProductsByCategoriesViewModel.swift */,
 			);
 			path = Products;
 			sourceTree = "<group>";
@@ -244,8 +253,10 @@
 				E86D31DB286F24FE007302E1 /* CartsViewController */,
 				FC94285D286DDA320059E6D4 /* BrandsViewController */,
 				FC942862286E56EE0059E6D4 /* ProductsViewController */,
+				FC4A667B2871F667005D3BBB /* ProductListViewControler */,
 				E8B21C1C286B8CC00000AABB /* Main.storyboard */,
 				E8B21C24286B8CC40000AABB /* LaunchScreen.storyboard */,
+				FC4A668328724DAA005D3BBB /* ProductList.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -294,6 +305,15 @@
 				E8B21C16286B8CC00000AABB /* AppDelegate.swift */,
 			);
 			path = Delegates;
+			sourceTree = "<group>";
+		};
+		FC4A667B2871F667005D3BBB /* ProductListViewControler */ = {
+			isa = PBXGroup;
+			children = (
+				FC4A667D2871F68E005D3BBB /* ProductListCell.swift */,
+				FC4A667C2871F68D005D3BBB /* ProductsListViewController.swift */,
+			);
+			path = ProductListViewControler;
 			sourceTree = "<group>";
 		};
 		FC94285A286DD6DE0059E6D4 /* Models */ = {
@@ -440,6 +460,7 @@
 				E86D31E9286F7993007302E1 /* adsCell.xib in Resources */,
 				E8B21C1E286B8CC00000AABB /* Main.storyboard in Resources */,
 				E86D31E5286F25FA007302E1 /* CartsCell.xib in Resources */,
+				FC4A668428724DAA005D3BBB /* ProductList.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,13 +589,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				E86D31E1286F2568007302E1 /* CartsViewController.swift in Sources */,
+				FC4A667F2871F68E005D3BBB /* ProductListCell.swift in Sources */,
 				FC3866D9286D1AE5000EDC64 /* BrandCell.swift in Sources */,
 				FC94285F286E510A0059E6D4 /* Products.swift in Sources */,
 				E8B21C1B286B8CC00000AABB /* ViewController.swift in Sources */,
 				FC942864286E572D0059E6D4 /* ProductsViewController.swift in Sources */,
 				E898DC422871C9FF00FCEEF2 /* SettingViewController.swift in Sources */,
 				E8B21C17286B8CC00000AABB /* AppDelegate.swift in Sources */,
+				FC4A66782871F599005D3BBB /* ProductsByCategoriesViewModel.swift in Sources */,
 				FC942866286E57500059E6D4 /* ProductCell.swift in Sources */,
+				FC4A667E2871F68E005D3BBB /* ProductsListViewController.swift in Sources */,
 				E86D31E4286F25FA007302E1 /* CartsCell.swift in Sources */,
 				E898DC442871D0F600FCEEF2 /* SettingCell.swift in Sources */,
 				E8B21C51286B8DF70000AABB /* ApiService.swift in Sources */,

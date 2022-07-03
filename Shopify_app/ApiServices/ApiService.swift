@@ -11,4 +11,5 @@ protocol ApiService{
     
     func getAllBrands(complition: @escaping (Brands?, Error?)->Void)
     func getAllProducts(complition: @escaping (Products?, Error?)->Void)
+    func getProductsByCategory(collectionId:String,complition: @escaping (Products?, Error?)->Void)
 }

@@ -15,7 +15,7 @@ struct Products: Codable {
 struct Product: Codable {
     let id: Int?
     let title, bodyHTML, vendor: String?
-    let productType: String?
+    let product_type: String?
     let createdAt: Date?
     let handle: String?
     let updatedAt, publishedAt: Date?
