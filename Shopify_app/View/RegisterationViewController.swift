@@ -17,9 +17,11 @@ class RegisterationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        configreView ()
     }
-    
+    func configreView () {
+        createAccountBtn.layer.cornerRadius = 10
+    }
     @IBAction func createAccountButtonTapped(_ sender: UIButton) {
         
     }

@@ -10,7 +10,7 @@ target 'Shopify_app' do
    pod 'SwiftyJSON'
     pod 'Alamofire'
     pod 'Floaty'
-   
+    pod 'lottie-ios'
 
   target 'Shopify_appTests' do
     inherit! :search_paths
