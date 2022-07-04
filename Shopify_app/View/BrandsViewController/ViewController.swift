@@ -11,11 +11,11 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var brandsCollection: UICollectionView!
     
+    @IBOutlet weak var loadIndecator: UIActivityIndicatorView!
     @IBOutlet weak var adsCollectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     var arrayOfBrands = [Smart_collections]()
     var arrayOfAds: [String] = ["ads1", "ads2", "ads3", "ads4"]
-    
     var timer: Timer?
     var currentAdsIndex = 0
     override func viewDidLoad() {
@@ -25,10 +25,18 @@ class ViewController: UIViewController {
         adsCollectionView.register(UINib(nibName: "adsCell", bundle: nil), forCellWithReuseIdentifier: "adsCell")
         adsCollectionView.delegate = self
         adsCollectionView.dataSource = self
-        brandsData()
+        initbrandsView()
         setupTimer()
+        loadIndecator.hidesWhenStopped=true
+        loadIndecator.startAnimating()
+        
     }
 
+    @IBAction func searchButton(_ sender: UIBarButtonItem) {
+        let vc = UIStoryboard(name: "ProductList", bundle: nil).instantiateViewController(withIdentifier: "ProductsListViewController") as! ProductsListViewController
+    //    vc.brandName = arrayOfBrands[indexPath.row].title!
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     func setupTimer(){
         pageControl.numberOfPages = arrayOfAds.count
@@ -47,19 +55,21 @@ class ViewController: UIViewController {
     }
 
     //MARK: BrandsData
-    func brandsData(){
+    func initbrandsView(){
         let ViewModel = BrandsViewModel()
         ViewModel.fetchData()
         ViewModel.updateData = { brands , error in
             if let brands = brands{
                 self.arrayOfBrands = brands
                 self.brandsCollection.reloadData()
+                self.loadIndecator.stopAnimating()
             }
             if let error = error {
                 print(error.localizedDescription)
             }
         }
     }
+    
     
 }
 extension ViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
@@ -97,14 +107,14 @@ extension ViewController:UICollectionViewDelegate,UICollectionViewDataSource,UIC
         if collectionView == adsCollectionView {
             return CGSize(width: 285, height: 128)
         }else{
-            return CGSize(width: 170, height: 184)
+           return CGSize(width: self.view.frame.width*0.44, height: self.view.frame.width*0.6)
+           // return CGSize(width: 170, height: 184)
         }
        
     }
 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("push")
         let vc = UIStoryboard(name: "ProductList", bundle: nil).instantiateViewController(withIdentifier: "ProductsListViewController") as! ProductsListViewController
         vc.brandName = arrayOfBrands[indexPath.row].title!
         navigationController?.pushViewController(vc, animated: true)
