@@ -34,7 +34,6 @@ class ViewController: UIViewController {
 
     @IBAction func searchButton(_ sender: UIBarButtonItem) {
         let vc = UIStoryboard(name: "ProductList", bundle: nil).instantiateViewController(withIdentifier: "ProductsListViewController") as! ProductsListViewController
-    //    vc.brandName = arrayOfBrands[indexPath.row].title!
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

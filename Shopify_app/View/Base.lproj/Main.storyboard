@@ -260,7 +260,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Categories" id="gMB-1c-MIQ">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="AjS-LF-e7A"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="AjS-LF-e7A">
+                            <connections>
+                                <action selector="SearchButton:" destination="RTt-FO-kxe" id="a2E-7i-hYl"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="heart" catalog="system" id="r4H-jm-OPX"/>
                             <barButtonItem title="Item" image="cart" catalog="system" id="kPX-Ub-mGA"/>

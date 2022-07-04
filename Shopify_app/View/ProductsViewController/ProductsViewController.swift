@@ -113,6 +113,11 @@ class ProductsViewController: UIViewController {
         }
     }
     
+    @IBAction func SearchButton(_ sender: UIBarButtonItem) {
+        let vc = UIStoryboard(name: "ProductList", bundle: nil).instantiateViewController(withIdentifier: "ProductsListViewController") as! ProductsListViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     //MARK: displayProductsByCategories
     func displayProductsByCategories(collectionId:String){
         
