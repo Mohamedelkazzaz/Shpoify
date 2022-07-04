@@ -13,5 +13,5 @@ protocol ApiService{
     func getAllProducts(complition: @escaping (Products?, Error?)->Void)
     func getProductsByCategory(collectionId:String,complition: @escaping (Products?, Error?)->Void)
     func addAddress(customerId: Int, address: Address, completion: @escaping(Data?, URLResponse?, Error?)->())
-    
+    func getAddressForCustomer(customerId: Int,completion: @escaping (Customer?, Error?)->Void)
 }

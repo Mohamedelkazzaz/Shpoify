@@ -12,8 +12,7 @@ import SwiftyJSON
 
 class NetworkManager: ApiService{
     
-    
-    
+  
     func getAllBrands(complition: @escaping (Brands?, Error?)->Void){
         
         guard let url = Url.shared.getAllBrandsURl() else {return}
@@ -110,5 +109,29 @@ class NetworkManager: ApiService{
         completion(data, response, error)
         }.resume()
     }
+    
+    func getAddressForCustomer(customerId: Int, completion: @escaping (Customer?, Error?) -> Void) {
+        guard let url = Url.shared.getAddressForCustomer(customerID: "6261211300054") else {return}
+        URLSession.shared.dataTask(with: url) {[weak self] data, response, error in
+            if let data = data{
+                do{
+                    let json = try JSONDecoder().decode(Customer.self, from: data)
+                    DispatchQueue.main.async{
+                        completion(json, nil)
+                        print("success to get all brands")
+                    }
+                }catch let error{
+                    DispatchQueue.main.async{
+                        print("error when get All brands")
+                        completion(nil, error)
+                    }
+                }
+            }
+            if let error = error{
+                print(error)
+            }
+        }.resume()
+    }
+    
 
 }

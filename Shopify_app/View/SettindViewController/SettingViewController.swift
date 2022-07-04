@@ -62,15 +62,13 @@ extension SettingViewController: UITableViewDelegate,UITableViewDataSource{
             cell.cellImage.image = UIImage(named: "icons8-heart")
             cell.cellImage?.tintColor = .label
             cell.cellName?.text = array[indexPath.row]
-
             cell.selectionStyle = .none
-
             cell.accessoryType = .disclosureIndicator
         case 1:
             cell.cellImage.image = UIImage(named: "icons8-home")
             cell.cellImage?.tintColor = .label
             cell.cellName?.text = array[indexPath.row]
-
+            cell.selectionStyle = .none
             cell.accessoryType = .disclosureIndicator
 
         default:
@@ -84,9 +82,6 @@ extension SettingViewController: UITableViewDelegate,UITableViewDataSource{
         return cell
     }
 
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        <#code#>
-//    }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
