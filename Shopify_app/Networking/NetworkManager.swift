@@ -114,15 +114,16 @@ class NetworkManager: ApiService{
         guard let url = Url.shared.getAddressForCustomer(customerID: "6261211300054") else {return}
         URLSession.shared.dataTask(with: url) {[weak self] data, response, error in
             if let data = data{
+                print(String(data: data, encoding: .utf8))
                 do{
                     let json = try JSONDecoder().decode(Customer.self, from: data)
                     DispatchQueue.main.async{
                         completion(json, nil)
-                        print("success to get all brands")
+                        print("success to get all Addreeses")
                     }
                 }catch let error{
                     DispatchQueue.main.async{
-                        print("error when get All brands")
+                       print(error)
                         completion(nil, error)
                     }
                 }

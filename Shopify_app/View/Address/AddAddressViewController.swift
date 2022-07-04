@@ -34,7 +34,7 @@ class AddAddressViewController: UIViewController {
                 return
             }
             
-            let add = Address(id: 7754097295574, customerID: 6261211300054, firstName: "", lastName: "", company: "", address1: address, address2: "", city: city, province: "", country: country, zip: "", phone: phone, name: "", provinceCode: "", countryCode: "", countryName: "", addressDefault: true)
+            let add = Address(address1: address, city: city, province: "", phone: phone, zip: "", last_name: "", first_name: "", country: country, id: nil)
             
             networkManager.addAddress(customerId: 6262628057302, address: add) { data , res, error in
                 if error == nil{

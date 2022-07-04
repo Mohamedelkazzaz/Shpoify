@@ -19,6 +19,7 @@
 		E898DC422871C9FF00FCEEF2 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E898DC412871C9FF00FCEEF2 /* SettingViewController.swift */; };
 		E898DC442871D0F600FCEEF2 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E898DC432871D0F600FCEEF2 /* SettingCell.swift */; };
 		E89982FB2873656900071339 /* AddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89982FA2873656900071339 /* AddressViewModel.swift */; };
+		E89982FE2873B06300071339 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89982FD2873B06200071339 /* Address.swift */; };
 		E89A3A2328720BB400D609B5 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89A3A2228720BB400D609B5 /* AboutViewController.swift */; };
 		E89A3A2528720D3400D609B5 /* Adress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E89A3A2428720D3400D609B5 /* Adress.storyboard */; };
 		E89A3A28287212FC00D609B5 /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89A3A27287212FC00D609B5 /* AddressViewController.swift */; };
@@ -88,6 +89,7 @@
 		E898DC412871C9FF00FCEEF2 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		E898DC432871D0F600FCEEF2 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		E89982FA2873656900071339 /* AddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewModel.swift; sourceTree = "<group>"; };
+		E89982FD2873B06200071339 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		E89A3A2228720BB400D609B5 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		E89A3A2428720D3400D609B5 /* Adress.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Adress.storyboard; sourceTree = "<group>"; };
 		E89A3A27287212FC00D609B5 /* AddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 				FC94285B286DD76B0059E6D4 /* Brands.swift */,
 				FC94285E286E510A0059E6D4 /* Products.swift */,
 				E896D73C287268ED00E5A5AB /* Customer.swift */,
+				E89982FD2873B06200071339 /* Address.swift */,
 				E83C57892873130F0068CDAE /* Encodable.swift */,
 			);
 			name = Models;
@@ -671,6 +674,7 @@
 				E8B21C4F286B8DD90000AABB /* Url.swift in Sources */,
 				E89A3A2328720BB400D609B5 /* AboutViewController.swift in Sources */,
 				FC3866D7286D1440000EDC64 /*  BrandsViewModel.swift in Sources */,
+				E89982FE2873B06300071339 /* Address.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

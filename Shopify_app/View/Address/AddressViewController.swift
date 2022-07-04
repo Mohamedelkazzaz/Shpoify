@@ -10,7 +10,7 @@ import UIKit
 class AddressViewController: UIViewController {
     @IBOutlet weak var addressTableView: UITableView!
     
-    var viewModel: AddressViewModel?
+    var viewModel: AddressViewModel = AddressViewModel()
     
     let address = [Customer]()
     override func viewDidLoad() {
@@ -21,8 +21,12 @@ class AddressViewController: UIViewController {
         
         addressTableView.register(UINib(nibName: "addAddressCell", bundle: nil), forCellReuseIdentifier: "cell")
         
-        viewModel?.fetchAddreesesForCoustomer()
-        viewModel?.bindingData = { address, error in
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.fetchAddreesesForCoustomer()
+        viewModel.bindingData = { address, error in
                 DispatchQueue.main.async {
                     self.addressTableView.reloadData()
                 }
@@ -43,12 +47,12 @@ class AddressViewController: UIViewController {
 
 extension AddressViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.getAddreeses()?.count ?? 0
+        return viewModel.getAddreeses()?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! addAddressCell
-        cell.setup(address: viewModel?.getAddress(indexPath: indexPath))
+        cell.setup(address: viewModel.getAddress(indexPath: indexPath))
         return cell
     }
     

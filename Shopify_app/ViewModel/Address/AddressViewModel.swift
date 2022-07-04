@@ -10,6 +10,7 @@ import Foundation
 
 class AddressViewModel {
     
+//    var 
     var address: [Address]? {
         didSet {
             bindingData(address,nil)

@@ -90,6 +90,7 @@ extension SettingViewController: UITableViewDelegate,UITableViewDataSource{
             self.navigationController?.pushViewController(vc, animated: true)
         case 1:
             let vc = UIStoryboard(name: "Adress", bundle: nil).instantiateViewController(withIdentifier: "AddressViewController") as! AddressViewController
+//            vc.viewModel = AddressViewModel()
             self.navigationController?.pushViewController(vc, animated: true)
         default:
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AboutViewController") as! AboutViewController

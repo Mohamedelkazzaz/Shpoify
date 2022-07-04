@@ -7,80 +7,25 @@
 
 import Foundation
 
-// MARK: - CustomerModel
-struct CustomerModel: Codable {
+struct NewCustomer: Codable {
     let customer: Customer
 }
 
-// MARK: - Customer
-struct Customer: Codable {
-    let id: Int
-    let email: String
-    let acceptsMarketing: Bool
-    let createdAt, updatedAt: Date
-    let firstName, lastName: String
-    let ordersCount: Int
-    let state, totalSpent: String
-    let lastOrderID, note: String?
-    let verifiedEmail: Bool
-    let multipassIdentifier: String?
-    let taxExempt: Bool
-    let phone, tags: String
-    let lastOrderName: String?
-    let currency: String
-    let addresses: [Address]
-    let acceptsMarketingUpdatedAt: Date
-    let marketingOptInLevel: String?
-    let defaultAddress: Address
-
-    enum CodingKeys: String, CodingKey {
-        case id, email
-        case acceptsMarketing = "accepts_marketing"
-        case createdAt = "created_at"
-        case updatedAt = "updated_at"
-        case firstName = "first_name"
-        case lastName = "last_name"
-        case ordersCount = "orders_count"
-        case state
-        case totalSpent = "total_spent"
-        case lastOrderID = "last_order_id"
-        case note
-        case verifiedEmail = "verified_email"
-        case multipassIdentifier = "multipass_identifier"
-        case taxExempt = "tax_exempt"
-        case phone, tags
-        case lastOrderName = "last_order_name"
-        case currency, addresses
-        case acceptsMarketingUpdatedAt = "accepts_marketing_updated_at"
-        case marketingOptInLevel = "marketing_opt_in_level"
-        case defaultAddress = "default_address"
-    }
+struct Customers: Codable {
+    let customers: [Customer]
 }
 
-// MARK: - Address
-struct Address: Codable {
-    let id, customerID: Int
-    let firstName, lastName: String
-    let company: String?
-    let address1: String
-    let address2: String?
-    let city, province, country, zip: String
-    let phone, name, provinceCode, countryCode: String
-    let countryName: String
-    let addressDefault: Bool
+struct Customer: Codable {
+    let first_name, last_name, email, phone, tags: String?
+    let id: Int?
+    let verified_email: Bool?
+    let addresses: [Address]?
+}
 
-    enum CodingKeys: String, CodingKey {
-        case id
-        case customerID = "customer_id"
-        case firstName = "first_name"
-        case lastName = "last_name"
-        case company, address1, address2, city, province, country, zip, phone, name
-        case provinceCode = "province_code"
-        case countryCode = "country_code"
-        case countryName = "country_name"
-        case addressDefault = "default"
-    }
-    
+struct Address: Codable {
+    var address1, city, province, phone: String?
+    var zip, last_name, first_name, country: String?
+    let id: Int?
 }
 
 struct LoginResponse: Codable {
