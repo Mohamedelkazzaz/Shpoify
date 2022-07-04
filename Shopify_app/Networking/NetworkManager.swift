@@ -11,8 +11,8 @@ import SwiftyJSON
 
 
 class NetworkManager: ApiService{
-
-
+    
+    
     
     func getAllBrands(complition: @escaping (Brands?, Error?)->Void){
         
@@ -83,6 +83,34 @@ class NetworkManager: ApiService{
             if let error = error{
                 print(error)
             }
+        }.resume()
+    }
+    
+    func addAddress(customerId: Int, address: Address, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        let customer = CustomerAddress(addresses: [address])
+        let putObject = PutAddress(customer: customer)
+        guard let url = Url.shared.addAddress(id: "6262628057302") else {return}
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        let session = URLSession.shared
+//        request.httpShouldHandleCookies = false
+        
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: putObject.asDictionary(), options: .prettyPrinted)
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+        //HTTP Headers
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        session.dataTask(with: request) { (data, response, error) in
+            print(String(data: data!, encoding: .utf8))
+            print(response)
+            print(error)
+        completion(data, response, error)
         }.resume()
     }
 

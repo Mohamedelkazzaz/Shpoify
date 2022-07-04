@@ -24,5 +24,13 @@ struct Url {
     func getProductsByCategory(collectionId:String)-> URL?{
         return URL(string: baseURL + "products.json?collection_id=\(collectionId)")
     }
+    
+    func addAddress(id: String) -> URL? {
+        return URL(string: baseURL + "customers/\(id)/addresses.json")
+    }
+    
+    func getAddressForCustomer(customerID: String) -> URL? {
+        return URL(string: baseURL + "customers/\(customerID)/addresses.json")
+    }
 
 }
