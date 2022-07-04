@@ -340,8 +340,8 @@
 		FC4A667B2871F667005D3BBB /* ProductListViewControler */ = {
 			isa = PBXGroup;
 			children = (
-				FC4A667D2871F68E005D3BBB /* ProductListCell.swift */,
 				FC4A667C2871F68D005D3BBB /* ProductsListViewController.swift */,
+				FC4A667D2871F68E005D3BBB /* ProductListCell.swift */,
 			);
 			path = ProductListViewControler;
 			sourceTree = "<group>";

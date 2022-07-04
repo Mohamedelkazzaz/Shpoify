@@ -11,6 +11,8 @@ import Floaty
 class ProductsViewController: UIViewController {
 
 
+    
+    @IBOutlet weak var loadIndecator: UIActivityIndicatorView!
     @IBOutlet weak var SegmentControle: UISegmentedControl!
     @IBOutlet weak var productsCollection: UICollectionView!
     var arrayOfProducts = [Product]()
@@ -19,15 +21,17 @@ class ProductsViewController: UIViewController {
     var collectionId = ""
     var filtered = false
 
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
         productsCollection.dataSource = self
         productsCollection.delegate = self
         productsData()
         FloatyButton()
+        loadIndecator.hidesWhenStopped=true
+        loadIndecator.startAnimating()
+
     }
+
     //MARK: productsData
     func productsData(){
         let ViewModel = ProductsViewModel()
@@ -36,13 +40,17 @@ class ProductsViewController: UIViewController {
             if let products = products{
                 self.arrayOfProducts = products
                 self.productsCollection.reloadData()
+                self.loadIndecator.stopAnimating()
             }
             if let error = error {
                 print(error.localizedDescription)
             }
         }
     }
+    
+    //MARK: FloatyButton
     func FloatyButton(){
+        
         floaty.buttonColor = .orange
         floaty.paddingX = 20
         floaty.paddingY = 100
@@ -77,9 +85,12 @@ class ProductsViewController: UIViewController {
             self.productsCollection.reloadData()
         }
         view.addSubview(floaty)
+       
     }
     
+    //MARK: subCategories
     @IBAction func subCategories(_ sender: Any) {
+        loadIndecator.startAnimating()
         self.arrayFiltered = []
         filtered=false
         switch SegmentControle.selectedSegmentIndex
@@ -89,18 +100,19 @@ class ProductsViewController: UIViewController {
                 displayProductsByCategories(collectionId: collectionId)
                 
             case 1:
-                collectionId = "409129779414"
+                collectionId = "409147474134"
                 displayProductsByCategories(collectionId: collectionId)
             case 2:
                 collectionId = "409147539670"
                 displayProductsByCategories(collectionId: collectionId)
             case 3:
-                collectionId = "409147474134"
+                collectionId =  "409129779414"
                 displayProductsByCategories(collectionId: collectionId)
             default:
                 break
         }
     }
+    
     //MARK: displayProductsByCategories
     func displayProductsByCategories(collectionId:String){
         
@@ -110,7 +122,7 @@ class ProductsViewController: UIViewController {
             if let products = products{
                 self.arrayOfProducts = products
                 self.productsCollection.reloadData()
-                print("\(collectionId ) \(self.arrayOfProducts.count)")
+                self.loadIndecator.stopAnimating()
             }
             if let error = error {
                 print(error.localizedDescription)
@@ -118,9 +130,6 @@ class ProductsViewController: UIViewController {
         }
     }
     
-
-     
-
 }
 extension ProductsViewController:UICollectionViewDelegate,UICollectionViewDataSource{
     
@@ -133,9 +142,6 @@ extension ProductsViewController:UICollectionViewDelegate,UICollectionViewDataSo
         else{
            return arrayOfProducts.count
         }
-
-        arrayOfProducts.count
-
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -148,10 +154,14 @@ extension ProductsViewController:UICollectionViewDelegate,UICollectionViewDataSo
             cell?.configureCell(productName: arrayOfProducts[indexPath.row].title!, productImage: (arrayOfProducts[indexPath.row].image?.src!)!, productPrice: arrayOfProducts[indexPath.row].variants![0].price ?? "0")
         }
 
-        cell?.configureCell(productName: arrayOfProducts[indexPath.row].title!, productImage: (arrayOfProducts[indexPath.row].image?.src!)!, productPrice: arrayOfProducts[indexPath.row].variants![0].price ?? "0")
 
         
         return cell!
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+     
+        return CGSize(width: self.view.frame.width*0.44, height: self.view.frame.width*0.6)
+
+    }
 }

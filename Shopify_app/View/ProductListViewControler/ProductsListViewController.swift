@@ -9,10 +9,11 @@ import UIKit
 
 class ProductsListViewController: UIViewController {
 
+    @IBOutlet weak var loadIndecator: UIActivityIndicatorView!
     @IBOutlet weak var priceSliderOut: UISlider!
     @IBOutlet weak var productsCollection: UICollectionView!
-    
     @IBOutlet weak var priceLable: UILabel!
+    
     var arrayOfProducts = [Product]()
     var arrayOfBrandProducts = [Product]()
     var arrayByPrices = [Product]()
@@ -22,8 +23,14 @@ class ProductsListViewController: UIViewController {
         super.viewDidLoad()
         productsCollection.dataSource = self
         productsCollection.delegate = self
-        productsData()
         
+        initProductsView()
+        
+        loadIndecator.hidesWhenStopped = true
+        loadIndecator.startAnimating()
+        
+        priceLable.isHidden = true
+        priceSliderOut.isHidden = true
     }
     
     //MARK: priceSlider
@@ -38,12 +45,19 @@ class ProductsListViewController: UIViewController {
             priceLable.text = "\(Int(sender.value))"
             return Float(element.variants?[0].price ?? "") ?? 0 <= sender.value
         }
-        arrayByPrices = filteredByPrice
-        productsCollection.reloadData()
+        self.arrayByPrices = filteredByPrice
+        self.productsCollection.reloadData()
+        
+    }
+    
+    //MARK: filter Button bySlider
+    @IBAction func filterButton(_ sender: UIButton) {
+        priceLable.isHidden = !priceLable.isHidden
+        priceSliderOut.isHidden = !priceSliderOut.isHidden
     }
     
     //MARK: productsData
-    func productsData(){
+    func initProductsView(){
         let ViewModel = ProductsViewModel()
         ViewModel.fetchData()
         ViewModel.updateData = { products , error in
@@ -54,6 +68,7 @@ class ProductsListViewController: UIViewController {
                 }
                 self.arrayOfBrandProducts = filterArray
                 self.productsCollection.reloadData()
+                self.loadIndecator.stopAnimating()
             }
             if let error = error {
                 print(error.localizedDescription)
@@ -89,4 +104,9 @@ extension ProductsListViewController:UICollectionViewDelegate,UICollectionViewDa
         return cell!
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+     
+        return CGSize(width: self.view.frame.width*0.44, height: self.view.frame.width*0.6)
+
+    }
 }
