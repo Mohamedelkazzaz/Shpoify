@@ -92,7 +92,7 @@ class NetworkManager: ApiService{
         guard let url = Url.shared.addAddress(id: "6262628057302") else {return}
         
         var request = URLRequest(url: url)
-        request.httpMethod = "PUT"
+        request.httpMethod = "POST"
         let session = URLSession.shared
 //        request.httpShouldHandleCookies = false
         
@@ -107,9 +107,6 @@ class NetworkManager: ApiService{
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         session.dataTask(with: request) { (data, response, error) in
-            print(String(data: data!, encoding: .utf8))
-            print(response)
-            print(error)
         completion(data, response, error)
         }.resume()
     }
