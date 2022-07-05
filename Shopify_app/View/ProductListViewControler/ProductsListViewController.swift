@@ -83,7 +83,7 @@ class ProductsListViewController: UIViewController {
         }
     }
     
-    //MARK:comingFromSearch
+    //MARK: comingFromSearch
     func comingFromSearch(){
         let ViewModel = ProductsViewModel()
         ViewModel.fetchData()
