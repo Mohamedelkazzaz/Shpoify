@@ -8,7 +8,7 @@ target 'Shopify_app' do
   # Pods for Shopify_app
    pod 'SDWebImage', '~> 5.0'
    pod 'SwiftyJSON'
-pod 'Alamofire', '~> 5.5'
+pod 'Alamofire'
    pod 'Floaty'
     pod 'lottie-ios'
 
