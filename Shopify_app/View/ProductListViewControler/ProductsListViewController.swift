@@ -19,12 +19,19 @@ class ProductsListViewController: UIViewController {
     var arrayByPrices = [Product]()
     var brandName = ""
     var filtered = false
+    var isCommingFromSearch = false
     override func viewDidLoad() {
         super.viewDidLoad()
         productsCollection.dataSource = self
         productsCollection.delegate = self
         
-        initProductsView()
+        if  brandName != "" {
+            initProductsView()
+
+        }else{
+            comingFromSearch()
+        }
+        
         
         loadIndecator.hidesWhenStopped = true
         loadIndecator.startAnimating()
@@ -56,7 +63,7 @@ class ProductsListViewController: UIViewController {
         priceSliderOut.isHidden = !priceSliderOut.isHidden
     }
     
-    //MARK: productsData
+    //MARK: initProductsView
     func initProductsView(){
         let ViewModel = ProductsViewModel()
         ViewModel.fetchData()
@@ -67,6 +74,22 @@ class ProductsListViewController: UIViewController {
                     return element.vendor == self.brandName
                 }
                 self.arrayOfBrandProducts = filterArray
+                self.productsCollection.reloadData()
+                self.loadIndecator.stopAnimating()
+            }
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    //MARK: comingFromSearch
+    func comingFromSearch(){
+        let ViewModel = ProductsViewModel()
+        ViewModel.fetchData()
+        ViewModel.updateData = { products , error in
+            if let products = products{
+                self.arrayOfBrandProducts = products
                 self.productsCollection.reloadData()
                 self.loadIndecator.stopAnimating()
             }
