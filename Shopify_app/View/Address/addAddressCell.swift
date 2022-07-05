@@ -23,4 +23,9 @@ class addAddressCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setup(address: Address?){
+        addressLabel.text = address?.address1 ?? ""
+        countryLabel.text = address?.country ?? ""
+        cityLabel.text = address?.city ?? ""
+    }
 }

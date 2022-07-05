@@ -10,6 +10,7 @@ import Alamofire
 import SwiftyJSON
 
 
+
 class NetworkManager: ApiService {
     func register(newCustomer:NewCustomer, completion:@escaping (Data?, URLResponse? , Error?)->()){
         guard let url = Url.shared.registerNewCustomer() else {return}
@@ -26,6 +27,12 @@ class NetworkManager: ApiService {
         }
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
+
+class NetworkManager: ApiService{
+    
+  
+    func getAllBrands(complition: @escaping (Brands?, Error?)->Void){
+
         
         session.dataTask(with: request) { (data, response, error) in
             completion(data, response, error)
@@ -144,5 +151,30 @@ class NetworkManager: ApiService {
         completion(data, response, error)
         }.resume()
     }
+    
+    func getAddressForCustomer(customerId: Int, completion: @escaping (Customer?, Error?) -> Void) {
+        guard let url = Url.shared.getAddressForCustomer(customerID: "6261211300054") else {return}
+        URLSession.shared.dataTask(with: url) {[weak self] data, response, error in
+            if let data = data{
+                print(String(data: data, encoding: .utf8))
+                do{
+                    let json = try JSONDecoder().decode(Customer.self, from: data)
+                    DispatchQueue.main.async{
+                        completion(json, nil)
+                        print("success to get all Addreeses")
+                    }
+                }catch let error{
+                    DispatchQueue.main.async{
+                       print(error)
+                        completion(nil, error)
+                    }
+                }
+            }
+            if let error = error{
+                print(error)
+            }
+        }.resume()
+    }
+    
 
 }

@@ -10,6 +10,9 @@ import UIKit
 class AddressViewController: UIViewController {
     @IBOutlet weak var addressTableView: UITableView!
     
+    var viewModel: AddressViewModel = AddressViewModel()
+    
+    let address = [Customer]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,6 +20,21 @@ class AddressViewController: UIViewController {
         addressTableView.dataSource = self
         
         addressTableView.register(UINib(nibName: "addAddressCell", bundle: nil), forCellReuseIdentifier: "cell")
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.fetchAddreesesForCoustomer()
+        viewModel.bindingData = { address, error in
+                DispatchQueue.main.async {
+                    self.addressTableView.reloadData()
+                }
+            
+            if let error = error{
+                print(error.localizedDescription)
+            }
+        }
     }
     
     @IBAction func addAdressButton(_ sender: UIBarButtonItem) {
@@ -29,14 +47,12 @@ class AddressViewController: UIViewController {
 
 extension AddressViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return viewModel.getAddreeses()?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! addAddressCell
-        cell.addressLabel.text = "Janakless ads"
-        cell.cityLabel.text = "Alexandria"
-        cell.countryLabel.text = "Egypt"
+        cell.setup(address: viewModel.getAddress(indexPath: indexPath))
         return cell
     }
     
