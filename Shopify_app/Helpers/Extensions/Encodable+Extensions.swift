@@ -1,5 +1,5 @@
 //
-//  Encodable.swift
+//  Encodable+Extensions.swift
 //  Shopify_app
 //
 //  Created by Mohamed Elkazzaz on 04/07/2022.

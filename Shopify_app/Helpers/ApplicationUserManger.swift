@@ -8,6 +8,7 @@
 import Foundation
 
 class ApplicationUserManger{
+    
     static let shared = ApplicationUserManger()
     private init() {}
     func setUserStatus(userIsLogged: Bool){
