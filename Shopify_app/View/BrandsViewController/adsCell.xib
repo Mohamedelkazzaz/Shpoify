@@ -11,29 +11,25 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="adsCell" id="gTV-IL-0wX" customClass="adsCell" customModule="Shopify_app" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="285" height="149"/>
+            <rect key="frame" x="0.0" y="0.0" width="250" height="120"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="285" height="149"/>
+                <rect key="frame" x="0.0" y="0.0" width="250" height="120"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q17-6T-0zj">
-                        <rect key="frame" x="0.0" y="0.0" width="285" height="149"/>
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="120"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DZJ-Xr-YBq">
-                                <rect key="frame" x="10" y="10" width="265" height="129"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="265" id="Y2f-GT-SND"/>
-                                    <constraint firstAttribute="height" constant="129" id="rN6-A5-QjC"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="0.0" width="250" height="120"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="DZJ-Xr-YBq" firstAttribute="leading" secondItem="Q17-6T-0zj" secondAttribute="leading" constant="10" id="2ui-f9-Cbp"/>
-                            <constraint firstAttribute="trailing" secondItem="DZJ-Xr-YBq" secondAttribute="trailing" constant="10" id="JRm-Sg-5am"/>
-                            <constraint firstItem="DZJ-Xr-YBq" firstAttribute="top" secondItem="Q17-6T-0zj" secondAttribute="top" constant="10" id="Lxi-BU-7TC"/>
-                            <constraint firstAttribute="bottom" secondItem="DZJ-Xr-YBq" secondAttribute="bottom" constant="10" id="fRs-rx-nMn"/>
+                            <constraint firstAttribute="trailing" secondItem="DZJ-Xr-YBq" secondAttribute="trailing" id="7TI-hn-Qb9"/>
+                            <constraint firstItem="DZJ-Xr-YBq" firstAttribute="leading" secondItem="Q17-6T-0zj" secondAttribute="leading" id="kC0-Px-4ik"/>
+                            <constraint firstAttribute="bottom" secondItem="DZJ-Xr-YBq" secondAttribute="bottom" id="twE-Kz-Beg"/>
+                            <constraint firstItem="DZJ-Xr-YBq" firstAttribute="top" secondItem="Q17-6T-0zj" secondAttribute="top" id="yKN-KK-y8d"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -48,8 +44,9 @@
             <size key="customSize" width="285" height="149"/>
             <connections>
                 <outlet property="adsImage" destination="DZJ-Xr-YBq" id="0cO-oP-6ao"/>
+                <outlet property="adsImageView" destination="Q17-6T-0zj" id="iPY-CP-eCd"/>
             </connections>
-            <point key="canvasLocation" x="170.28985507246378" y="128.23660714285714"/>
+            <point key="canvasLocation" x="-24" y="120"/>
         </collectionViewCell>
     </objects>
     <resources>

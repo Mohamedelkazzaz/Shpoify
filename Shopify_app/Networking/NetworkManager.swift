@@ -41,11 +41,19 @@ class NetworkManager: ApiService{
     func getAllCustomers(complition: @escaping (Customers?, Error?)->Void){
         guard let url = Url.shared.customersURl() else {return}
         AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).response { res in
+
            // switch result{
 //            case .failure(let error):
 //                print("error")
 //                complition(nil, error)
 //            case .success(_):
+
+            switch res.result{
+            case .failure(let error):
+                print("error")
+                complition(nil, error)
+            case .success(_):
+
                 guard let data = res.data else { return }
                 do{
                     let json = try JSONDecoder().decode(Customers.self, from: data)
@@ -55,9 +63,10 @@ class NetworkManager: ApiService{
                     print("error when get customers")
                     complition(nil, error)
                 }
-           // }
+            }
         }
     }
+    
     func getAllProducts(complition: @escaping (Products?, Error?) -> Void) {
         guard let url = Url.shared.getAllProductsURL() else {return}
         URLSession.shared.dataTask(with: url) { data, response, error in
@@ -81,7 +90,6 @@ class NetworkManager: ApiService{
         }.resume()
     }
 
-    
     func getProductsByCategory(collectionId:String,complition: @escaping (Products?, Error?) -> Void) {
         guard let url = Url.shared.getProductsByCategory(collectionId: collectionId) else {return}
         URLSession.shared.dataTask(with: url) { data, response, error in

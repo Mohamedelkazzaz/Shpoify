@@ -94,7 +94,7 @@
                                 </cells>
                             </collectionView>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="300" preferredBehavioralStyle="mac" translatesAutoresizingMaskIntoConstraints="NO" id="C4X-v4-5t9">
-                                <rect key="frame" x="18" y="102" width="302" height="31"/>
+                                <rect key="frame" x="38" y="102" width="282" height="31"/>
                                 <color key="tintColor" systemColor="systemMintColor"/>
                                 <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -110,7 +110,7 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="">
-                                    <imageReference key="image" image="arrowshape.zigzag.right" catalog="system" symbolScale="large"/>
+                                    <imageReference key="image" image="filter" symbolScale="large"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="filterButton:" destination="vFE-53-f1P" eventType="touchUpInside" id="i9e-ea-mwH"/>
@@ -131,7 +131,7 @@
                             <constraint firstItem="bya-Th-Pj0" firstAttribute="bottom" secondItem="tXj-Sc-H7g" secondAttribute="bottom" id="eNQ-0g-nnX"/>
                             <constraint firstItem="bya-Th-Pj0" firstAttribute="top" secondItem="C4X-v4-5t9" secondAttribute="bottom" constant="2" id="ggX-NL-vDR"/>
                             <constraint firstItem="dbA-vy-btK" firstAttribute="leading" secondItem="C4X-v4-5t9" secondAttribute="trailing" constant="20" id="h2M-3p-NiL"/>
-                            <constraint firstItem="C4X-v4-5t9" firstAttribute="leading" secondItem="tXj-Sc-H7g" secondAttribute="leading" constant="20" id="hlR-Uh-Tiq"/>
+                            <constraint firstItem="C4X-v4-5t9" firstAttribute="leading" secondItem="tXj-Sc-H7g" secondAttribute="leading" constant="40" id="hlR-Uh-Tiq"/>
                             <constraint firstItem="C4X-v4-5t9" firstAttribute="top" secondItem="0a6-Vz-CaG" secondAttribute="bottom" constant="5" id="nJC-Q7-vaw"/>
                             <constraint firstItem="tXj-Sc-H7g" firstAttribute="trailing" secondItem="LJf-TI-ykO" secondAttribute="trailing" constant="9" id="rVf-ln-Eai"/>
                             <constraint firstItem="LJf-TI-ykO" firstAttribute="leading" secondItem="0a6-Vz-CaG" secondAttribute="trailing" constant="5" id="tXm-E9-Tay"/>
@@ -157,8 +157,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowshape.zigzag.right" catalog="system" width="128" height="93"/>
         <image name="cart" catalog="system" width="128" height="102"/>
+        <image name="filter" width="24" height="24"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
