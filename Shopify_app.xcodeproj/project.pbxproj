@@ -24,6 +24,7 @@
 		E86D31E5286F25FA007302E1 /* CartsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E86D31E3286F25FA007302E1 /* CartsCell.xib */; };
 		E86D31E8286F7993007302E1 /* adsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86D31E6286F7993007302E1 /* adsCell.swift */; };
 		E86D31E9286F7993007302E1 /* adsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E86D31E7286F7993007302E1 /* adsCell.xib */; };
+		E88800A328763AFC00D01FA2 /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88800A228763AFC00D01FA2 /* OrderViewModel.swift */; };
 		E896D73D287268ED00E5A5AB /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E896D73C287268ED00E5A5AB /* Customer.swift */; };
 		E898DC422871C9FF00FCEEF2 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E898DC412871C9FF00FCEEF2 /* SettingViewController.swift */; };
 		E898DC442871D0F600FCEEF2 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E898DC432871D0F600FCEEF2 /* SettingCell.swift */; };
@@ -107,6 +108,7 @@
 		E86D31E3286F25FA007302E1 /* CartsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartsCell.xib; sourceTree = "<group>"; };
 		E86D31E6286F7993007302E1 /* adsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adsCell.swift; sourceTree = "<group>"; };
 		E86D31E7286F7993007302E1 /* adsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = adsCell.xib; sourceTree = "<group>"; };
+		E88800A228763AFC00D01FA2 /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
 		E896D73C287268ED00E5A5AB /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		E898DC412871C9FF00FCEEF2 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		E898DC432871D0F600FCEEF2 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
@@ -237,6 +239,14 @@
 			path = CartsViewController;
 			sourceTree = "<group>";
 		};
+		E88800A128763AC900D01FA2 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				E88800A228763AFC00D01FA2 /* OrderViewModel.swift */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
 		E898DC3F2871C9C900FCEEF2 /* SettindViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,6 +361,7 @@
 		E8B21C4B286B8D5D0000AABB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E88800A128763AC900D01FA2 /* Order */,
 				E89982FC2873657100071339 /* Address */,
 				E898DC402871C9DF00FCEEF2 /* Setting */,
 				E86D31DA286F24EB007302E1 /* Products */,
@@ -713,6 +724,7 @@
 				FC4A66782871F599005D3BBB /* ProductsByCategoriesViewModel.swift in Sources */,
 				FC942866286E57500059E6D4 /* ProductCell.swift in Sources */,
 				9B1FB35828746F4100D4A476 /* ApplicationUserManger.swift in Sources */,
+				E88800A328763AFC00D01FA2 /* OrderViewModel.swift in Sources */,
 				E83C578A2873130F0068CDAE /* Encodable.swift in Sources */,
 				9B1FB35C28746F7400D4A476 /* UIViewController+Ext.swift in Sources */,
 				FC4A667E2871F68E005D3BBB /* ProductsListViewController.swift in Sources */,
