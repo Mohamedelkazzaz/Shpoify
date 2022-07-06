@@ -10,34 +10,9 @@ import Alamofire
 import SwiftyJSON
 
 
-
-class NetworkManager: ApiService {
-    func register(newCustomer:NewCustomer, completion:@escaping (Data?, URLResponse? , Error?)->()){
-        guard let url = Url.shared.registerNewCustomer() else {return}
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        let session = URLSession.shared
-        request.httpShouldHandleCookies = false
-        
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: newCustomer.asDictionary(), options: .prettyPrinted)
-            print(try! newCustomer.asDictionary())
-        } catch let error {
-            print(error.localizedDescription)
-        }
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-
+  
 class NetworkManager: ApiService{
     
-  
-    func getAllBrands(complition: @escaping (Brands?, Error?)->Void){
-
-        
-        session.dataTask(with: request) { (data, response, error) in
-            completion(data, response, error)
-        }.resume()
-    }
             
     func getAllBrands(complition: @escaping (Brands?, Error?)->Void){
         guard let url = Url.shared.getAllBrandsURl() else {return}
@@ -65,7 +40,7 @@ class NetworkManager: ApiService{
 
     func getAllCustomers(complition: @escaping (Customers?, Error?)->Void){
         guard let url = Url.shared.customersURl() else {return}
-        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).response { res in
+        AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).response { res in
            // switch result{
 //            case .failure(let error):
 //                print("error")
@@ -176,5 +151,20 @@ class NetworkManager: ApiService{
         }.resume()
     }
     
-
+    func register(newCustomer:NewCustomer, completion:@escaping (Data?, URLResponse? , Error?)->()){
+        guard let url = Url.shared.registerNewCustomer() else {return}
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        let session = URLSession.shared
+        request.httpShouldHandleCookies = false
+        
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: newCustomer.asDictionary(), options: .prettyPrinted)
+            print(try! newCustomer.asDictionary())
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+    }
 }
