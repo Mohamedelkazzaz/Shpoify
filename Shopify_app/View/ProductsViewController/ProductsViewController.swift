@@ -118,6 +118,29 @@ class ProductsViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    @IBAction func cartButton(_ sender: UIBarButtonItem) {
+        let check =   ApplicationUserManger.shared.getUserStatus()
+        if check == true{
+            let vc = storyboard?.instantiateViewController(withIdentifier: "CartsViewController") as? CartsViewController
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
+        else{
+            let vc = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    @IBAction func favoritButton(_ sender: Any) {
+        let check =   ApplicationUserManger.shared.getUserStatus()
+        if check == true{
+            
+        }
+        else{
+            let vc = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     //MARK: displayProductsByCategories
     func displayProductsByCategories(collectionId:String){
         

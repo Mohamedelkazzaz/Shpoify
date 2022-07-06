@@ -9,10 +9,11 @@ import UIKit
 
 class adsCell: UICollectionViewCell {
     @IBOutlet weak var adsImage: UIImageView!
+    @IBOutlet weak var adsImageView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
 }

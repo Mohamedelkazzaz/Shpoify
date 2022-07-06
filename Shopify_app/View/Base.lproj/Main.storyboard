@@ -77,17 +77,17 @@
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wNI-wg-d2D">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="223"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="K4q-JC-Pjc">
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="K4q-JC-Pjc">
                                             <size key="itemSize" width="128" height="128"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells/>
                                     </collectionView>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="KGP-Eu-pmA">
                                         <rect key="frame" x="149" y="255" width="116" height="26"/>
-                                        <color key="backgroundColor" red="0.0" green="0.67843137249999996" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </pageControl>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -121,8 +121,16 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" image="heart" catalog="system" id="hPV-n3-hmx"/>
-                            <barButtonItem title="Item" image="cart" catalog="system" id="rFH-vq-eGN"/>
+                            <barButtonItem title="Item" image="heart" catalog="system" id="hPV-n3-hmx">
+                                <connections>
+                                    <action selector="favoritButton:" destination="BYZ-38-t0r" id="7Jh-7M-DKd"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="cart" catalog="system" id="rFH-vq-eGN">
+                                <connections>
+                                    <action selector="cartButton:" destination="BYZ-38-t0r" id="Ez0-qb-SP8"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -266,8 +274,16 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" image="heart" catalog="system" id="r4H-jm-OPX"/>
-                            <barButtonItem title="Item" image="cart" catalog="system" id="kPX-Ub-mGA"/>
+                            <barButtonItem title="Item" image="heart" catalog="system" id="r4H-jm-OPX">
+                                <connections>
+                                    <action selector="favoritButton:" destination="RTt-FO-kxe" id="9gD-hX-YFO"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="cart" catalog="system" id="kPX-Ub-mGA">
+                                <connections>
+                                    <action selector="cartButton:" destination="RTt-FO-kxe" id="udy-xe-jrp"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>

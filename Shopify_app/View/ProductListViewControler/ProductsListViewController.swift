@@ -47,7 +47,7 @@ class ProductsListViewController: UIViewController {
             Float(a.variants?[0].price ?? "") ?? 0 < Float(b.variants?[0].price ?? "") ?? 0
         }
         priceSliderOut.minimumValue = Float(sortedArray[0].variants?[0].price ?? "") ?? 0
-        
+        priceSliderOut.maximumValue = Float(sortedArray[sortedArray.count-1].variants?[0].price ?? "") ?? 0
         let filteredByPrice = self.arrayOfBrandProducts.filter { element in
             priceLable.text = "\(Int(sender.value))"
             return Float(element.variants?[0].price ?? "") ?? 0 <= sender.value

@@ -32,6 +32,7 @@ class AuthenticationViewModel {
             }
         }
     }
+    
     func checkUserIsLogged(email: String, password: String, completion: @escaping (Customer?)-> Void){
         ApiService.getAllCustomers { customers, error in
             guard let customers = customers, error == nil else {return}
@@ -54,6 +55,7 @@ class AuthenticationViewModel {
             }
         }
     }
+    
     func checkUserIsLogged(email: String, completion: @escaping (Customer?)-> Void){
         ApiService.getAllCustomers { customers, error in
             guard let customers = customers, error == nil else {return}
@@ -69,6 +71,7 @@ class AuthenticationViewModel {
             }
         }
     }
+    
     func checkUserIsExist(email: String, completion: @escaping (Bool)-> Void){
         checkUserIsLogged(email: email) { customer in
             guard customer != nil else {
