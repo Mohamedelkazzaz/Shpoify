@@ -12,33 +12,8 @@ import SwiftyJSON
 
 
 class NetworkManager: ApiService {
-    func register(newCustomer:NewCustomer, completion:@escaping (Data?, URLResponse? , Error?)->()){
-        guard let url = Url.shared.registerNewCustomer() else {return}
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        let session = URLSession.shared
-        request.httpShouldHandleCookies = false
+   
         
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: newCustomer.asDictionary(), options: .prettyPrinted)
-            print(try! newCustomer.asDictionary())
-        } catch let error {
-            print(error.localizedDescription)
-        }
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-
-class NetworkManager: ApiService{
-    
-  
-    func getAllBrands(complition: @escaping (Brands?, Error?)->Void){
-
-        
-        session.dataTask(with: request) { (data, response, error) in
-            completion(data, response, error)
-        }.resume()
-    }
-            
     func getAllBrands(complition: @escaping (Brands?, Error?)->Void){
         guard let url = Url.shared.getAllBrandsURl() else {return}
         URLSession.shared.dataTask(with: url) { data, response, error in
@@ -133,7 +108,7 @@ class NetworkManager: ApiService{
     func addAddress(customerId: Int, address: Address, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         let customer = CustomerAddress(addresses: [address])
         let putObject = PutAddress(customer: customer)
-        guard let url = Url.shared.addAddress(id: "6262628057302") else {return}
+        guard let url = Url.shared.addAddress(id: "\(customerId)") else {return}
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -153,7 +128,7 @@ class NetworkManager: ApiService{
     }
     
     func getAddressForCustomer(customerId: Int, completion: @escaping (Customer?, Error?) -> Void) {
-        guard let url = Url.shared.getAddressForCustomer(customerID: "6261211300054") else {return}
+        guard let url = Url.shared.getAddressForCustomer(customerID: "\(customerId)") else {return}
         URLSession.shared.dataTask(with: url) {[weak self] data, response, error in
             if let data = data{
                 print(String(data: data, encoding: .utf8))
@@ -176,5 +151,22 @@ class NetworkManager: ApiService{
         }.resume()
     }
     
+    func register(newCustomer:NewCustomer, completion:@escaping (Data?, URLResponse? , Error?)->()){
+        guard let url = Url.shared.registerNewCustomer() else {return}
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        let session = URLSession.shared
+        request.httpShouldHandleCookies = false
+        
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: newCustomer.asDictionary(), options: .prettyPrinted)
+            print(try! newCustomer.asDictionary())
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+
+}
 
 }
