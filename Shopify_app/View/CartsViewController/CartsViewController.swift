@@ -21,7 +21,16 @@ class CartsViewController: UIViewController {
     }
     
     @IBAction func checkOutButton(_ sender: UIButton) {
-        
+        if priceLabel.text != "/(0)"{
+            let storyBoard = UIStoryboard(name: "Adress", bundle: nil)
+            let vc = storyBoard.instantiateViewController(withIdentifier: "AddressViewController") as!AddressViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else{
+            let alert = UIAlertController(title: "Error", message: "There is no items in cart.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
 }

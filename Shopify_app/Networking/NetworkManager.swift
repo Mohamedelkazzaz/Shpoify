@@ -12,8 +12,7 @@ import SwiftyJSON
 
 
 class NetworkManager: ApiService {
-   
-        
+    
     func getAllBrands(complition: @escaping (Brands?, Error?)->Void){
         guard let url = Url.shared.getAllBrandsURl() else {return}
         URLSession.shared.dataTask(with: url) { data, response, error in
@@ -169,4 +168,22 @@ class NetworkManager: ApiService {
 
 }
 
+    
+    func deleteAddressForCustomer(customerId: Int,id: Int, completion: @escaping  (Error?) -> ()) {
+//        let customer = CustomerAddress(addresses: [address])
+//        let Delete = DeleteAddress(customer: customer)
+        guard let url = Url.shared.deleteAddress(customerID: "\(customerId)",id: "\(id)") else {return}
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    completion(error)
+                    return
+                }
+                completion(nil)
+            }
+        }
+        task.resume()
+    }
 }

@@ -25,7 +25,7 @@ struct Customer: Codable {
 struct Address: Codable {
     var address1, city, province, phone: String?
     var zip, last_name, first_name, country: String?
-    let id: Int?
+    var id: Int?
 }
 
 struct LoginResponse: Codable {
@@ -41,5 +41,9 @@ struct UpdateAddress: Codable {
 }
 
 struct PutAddress: Codable {
+    let customer: CustomerAddress?
+}
+
+struct DeleteAddress: Codable {
     let customer: CustomerAddress?
 }

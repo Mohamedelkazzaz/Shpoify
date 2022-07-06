@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 
 class AddressViewModel {
@@ -28,9 +29,11 @@ class AddressViewModel {
     }
     func fetchAddreesesForCoustomer() {
         let customerId = ApplicationUserManger.shared.getUserID() ?? 0
+        
         apiService.getAddressForCustomer(customerId: customerId) { address, error in
             if let address = address {
                 self.address = address.addresses
+                
             }
             if let error = error {
                 self.error = error
@@ -39,10 +42,14 @@ class AddressViewModel {
     }
     
     func getAddreeses() -> [Address]?{
+        
         return address
     }
     
     func getAddress(indexPath: IndexPath) -> Address?{
+        ApplicationUserManger.shared.setAddressID(AddressID: address?[indexPath.row].id)
         return address?[indexPath.row]
+        
+
     }
 }

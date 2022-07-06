@@ -57,4 +57,11 @@ class ApplicationUserManger{
     func checkFoundAdress()-> Bool{
         return UserDefaults.standard.bool(forKey: "Address_Found")
     }
+    func setAddressID(AddressID: Int?){
+        UserDefaults.standard.set(AddressID, forKey: "Address_ID")
+    }
+    
+    func getAddressID()-> Int?{
+        return UserDefaults.standard.integer(forKey: "Address_ID")
+    }
 }
