@@ -47,9 +47,10 @@ class AddressViewModel {
     }
     
     func getAddress(indexPath: IndexPath) -> Address?{
-        ApplicationUserManger.shared.setAddressID(AddressID: address?[indexPath.row].id)
-        return address?[indexPath.row]
         
-
+        return address?[indexPath.row]
+    }
+    func deleteAddress(indexPath: IndexPath){
+        address?.remove(at: indexPath.row)
     }
 }

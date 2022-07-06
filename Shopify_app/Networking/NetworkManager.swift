@@ -108,9 +108,9 @@ class NetworkManager: ApiService {
         let customer = CustomerAddress(addresses: [address])
         let putObject = PutAddress(customer: customer)
         guard let url = Url.shared.addAddress(id: "\(customerId)") else {return}
-        
+        print(url)
         var request = URLRequest(url: url)
-        request.httpMethod = "POST"
+        request.httpMethod = "PUT"
         let session = URLSession.shared
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: putObject.asDictionary(), options: .prettyPrinted)

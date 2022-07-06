@@ -14,7 +14,7 @@ class AddressViewController: UIViewController {
     var viewModel: AddressViewModel = AddressViewModel()
     
     var address = [Customer]()
-    var addresses = [Address]()
+//    var addresses = [Address]()
     let networkManager =  NetworkManager()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,22 +83,23 @@ extension AddressViewController: UITableViewDelegate,UITableViewDataSource{
       if editingStyle == .delete {
           tableView.beginUpdates()
           let customerId = ApplicationUserManger.shared.getUserID() ?? 0
-//          let id = address[indexPath.row].id
-          let id = ApplicationUserManger.shared.getAddressID() ?? 0
-          print(customerId)
-          print(id)
+          let id = viewModel.address?[indexPath.row].id
+          
           networkManager.deleteAddressForCustomer(customerId: customerId, id: id ?? 0) {  error in
               if let error = error{
                   print(error.localizedDescription)
                  return
-                  
               }
-                self.addresses.remove(at: indexPath.row)
-                self.addressTableView.deleteRows(at: [indexPath], with: .automatic)
+
+              self.viewModel.deleteAddress(indexPath: indexPath)
+              self.addressTableView.reloadData()
           }
           tableView.endUpdates()
       }
-//        self.addressTableView.reloadData()
+        
+            self.addressTableView.reloadData()
+        
+        
         
     }
 }

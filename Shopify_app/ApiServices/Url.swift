@@ -25,7 +25,7 @@ struct Url {
     }
     
     func addAddress(id: String) -> URL? {
-        return URL(string: baseURL + "customers/\(id)/addresses.json")
+        return URL(string: baseURL + "customers/\(id).json")
     }
     
     func getAddressForCustomer(customerID: String) -> URL? {
