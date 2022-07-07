@@ -25,8 +25,8 @@ struct Url {
     }
     
     func addAddress(id: String) -> URL? {
-        return URL(string: baseURL + "customers/\(id)/addresses.json")
-    }
+            return URL(string: baseURL + "customers/\(id).json")
+        }
     
     func getAddressForCustomer(customerID: String) -> URL? {
         return URL(string: baseURL + "customers/\(customerID)/addresses.json")
@@ -40,5 +40,8 @@ struct Url {
     func customersURl()-> URL?{
         return URL(string: baseURL + "customers.json")
     }
+    func deleteAddress(customerID: String, id: String) -> URL?{
+            return URL(string: baseURL + "customers/\(customerID)/addresses/\(id).json")
+        }
 
 }

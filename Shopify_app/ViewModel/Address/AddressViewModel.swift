@@ -8,9 +8,12 @@
 import Foundation
 
 
+import Foundation
+import SwiftyJSON
+
+
 class AddressViewModel {
     
-//    var 
     var address: [Address]? {
         didSet {
             bindingData(address,nil)
@@ -27,10 +30,12 @@ class AddressViewModel {
         self.apiService = apiService
     }
     func fetchAddreesesForCoustomer() {
-        let customerId = 6261211300054
+        let customerId = ApplicationUserManger.shared.getUserID() ?? 0
+        
         apiService.getAddressForCustomer(customerId: customerId) { address, error in
             if let address = address {
                 self.address = address.addresses
+                
             }
             if let error = error {
                 self.error = error
@@ -39,10 +44,15 @@ class AddressViewModel {
     }
     
     func getAddreeses() -> [Address]?{
+        
         return address
     }
     
     func getAddress(indexPath: IndexPath) -> Address?{
+        
         return address?[indexPath.row]
+    }
+    func deleteAddress(indexPath: IndexPath){
+        address?.remove(at: indexPath.row)
     }
 }

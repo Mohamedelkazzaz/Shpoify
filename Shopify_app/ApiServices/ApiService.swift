@@ -18,5 +18,7 @@ protocol ApiService{
     func getAllCustomers(complition: @escaping (Customers?, Error?)->Void)
 
     func getAddressForCustomer(customerId: Int,completion: @escaping (Customer?, Error?)->Void)
+    func deleteAddressForCustomer(customerId: Int,id: Int,completion: @escaping ( Error?)->())
+    
 
 }

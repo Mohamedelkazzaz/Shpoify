@@ -28,8 +28,25 @@ class CartsCell: UITableViewCell {
     @IBAction func deleteItemButton(_ sender: UIButton) {
     }
     @IBAction func minusQuantityButton(_ sender: Any) {
+        if Int(quantityNumberLabel.text ?? "") ?? 0  != 0{
+            guard let presentValue = Int(quantityNumberLabel!.text ?? "") else { return }
+
+                let newValue = presentValue - 1
+                quantityNumberLabel!.text = String(newValue)
+        }else{
+            guard let presentValue = Int(quantityNumberLabel!.text ?? "") else { return }
+
+                let newValue = 1
+                quantityNumberLabel!.text = String(newValue)
+        }
+        
     }
     @IBAction func plusQuantityButton(_ sender: UIButton) {
+        
+        guard let presentValue = Int(quantityNumberLabel!.text ?? "") else { return }
+
+            let newValue = presentValue + 1
+            quantityNumberLabel!.text = String(newValue)
     }
     
 }

@@ -25,7 +25,7 @@ class AddAddressViewController: UIViewController {
         
         if addressTextField.text != "" && cityTextField.text != "" && countryTextField.text != "" && phoneTextField.text != ""
         {
-            guard let address = addressTextField.text, !address.isEmpty, let country = countryTextField.text, !country.isEmpty, let city = cityTextField.text, !city.isEmpty, let phone = phoneTextField.text, !phone.isEmpty, phone.count == 11 else {
+            guard let customerId = ApplicationUserManger.shared.getUserID(), let name = ApplicationUserManger.shared.getUserName() ,let address = addressTextField.text, !address.isEmpty, let country = countryTextField.text, !country.isEmpty, let city = cityTextField.text, !city.isEmpty, let phone = phoneTextField.text, !phone.isEmpty, phone.count == 11 else {
                
                 let alert = UIAlertController(title: "Missing Data", message: "Please fill your info", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)
@@ -34,12 +34,13 @@ class AddAddressViewController: UIViewController {
                 return
             }
             
-            let add = Address(address1: address, city: city, province: "", phone: phone, zip: "", last_name: "", first_name: "", country: country, id: nil)
+            let add = Address(address1: address, city: city, province: "", phone: phone, zip: "", last_name: "", first_name: name, country: country, id: nil)
             
-            networkManager.addAddress(customerId: 6262628057302, address: add) { data , res, error in
+            networkManager.addAddress(customerId: customerId, address: add) { data , res, error in
+                print(String(data: data!, encoding: .utf8))
                 if error == nil{
                     print("success to create address")
-//                    Helper.shared.setFoundAdress(isFoundAddress: true)
+                    ApplicationUserManger.shared.setFoundAdress(isFoundAddress: true)
                     DispatchQueue.main.async {
                         self.navigationController?.popViewController(animated: true)
                     }

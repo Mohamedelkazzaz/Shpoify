@@ -12,6 +12,7 @@ import SwiftyJSON
 
   
 class NetworkManager: ApiService{
+  
     
             
     func getAllBrands(complition: @escaping (Brands?, Error?)->Void){
@@ -114,26 +115,27 @@ class NetworkManager: ApiService{
     }
     
     func addAddress(customerId: Int, address: Address, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        let customer = CustomerAddress(addresses: [address])
-        let putObject = PutAddress(customer: customer)
-        guard let url = Url.shared.addAddress(id: "6262628057302") else {return}
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        let session = URLSession.shared
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: putObject.asDictionary(), options: .prettyPrinted)
-        } catch let error {
-            print(error.localizedDescription)
+            let customer = CustomerAddress(addresses: [address])
+            let putObject = PutAddress(customer: customer)
+            guard let url = Url.shared.addAddress(id: "\(customerId)") else {return}
+            print(url)
+            var request = URLRequest(url: url)
+            request.httpMethod = "PUT"
+            let session = URLSession.shared
+            do {
+                request.httpBody = try JSONSerialization.data(withJSONObject: putObject.asDictionary(), options: .prettyPrinted)
+            } catch let error {
+                print(error.localizedDescription)
+            }
+            //HTTP Headers
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            
+            session.dataTask(with: request) { (data, response, error) in
+            completion(data, response, error)
+            }.resume()
         }
-        //HTTP Headers
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        session.dataTask(with: request) { (data, response, error) in
-        completion(data, response, error)
-        }.resume()
-    }
+
     
     func getAddressForCustomer(customerId: Int, completion: @escaping (Customer?, Error?) -> Void) {
         guard let url = Url.shared.getAddressForCustomer(customerID: "6261211300054") else {return}
@@ -175,4 +177,23 @@ class NetworkManager: ApiService{
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
     }
-}
+    
+    func deleteAddressForCustomer(customerId: Int,id: Int, completion: @escaping  (Error?) -> ()) {
+   //        let customer = CustomerAddress(addresses: [address])
+   //        let Delete = DeleteAddress(customer: customer)
+           guard let url = Url.shared.deleteAddress(customerID: "\(customerId)",id: "\(id)") else {return}
+           var request = URLRequest(url: url)
+           request.httpMethod = "DELETE"
+           let task = URLSession.shared.dataTask(with: request) { data, response, error in
+               DispatchQueue.main.async {
+                   if let error = error {
+                       completion(error)
+                       return
+                   }
+                   completion(nil)
+               }
+           }
+           task.resume()
+       }
+   }
+
