@@ -39,7 +39,7 @@ class NetworkManager: ApiService {
 
     func getAllCustomers(complition: @escaping (Customers?, Error?)->Void){
         guard let url = Url.shared.customersURl() else {return}
-        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).response { res in
+        AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).response { res in
            // switch result{
 //            case .failure(let error):
 //                print("error")
