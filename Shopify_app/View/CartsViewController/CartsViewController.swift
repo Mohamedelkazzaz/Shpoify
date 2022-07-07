@@ -10,7 +10,8 @@ import UIKit
 class CartsViewController: UIViewController {
     @IBOutlet weak var cardsTableView: UITableView!
     @IBOutlet weak var priceLabel: UILabel!
-    
+    var cart : [Cart] = []
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,6 +20,8 @@ class CartsViewController: UIViewController {
 
         cardsTableView.register(UINib(nibName: "CartsCell", bundle: nil), forCellReuseIdentifier: "cartCell")
     }
+    
+    
     
     @IBAction func checkOutButton(_ sender: UIButton) {
         if priceLabel.text != "/(0)"{

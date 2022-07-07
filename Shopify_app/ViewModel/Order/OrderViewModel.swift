@@ -7,9 +7,38 @@
 
 import Foundation
 
+
+
 class OrderViewModel{
     
-}
+    
+    }
+
+
+//extension OrderViewModel{
+//    func getSelectedProducts(completion: @escaping ([Cart]?, Error?) -> Void){
+//        guard let customerID = ApplicationUserManger.shared.getUserID() else {return}
+//        CoreDataManager.shared.getProductsInCart(customerID: customerID) { carts, error in
+//            guard let carts = carts, error == nil else {
+//                completion(nil, error)
+//                return
+//            }
+//            completion(carts, nil)
+//        }
+//    }
+//}
+//
+//extension OrderViewModel{
+//    func saveProductToCart(){
+//        CoreDataManager.shared.saveFavoritesProducts{ saveSuccess in
+//            if saveSuccess{
+//                print("success to save product in cart")
+//            }else{
+//                print("failed to save product in cart")
+//            }
+//        }
+//    }
+//}
 
 //extension OrderViewModel{
 //    func calcTotalPrice(completion: @escaping (Double?)-> Void){
