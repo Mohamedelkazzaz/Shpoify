@@ -34,6 +34,7 @@
 		E86D31E5286F25FA007302E1 /* CartsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E86D31E3286F25FA007302E1 /* CartsCell.xib */; };
 		E86D31E8286F7993007302E1 /* adsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86D31E6286F7993007302E1 /* adsCell.swift */; };
 		E86D31E9286F7993007302E1 /* adsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E86D31E7286F7993007302E1 /* adsCell.xib */; };
+		E88888D828787C10006178DD /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88888D728787C10006178DD /* PaymentViewController.swift */; };
 		E896D73D287268ED00E5A5AB /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E896D73C287268ED00E5A5AB /* Customer.swift */; };
 		E898DC422871C9FF00FCEEF2 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E898DC412871C9FF00FCEEF2 /* SettingViewController.swift */; };
 		E898DC442871D0F600FCEEF2 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E898DC432871D0F600FCEEF2 /* SettingCell.swift */; };
@@ -128,6 +129,7 @@
 		E86D31E3286F25FA007302E1 /* CartsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartsCell.xib; sourceTree = "<group>"; };
 		E86D31E6286F7993007302E1 /* adsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adsCell.swift; sourceTree = "<group>"; };
 		E86D31E7286F7993007302E1 /* adsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = adsCell.xib; sourceTree = "<group>"; };
+		E88888D728787C10006178DD /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		E896D73C287268ED00E5A5AB /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		E898DC412871C9FF00FCEEF2 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		E898DC432871D0F600FCEEF2 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
@@ -338,6 +340,14 @@
 			path = CartsViewController;
 			sourceTree = "<group>";
 		};
+		E88888D628787BF1006178DD /* PaymentViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E88888D728787C10006178DD /* PaymentViewController.swift */,
+			);
+			path = PaymentViewController;
+			sourceTree = "<group>";
+		};
 		E898DC3F2871C9C900FCEEF2 /* SettindViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -431,6 +441,7 @@
 		E8B21C4A286B8D570000AABB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E88888D628787BF1006178DD /* PaymentViewController */,
 				9BA632A42875C0F000775E34 /* ProductDetailsViewController */,
 				9BA632922875AEB200775E34 /* Favorites */,
 				FC94285D286DDA320059E6D4 /* BrandsViewController */,
@@ -857,6 +868,7 @@
 				FC942861286E56D00059E6D4 /* ProductsViewModel.swift in Sources */,
 				E8B21C21286B8CC00000AABB /* Shopify_app.xcdatamodeld in Sources */,
 				9B94337328739E3300779F66 /* RegisterationViewController.swift in Sources */,
+				E88888D828787C10006178DD /* PaymentViewController.swift in Sources */,
 				E89982FB2873656900071339 /* AddressViewModel.swift in Sources */,
 				E86D31E8286F7993007302E1 /* adsCell.swift in Sources */,
 				E8B21C19286B8CC00000AABB /* SceneDelegate.swift in Sources */,

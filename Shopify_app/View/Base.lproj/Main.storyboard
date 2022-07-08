@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fkx-0v-VzA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="y4A-xo-SVg">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -485,10 +485,10 @@
             </objects>
             <point key="canvasLocation" x="2826.0869565217395" y="1285.0446428571429"/>
         </scene>
-        <!--View Controller-->
+        <!--Payment View Controller-->
         <scene sceneID="cHX-Kx-6Eh">
             <objects>
-                <viewController id="y4A-xo-SVg" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PaymentViewController" id="y4A-xo-SVg" customClass="PaymentViewController" customModule="Shopify_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SZS-Jv-Kpw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -505,8 +505,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Neh-l1-SW6">
                                         <rect key="frame" x="20" y="150" width="374" height="300"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Google Pay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFS-Th-lPp">
-                                                <rect key="frame" x="20" y="50" width="122.5" height="38"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PayPal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFS-Th-lPp">
+                                                <rect key="frame" x="20" y="50" width="71.5" height="38"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -521,11 +521,17 @@
                                                 <rect key="frame" x="306" y="50" width="48" height="38"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="radiooff"/>
+                                                <connections>
+                                                    <action selector="paypalButton:" destination="y4A-xo-SVg" eventType="touchUpInside" id="F7P-84-7AF"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D4q-lR-mk3">
                                                 <rect key="frame" x="306" y="128" width="48" height="38"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="radiooff"/>
+                                                <connections>
+                                                    <action selector="cashBtn:" destination="y4A-xo-SVg" eventType="touchUpInside" id="Ufv-ca-QMW"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coupon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMG-Hw-W7K">
                                                 <rect key="frame" x="20" y="206" width="86" height="30"/>
@@ -567,6 +573,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Continue to Checkout">
                                             <fontDescription key="titleFontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="22"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="checkoutButton:" destination="y4A-xo-SVg" eventType="touchUpInside" id="oUh-kX-N3H"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -591,6 +600,10 @@
                             <constraint firstItem="Z5w-OO-xxI" firstAttribute="trailing" secondItem="yPD-xe-zCX" secondAttribute="trailing" id="dzd-Ka-FDs"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cashSelectedBtn" destination="D4q-lR-mk3" id="OAn-n9-CfL"/>
+                        <outlet property="paypalSelectedBtn" destination="3NL-Y7-yIx" id="sfq-mv-7g9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="37p-ah-Yao" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

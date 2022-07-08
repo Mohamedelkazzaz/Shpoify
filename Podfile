@@ -8,9 +8,10 @@ target 'Shopify_app' do
   # Pods for Shopify_app
    pod 'SDWebImage', '~> 5.0'
    pod 'SwiftyJSON'
-pod 'Alamofire'
+   pod 'Alamofire'
    pod 'Floaty'
-    pod 'lottie-ios'
+   pod 'lottie-ios'
+   pod 'Braintree'
 
   target 'Shopify_appTests' do
     inherit! :search_paths

@@ -15,7 +15,7 @@ class SettingViewController: UIViewController {
     
 
 
-    var array: [String] = ["My Whishlist","My Adrresses","About us"]
+    var array: [String] = ["My Orders","My Whishlist","My Adrresses","About us"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,12 +59,18 @@ extension SettingViewController: UITableViewDelegate,UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SettingCell
         switch indexPath.row{
         case 0:
-            cell.cellImage.image = UIImage(named: "icons8-heart")
+            cell.cellImage.image = UIImage(systemName: "bag")
             cell.cellImage?.tintColor = .label
             cell.cellName?.text = array[indexPath.row]
             cell.selectionStyle = .none
             cell.accessoryType = .disclosureIndicator
         case 1:
+            cell.cellImage.image = UIImage(named: "icons8-heart")
+            cell.cellImage?.tintColor = .label
+            cell.cellName?.text = array[indexPath.row]
+            cell.selectionStyle = .none
+            cell.accessoryType = .disclosureIndicator
+        case 2:
             cell.cellImage.image = UIImage(named: "icons8-home")
             cell.cellImage?.tintColor = .label
             cell.cellName?.text = array[indexPath.row]
@@ -89,6 +95,9 @@ extension SettingViewController: UITableViewDelegate,UITableViewDataSource{
             let vc = UIStoryboard(name: "Adress", bundle: nil).instantiateViewController(withIdentifier: "AddAddressViewController") as! AddAddressViewController
             self.navigationController?.pushViewController(vc, animated: true)
         case 1:
+            let vc = UIStoryboard(name: "Adress", bundle: nil).instantiateViewController(withIdentifier: "AddAddressViewController") as! AddAddressViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        case 2:
             let vc = UIStoryboard(name: "Adress", bundle: nil).instantiateViewController(withIdentifier: "AddressViewController") as! AddressViewController
 //            vc.viewModel = AddressViewModel()
             self.navigationController?.pushViewController(vc, animated: true)
