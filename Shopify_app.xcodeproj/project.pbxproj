@@ -147,7 +147,7 @@
 		E8B21C1A286B8CC00000AABB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E8B21C1D286B8CC00000AABB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E8B21C20286B8CC00000AABB /* Shopify_app.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shopify_app.xcdatamodel; sourceTree = "<group>"; };
-		E8B21C22286B8CC40000AABB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E8B21C22286B8CC40000AABB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Helpers/Assets.xcassets; sourceTree = "<group>"; };
 		E8B21C25286B8CC40000AABB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E8B21C27286B8CC40000AABB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8B21C2C286B8CC40000AABB /* Shopify_appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Shopify_appTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -283,7 +283,6 @@
 				9B1FB35728746F4100D4A476 /* ApplicationUserManger.swift */,
 				9BB7BB132875CF40001A39B7 /* CoreDataManager */,
 				9BA632A12875BEA400775E34 /* Extensions */,
-				E8B21C22286B8CC40000AABB /* Assets.xcassets */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -416,6 +415,7 @@
 				E8B21C4A286B8D570000AABB /* View */,
 				9BB7BB112875CF1D001A39B7 /* Helpers */,
 				FC3866D1286D06E5000EDC64 /* Delegates */,
+				E8B21C22286B8CC40000AABB /* Assets.xcassets */,
 				E8B21C27286B8CC40000AABB /* Info.plist */,
 			);
 			path = Shopify_app;

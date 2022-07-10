@@ -16,7 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        BTAppContextSwitcher.setReturnURLScheme("co.kazzaz.Shopify-app.payments")
         return true
+    }
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        if url.scheme?.localizedCaseInsensitiveCompare("co.kazzaz.Shopify-app.payments") == .orderedSame {
+            return BTAppContextSwitcher.handleOpenURL(url)
+        }
+        return false
     }
 
     // MARK: UISceneSession Lifecycle
@@ -77,6 +84,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+   
 
 }
 

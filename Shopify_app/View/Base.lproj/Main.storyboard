@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="y4A-xo-SVg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fkx-0v-VzA">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -503,7 +503,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Neh-l1-SW6">
-                                        <rect key="frame" x="20" y="150" width="374" height="300"/>
+                                        <rect key="frame" x="20" y="150" width="374" height="180"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PayPal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFS-Th-lPp">
                                                 <rect key="frame" x="20" y="50" width="71.5" height="38"/>
@@ -519,54 +519,44 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3NL-Y7-yIx">
                                                 <rect key="frame" x="306" y="50" width="48" height="38"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="radiooff"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="radiooff">
+                                                    <color key="baseForegroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
                                                 <connections>
                                                     <action selector="paypalButton:" destination="y4A-xo-SVg" eventType="touchUpInside" id="F7P-84-7AF"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D4q-lR-mk3">
                                                 <rect key="frame" x="306" y="128" width="48" height="38"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="radiooff"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="radiooff">
+                                                    <color key="baseForegroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
                                                 <connections>
                                                     <action selector="cashBtn:" destination="y4A-xo-SVg" eventType="touchUpInside" id="Ufv-ca-QMW"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coupon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMG-Hw-W7K">
-                                                <rect key="frame" x="20" y="206" width="86" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the coupon" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tyM-Jt-hTw">
-                                                <rect key="frame" x="136" y="204" width="218" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="xFS-Th-lPp" firstAttribute="top" secondItem="Neh-l1-SW6" secondAttribute="top" constant="50" id="0AW-6P-DHk"/>
-                                            <constraint firstItem="tyM-Jt-hTw" firstAttribute="leading" secondItem="zMG-Hw-W7K" secondAttribute="trailing" constant="30" id="6mq-y8-aiR"/>
-                                            <constraint firstItem="zMG-Hw-W7K" firstAttribute="top" secondItem="6WE-1b-hkD" secondAttribute="bottom" constant="40" id="B4l-Jc-eJU"/>
                                             <constraint firstItem="D4q-lR-mk3" firstAttribute="centerY" secondItem="6WE-1b-hkD" secondAttribute="centerY" id="BNl-8G-YR9"/>
                                             <constraint firstItem="6WE-1b-hkD" firstAttribute="top" secondItem="xFS-Th-lPp" secondAttribute="bottom" constant="40" id="C9h-Ss-cet"/>
                                             <constraint firstItem="D4q-lR-mk3" firstAttribute="top" secondItem="3NL-Y7-yIx" secondAttribute="bottom" constant="40" id="GFd-ps-pHC"/>
                                             <constraint firstItem="3NL-Y7-yIx" firstAttribute="centerY" secondItem="xFS-Th-lPp" secondAttribute="centerY" id="Isc-9i-Sfw"/>
-                                            <constraint firstItem="zMG-Hw-W7K" firstAttribute="leading" secondItem="6WE-1b-hkD" secondAttribute="leading" id="K9j-QV-YIS"/>
-                                            <constraint firstItem="tyM-Jt-hTw" firstAttribute="centerY" secondItem="zMG-Hw-W7K" secondAttribute="centerY" id="KUe-NG-Xaw"/>
-                                            <constraint firstAttribute="trailing" secondItem="tyM-Jt-hTw" secondAttribute="trailing" constant="20" id="MdM-ga-kic"/>
                                             <constraint firstItem="6WE-1b-hkD" firstAttribute="leading" secondItem="xFS-Th-lPp" secondAttribute="leading" id="QzJ-f7-IG3"/>
                                             <constraint firstAttribute="trailing" secondItem="D4q-lR-mk3" secondAttribute="trailing" constant="20" id="Y8w-jQ-Wsu"/>
                                             <constraint firstItem="3NL-Y7-yIx" firstAttribute="top" secondItem="Neh-l1-SW6" secondAttribute="top" constant="50" id="f1Y-UU-TDb"/>
                                             <constraint firstItem="xFS-Th-lPp" firstAttribute="leading" secondItem="Neh-l1-SW6" secondAttribute="leading" constant="20" id="j57-0T-VjF"/>
-                                            <constraint firstAttribute="height" constant="300" id="jiG-rr-xRM"/>
+                                            <constraint firstAttribute="height" constant="180" id="jiG-rr-xRM"/>
                                             <constraint firstAttribute="trailing" secondItem="3NL-Y7-yIx" secondAttribute="trailing" constant="20" id="woT-Wf-wbX"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nF-lc-o7g">
-                                        <rect key="frame" x="96" y="520" width="222" height="49.5"/>
+                                        <rect key="frame" x="96" y="400" width="222" height="49.5"/>
                                         <color key="backgroundColor" red="0.0" green="0.67843137249999996" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
