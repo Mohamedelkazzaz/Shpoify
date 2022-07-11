@@ -12,4 +12,5 @@ class MyOrderItemCell: UICollectionViewCell {
     
     @IBOutlet weak var priceLable: UILabel!
     @IBOutlet weak var amoutLable: UILabel!
+    
 }

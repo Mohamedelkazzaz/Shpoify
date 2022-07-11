@@ -31,8 +31,7 @@ class ViewController: UIViewController {
         loadIndecator.hidesWhenStopped=true
         loadIndecator.startAnimating()
         
-    
-        
+
     }
 
     @IBAction func searchButton(_ sender: UIBarButtonItem) {

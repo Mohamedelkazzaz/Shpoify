@@ -39,34 +39,20 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ciE-fA-2hr">
-                                                    <rect key="frame" x="0.0" y="0.0" width="170" height="148"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="170" id="41l-gB-xVP"/>
-                                                        <constraint firstAttribute="height" constant="148" id="PXp-Dw-Pjg"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="0.0" y="0.0" width="170" height="184"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1b-du-Ngu">
-                                                    <rect key="frame" x="0.0" y="156" width="170" height="23"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="h1b-du-Ngu" secondAttribute="bottom" constant="5" id="39V-nx-xdc"/>
-                                                <constraint firstAttribute="trailing" secondItem="ciE-fA-2hr" secondAttribute="trailing" id="9ar-3w-Vkp"/>
-                                                <constraint firstAttribute="trailing" secondItem="h1b-du-Ngu" secondAttribute="trailing" id="Sos-zx-6sH"/>
-                                                <constraint firstItem="ciE-fA-2hr" firstAttribute="leading" secondItem="UsI-of-Qk4" secondAttribute="leading" id="T3V-cT-3SF"/>
-                                                <constraint firstItem="h1b-du-Ngu" firstAttribute="top" secondItem="ciE-fA-2hr" secondAttribute="bottom" constant="8" symbolic="YES" id="arW-vr-pui"/>
-                                                <constraint firstItem="ciE-fA-2hr" firstAttribute="top" secondItem="UsI-of-Qk4" secondAttribute="top" id="pgt-Ab-6bV"/>
-                                                <constraint firstItem="h1b-du-Ngu" firstAttribute="leading" secondItem="UsI-of-Qk4" secondAttribute="leading" id="x9A-mJ-Blq"/>
+                                                <constraint firstItem="ciE-fA-2hr" firstAttribute="leading" secondItem="UsI-of-Qk4" secondAttribute="leading" id="BLi-JR-3Bv"/>
+                                                <constraint firstItem="ciE-fA-2hr" firstAttribute="top" secondItem="UsI-of-Qk4" secondAttribute="top" id="brf-0h-eLu"/>
+                                                <constraint firstAttribute="trailing" secondItem="ciE-fA-2hr" secondAttribute="trailing" id="tfx-d5-nbH"/>
+                                                <constraint firstAttribute="bottom" secondItem="ciE-fA-2hr" secondAttribute="bottom" id="yhJ-HZ-dmr"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="170" height="184"/>
                                         <connections>
                                             <outlet property="brandImage" destination="ciE-fA-2hr" id="Kvj-Wj-WaT"/>
-                                            <outlet property="brandName" destination="h1b-du-Ngu" id="Xbi-eQ-3Vg"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

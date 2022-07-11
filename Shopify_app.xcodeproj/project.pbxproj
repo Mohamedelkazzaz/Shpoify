@@ -75,6 +75,7 @@
 		FC942861286E56D00059E6D4 /* ProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC942860286E56D00059E6D4 /* ProductsViewModel.swift */; };
 		FC942864286E572D0059E6D4 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC942863286E572D0059E6D4 /* ProductsViewController.swift */; };
 		FC942866286E57500059E6D4 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC942865286E57500059E6D4 /* ProductCell.swift */; };
+		FCAC1784287855BA00ECC217 /* Orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAC1783287855BA00ECC217 /* Orders.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +174,7 @@
 		FC942860286E56D00059E6D4 /* ProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewModel.swift; sourceTree = "<group>"; };
 		FC942863286E572D0059E6D4 /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		FC942865286E57500059E6D4 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		FCAC1783287855BA00ECC217 /* Orders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orders.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -535,6 +537,7 @@
 				E896D73C287268ED00E5A5AB /* Customer.swift */,
 				E89982FD2873B06200071339 /* Address.swift */,
 				E8E7FD0A28766BB500B2B1DE /* CartModel.swift */,
+				FCAC1783287855BA00ECC217 /* Orders.swift */,
 			);
 			name = Models;
 			path = Delegates/Models;
@@ -820,6 +823,7 @@
 				FC4A667F2871F68E005D3BBB /* ProductListCell.swift in Sources */,
 				FC3866D9286D1AE5000EDC64 /* BrandCell.swift in Sources */,
 				9B0EC06E2873A5F80076A1EA /* SplashViewController.swift in Sources */,
+				FCAC1784287855BA00ECC217 /* Orders.swift in Sources */,
 				FC94285F286E510A0059E6D4 /* Products.swift in Sources */,
 				E8B21C1B286B8CC00000AABB /* ViewController.swift in Sources */,
 				FC942864286E572D0059E6D4 /* ProductsViewController.swift in Sources */,

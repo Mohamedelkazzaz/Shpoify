@@ -19,13 +19,13 @@ class BrandsViewModel{
             updateData(nil, error)
         }
     }
-    
+
     let ApiService: ApiService
     var updateData : (([Smart_collections]?,Error?) -> Void) = {_ , _ in}
     init(ApiService: ApiService = NetworkManager()) {
         self.ApiService = ApiService
     }
-    
+
     func fetchData(){
         ApiService.getAllBrands { brands, error in
             if let brands = brands{
@@ -35,6 +35,6 @@ class BrandsViewModel{
             }
         }
     }
-    
+
 }
     
