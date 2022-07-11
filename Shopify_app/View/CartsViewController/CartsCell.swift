@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CartsCell: UITableViewCell {
     @IBOutlet weak var itemImage: UIImageView!
@@ -13,40 +14,26 @@ class CartsCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var quantityNumberLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+ 
+    var addItemQuantity : (()->())?
+    var subItemQuantity : (()->())?
+    
     @IBAction func addToFavouriteButton(_ sender: UIButton) {
     }
     @IBAction func deleteItemButton(_ sender: UIButton) {
     }
     @IBAction func minusQuantityButton(_ sender: Any) {
-        if Int(quantityNumberLabel.text ?? "") ?? 0  != 0{
-            guard let presentValue = Int(quantityNumberLabel!.text ?? "") else { return }
-
-                let newValue = presentValue - 1
-                quantityNumberLabel!.text = String(newValue)
-        }else{
-            guard let presentValue = Int(quantityNumberLabel!.text ?? "") else { return }
-
-                let newValue = 1
-                quantityNumberLabel!.text = String(newValue)
-        }
+        addItemQuantity?()
         
     }
     @IBAction func plusQuantityButton(_ sender: UIButton) {
-        
-        guard let presentValue = Int(quantityNumberLabel!.text ?? "") else { return }
-
-            let newValue = presentValue + 1
-            quantityNumberLabel!.text = String(newValue)
+        subItemQuantity?()
     }
     
+    func setup(cart: Cart?){
+        priceLabel.text = cart?.price
+        quantityNumberLabel.text = "\(cart?.quantity ?? 0)"
+        itemImage.sd_setImage(with: URL(string: cart?.image ?? ""), completed: nil)
+        itemNameLabel.text = cart?.title
+    }
 }

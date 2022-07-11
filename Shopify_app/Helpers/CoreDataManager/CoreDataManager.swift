@@ -98,7 +98,7 @@ class CoreDataManager {
         if let entity = NSEntityDescription.entity(forEntityName: "Cart", in: manageContext){
             let cart = NSManagedObject(entity: entity, insertInto: manageContext)
             cart.setValue(id, forKey: "id")
-            cart.setValue(userId, forKey: "userId")
+            cart.setValue("\(String(describing: ApplicationUserManger.shared.getUserID))", forKey: "userId")
             cart.setValue(title, forKey: "title")
             cart.setValue(image, forKey: "image")
             cart.setValue(price, forKey: "price")

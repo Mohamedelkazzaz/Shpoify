@@ -418,6 +418,23 @@
                                 <rect key="frame" x="0.0" y="84" width="414" height="585"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vEu-cI-ub8">
+                                <rect key="frame" x="0.0" y="84" width="414" height="812"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="RXf-Le-Cyo">
+                                        <rect key="frame" x="57" y="175" width="300" height="300"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="5cp-7g-TP6"/>
+                                            <constraint firstAttribute="width" constant="300" id="pr9-mj-kgU"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="RXf-Le-Cyo" firstAttribute="centerX" secondItem="vEu-cI-ub8" secondAttribute="centerX" id="Aaf-1P-Eqm"/>
+                                    <constraint firstItem="RXf-Le-Cyo" firstAttribute="centerY" secondItem="vEu-cI-ub8" secondAttribute="centerY" multiplier="0.8" id="OXS-mN-zTP"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mHZ-zJ-qZh">
                                 <rect key="frame" x="20" y="689" width="374" height="150"/>
                                 <subviews>
@@ -465,9 +482,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="mHZ-zJ-qZh" firstAttribute="leading" secondItem="KWG-zY-wfj" secondAttribute="leading" constant="20" id="0I3-2f-973"/>
+                            <constraint firstItem="vEu-cI-ub8" firstAttribute="leading" secondItem="KWG-zY-wfj" secondAttribute="leading" id="1S4-6k-xHL"/>
+                            <constraint firstAttribute="bottom" secondItem="vEu-cI-ub8" secondAttribute="bottom" id="2w0-o6-OoJ"/>
                             <constraint firstItem="mHZ-zJ-qZh" firstAttribute="top" secondItem="Wud-VH-JdB" secondAttribute="bottom" constant="20" id="Ahq-fF-QrF"/>
                             <constraint firstItem="OsE-oF-cjh" firstAttribute="top" secondItem="KWG-zY-wfj" secondAttribute="top" constant="10" id="DTa-x7-X9S"/>
                             <constraint firstItem="KWG-zY-wfj" firstAttribute="trailing" secondItem="Wud-VH-JdB" secondAttribute="trailing" id="E83-r4-Fhz"/>
+                            <constraint firstItem="vEu-cI-ub8" firstAttribute="top" secondItem="OsE-oF-cjh" secondAttribute="bottom" id="EvK-3E-lSh"/>
+                            <constraint firstItem="KWG-zY-wfj" firstAttribute="trailing" secondItem="vEu-cI-ub8" secondAttribute="trailing" id="J7A-Gu-CSe"/>
                             <constraint firstItem="KWG-zY-wfj" firstAttribute="trailing" secondItem="OsE-oF-cjh" secondAttribute="trailing" constant="20" id="LzB-Z4-7ht"/>
                             <constraint firstItem="Wud-VH-JdB" firstAttribute="top" secondItem="OsE-oF-cjh" secondAttribute="bottom" id="RdY-Xb-BKD"/>
                             <constraint firstItem="Wud-VH-JdB" firstAttribute="leading" secondItem="KWG-zY-wfj" secondAttribute="leading" id="fyQ-rg-F3Y"/>
@@ -478,6 +499,8 @@
                     </view>
                     <connections>
                         <outlet property="cardsTableView" destination="Wud-VH-JdB" id="OId-Mf-Ob7"/>
+                        <outlet property="checkOutView" destination="mHZ-zJ-qZh" id="gri-zi-ji1"/>
+                        <outlet property="emptyView" destination="vEu-cI-ub8" id="VCm-ZJ-FfR"/>
                         <outlet property="priceLabel" destination="JeG-53-GeP" id="06B-EU-fi5"/>
                     </connections>
                 </viewController>
@@ -756,6 +779,7 @@
     <resources>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="command.circle" catalog="system" width="128" height="121"/>
+        <image name="empty" width="404" height="316"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="icons8-home" width="25" height="25"/>
         <image name="icons8-logout" width="25" height="25"/>
