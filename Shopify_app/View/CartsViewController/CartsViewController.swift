@@ -115,4 +115,29 @@ extension CartsViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 190
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            Delete(indexPath: indexPath)
+    }
+    
+    
+    func Delete(indexPath:IndexPath){
+        let alert = UIAlertController(title: "Are you sure?", message: "You will remove this item from the cart", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: { [self] UIAlertAction in
+            orderViewModel.deleteFromCoreData(indexPath: indexPath, cartItems: cart)
+            self.cart.remove(at: indexPath.row)
+            cardsTableView.deleteRows(at: [indexPath], with: .left)
+            self.cardsTableView.reloadData()
+            if self.cart.count == 0 {
+                emptyView.isHidden = false
+                self.cardsTableView.isHidden = true
+                self.cardsTableView.reloadData()
+                setTotalPrice()
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+ }
 }
