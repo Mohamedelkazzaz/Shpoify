@@ -90,6 +90,7 @@ class CoreDataManager {
             //
         }
     }
+
     
     func addToCart(appDelegate: AppDelegate,id: Int64,userId: Int64, title: String, image:String, price: String, quantity: Int64){
         
@@ -114,5 +115,6 @@ class CoreDataManager {
         }
     }
     
+
 }
 

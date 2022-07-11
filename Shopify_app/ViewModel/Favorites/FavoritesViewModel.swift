@@ -13,6 +13,7 @@ class FavoritesViewModel{
     
     func getFavoriteProducts(completion: @escaping ([Favorites]?, Error?) -> Void){
         guard let customerID = ApplicationUserManger.shared.getUserID() else {return}
+        print("customerId \(customerID)")
         CoreDataManager.shared.fetchFavoriteProductsForCustomer(customerID: customerID)
         { products, error in
             guard let products = products else {

@@ -43,5 +43,9 @@ struct Url {
     func deleteAddress(customerID: String, id: String) -> URL?{
             return URL(string: baseURL + "customers/\(customerID)/addresses/\(id).json")
         }
+    
+    func ordersURL()->URL?{
+        return URL(string: baseURL + "orders.json")
+    }
 
 }

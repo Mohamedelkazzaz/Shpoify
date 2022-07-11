@@ -13,8 +13,6 @@ import SwiftyJSON
   
 class NetworkManager: ApiService{
   
-    
-            
     func getAllBrands(complition: @escaping (Brands?, Error?)->Void){
         guard let url = Url.shared.getAllBrandsURl() else {return}
         URLSession.shared.dataTask(with: url) { data, response, error in
@@ -42,12 +40,6 @@ class NetworkManager: ApiService{
     func getAllCustomers(complition: @escaping (Customers?, Error?)->Void){
         guard let url = Url.shared.customersURl() else {return}
         AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).response { res in
-
-           // switch result{
-//            case .failure(let error):
-//                print("error")
-//                complition(nil, error)
-//            case .success(_):
 
             switch res.result{
             case .failure(let error):
@@ -135,7 +127,6 @@ class NetworkManager: ApiService{
             completion(data, response, error)
             }.resume()
         }
-
     
     func getAddressForCustomer(customerId: Int, completion: @escaping (Customer?, Error?) -> Void) {
         guard let url = Url.shared.getAddressForCustomer(customerID: "6261211300054") else {return}
@@ -195,5 +186,49 @@ class NetworkManager: ApiService{
            }
            task.resume()
        }
+    
+    func getOrdersForCustomer(customerId: Int, completion: @escaping (Customer?, Error?) -> Void) {
+        guard let url = Url.shared.getAddressForCustomer(customerID: "6261211300054") else {return}
+        URLSession.shared.dataTask(with: url) {[weak self] data, response, error in
+            if let data = data{
+                print(String(data: data, encoding: .utf8))
+                do{
+                    let json = try JSONDecoder().decode(Customer.self, from: data)
+                    DispatchQueue.main.async{
+                        completion(json, nil)
+                        print("success to get all Addreeses")
+                    }
+                }catch let error{
+                    DispatchQueue.main.async{
+                        print(error)
+                        completion(nil, error)
+                    }
+                }
+            }
+            if let error = error{
+                print(error)
+            }
+        }.resume()
+    }
+    
+    func addOrder(order:OrderToAPI,completion: @escaping (Data?,URLResponse?,Error?)->Void){
+        guard let url = Url.shared.ordersURL() else {return}
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        let session = URLSession.shared
+        request.httpShouldHandleCookies = false
+        
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: order.asDictionary(), options: .prettyPrinted)
+            print(try! order.asDictionary())
+        }catch let error {
+            print(error.localizedDescription)
+        }
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        session.dataTask(with: request) { (data,response,error) in
+            completion(data, response, error)
+        }.resume()
+    }
    }
 
