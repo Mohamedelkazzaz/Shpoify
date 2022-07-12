@@ -94,14 +94,14 @@ extension OrderViewModel{
         }
     }
     func getSelectedProducts(completion: @escaping ([Cart]?, Error?) -> Void){
-        guard let customerID = ApplicationUserManger.shared.getUserID() else {return}
-        CoreDataManager.shared.getProductsInCart(customerID: customerID) { carts, error in
-            guard let carts = carts, error == nil else {
-                completion(nil, error)
-                return
-            }
-            completion(carts, nil)
-        }
+//        guard let customerID = ApplicationUserManger.shared.getUserID() else {return}
+//        CoreDataManager.shared.getProductsInCart(customerID: customerID) { carts, error in
+//            guard let carts = carts, error == nil else {
+//                completion(nil, error)
+//                return
+//            }
+//            completion(carts, nil)
+//        }
     }
     
     func saveProductToCart(){

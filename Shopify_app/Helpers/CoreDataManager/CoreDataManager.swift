@@ -37,31 +37,31 @@ class CoreDataManager {
         }
     }
     
-    func getProductsInCart(customerID: Int, completion: @escaping ([Cart]?, Error?)-> Void){
-        do{
-            let productCart = try context.fetch(Cart.fetchRequest())
-            var selectedCart: [Cart] = []
-            for selectedCustomer in productCart{
-                if selectedCustomer.userId == customerID{
-                    selectedCart.append(selectedCustomer)
-                }
-
-            do{
-                let favoriteProducts = try context.fetch(Favorites.fetchRequest())
-                print("fetching data from Core DaTa")
-                completion(favoriteProducts, nil)
-            } catch {
-                completion(nil, error)
-                print("Error in Fetching Favorite Products: ", error.localizedDescription)
-
-            }
-            completion(selectedCart, nil)
-       }catch{
-           completion(nil, error)
-            print("Error in getAllCartProduct function: ", error.localizedDescription)
-        }
-    }
-
+//    func getProductsInCart(customerID: Int, completion: @escaping ([Cart]?, Error?)-> Void){
+//        do{
+//            let productCart = try context.fetch(Cart.fetchRequest())
+//            var selectedCart: [Cart] = []
+//            for selectedCustomer in productCart{
+//                if selectedCustomer.userId == customerID{
+//                    selectedCart.append(selectedCustomer)
+//                }
+//
+//            do{
+//                let favoriteProducts = try context.fetch(Favorites.fetchRequest())
+//                print("fetching data from Core DaTa")
+//                completion(favoriteProducts, nil)
+//            } catch {
+//                completion(nil, error)
+//                print("Error in Fetching Favorite Products: ", error.localizedDescription)
+//
+//            }
+//            completion(selectedCart, nil)
+//       }catch{
+//           completion(nil, error)
+//            print("Error in getAllCartProduct function: ", error.localizedDescription)
+//        }
+//    }
+//    }
     
     
     func fetchFavoriteProductsForCustomer(customerID: Int, completion: @escaping([Favorites]?, Error?) -> Void) {
