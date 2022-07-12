@@ -47,10 +47,11 @@ struct Url {
     
     func ordersURL()->URL?{
         return URL(string: baseURL + "orders.json")
-
+    }
     func getDiscount(priceRuleId: String) -> URL?{
         return URL(string: baseURL + "price_rules/\(priceRuleId)/discount_codes.json")
 
     }
+
 
 }
