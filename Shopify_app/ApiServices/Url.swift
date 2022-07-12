@@ -43,5 +43,8 @@ struct Url {
     func deleteAddress(customerID: String, id: String) -> URL?{
             return URL(string: baseURL + "customers/\(customerID)/addresses/\(id).json")
         }
+    func getDiscount(priceRuleId: String) -> URL?{
+        return URL(string: baseURL + "price_rules/\(priceRuleId)/discount_codes.json")
+    }
 
 }
