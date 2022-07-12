@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var brandsCollection: UICollectionView!
     
-    @IBOutlet weak var loadIndecator: UIActivityIndicatorView!
+    @IBOutlet weak var loadingIndecator: NVActivityIndicatorView!
     @IBOutlet weak var adsCollectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     var arrayOfBrands = [Smart_collections]()
@@ -26,11 +27,9 @@ class ViewController: UIViewController {
         adsCollectionView.delegate = self
         adsCollectionView.dataSource = self
         
+        Indectore.createIndecatore(loadingIndecator: loadingIndecator)
         initbrandsView()
         setupTimer()
-        loadIndecator.hidesWhenStopped=true
-        loadIndecator.startAnimating()
-        
 
     }
 
@@ -47,18 +46,17 @@ class ViewController: UIViewController {
         }
         else{
             let vc = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-            self.navigationController?.pushViewController(vc, animated: true)
+            self.present(vc, animated: true, completion: nil)
         }
     }
     
     @IBAction func favoritButton(_ sender: Any) {
         let check =   ApplicationUserManger.shared.getUserStatus()
         if check == true{
-            
         }
         else{
             let vc = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-            self.navigationController?.pushViewController(vc, animated: true)
+            self.present(vc, animated: true, completion: nil)
         }
     }
     
@@ -86,7 +84,7 @@ class ViewController: UIViewController {
             if let brands = brands{
                 self.arrayOfBrands = brands
                 self.brandsCollection.reloadData()
-                self.loadIndecator.stopAnimating()
+                self.loadingIndecator.stopAnimating()
             }
             if let error = error {
                 print(error.localizedDescription)
@@ -133,7 +131,12 @@ extension ViewController:UICollectionViewDelegate,UICollectionViewDataSource,UIC
             return CGSize(width: self.view.frame.width-20, height: 180)
             
         }else{
-           return CGSize(width: self.view.frame.width*0.44, height: self.view.frame.width*0.4)
+            let leftAndRightPaddings: CGFloat = 50
+            let numberOfItemsPerRow: CGFloat = 2.0
+            
+            let width = (collectionView.frame.width-leftAndRightPaddings)/numberOfItemsPerRow
+            return CGSize(width: width, height: width*0.7)
+          // return CGSize(width: self.view.frame.width*0.44, height: self.view.frame.width*0.35)
            // return CGSize(width: 170, height: 184)
         }
        

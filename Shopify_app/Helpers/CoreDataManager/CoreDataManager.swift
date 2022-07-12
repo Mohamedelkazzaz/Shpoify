@@ -25,7 +25,7 @@ class CoreDataManager {
             }
         }
     
-        func getFavoriteProducts(completion: @escaping ([Favorites]?, Error?) -> Void ) {
+    func getFavoriteProducts(completion: @escaping ([Favorites]?, Error?) -> Void ) {
             do{
                 let favoriteProducts = try context.fetch(Favorites.fetchRequest())
                 print("fetching data from Core DaTa")

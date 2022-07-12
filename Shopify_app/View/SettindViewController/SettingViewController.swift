@@ -25,7 +25,12 @@ class SettingViewController: UIViewController {
     }
     
     @IBAction func logoutButton(_ sender: UIButton) {
+        if (ApplicationUserManger.shared.getUserStatus()){
+            ApplicationUserManger.shared.setUserStatus(userIsLogged: false)
+            ApplicationUserManger.shared.setUserID(customerID: 0)
+        }else{
         
+        }
     }
     @IBAction func cartButton(_ sender: UIBarButtonItem) {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CartsViewController") as! CartsViewController
