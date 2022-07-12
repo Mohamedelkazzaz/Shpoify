@@ -26,6 +26,7 @@ class CoreDataManager {
     }
     
     func getFavoriteProducts(completion: @escaping ([Favorites]?, Error?) -> Void ) {
+
         do{
             let favoriteProducts = try context.fetch(Favorites.fetchRequest())
             print("fetching data from Core DaTa")
@@ -44,6 +45,15 @@ class CoreDataManager {
                 if selectedCustomer.userId == customerID{
                     selectedCart.append(selectedCustomer)
                 }
+
+            do{
+                let favoriteProducts = try context.fetch(Favorites.fetchRequest())
+                print("fetching data from Core DaTa")
+                completion(favoriteProducts, nil)
+            } catch {
+                completion(nil, error)
+                print("Error in Fetching Favorite Products: ", error.localizedDescription)
+
             }
             completion(selectedCart, nil)
        }catch{

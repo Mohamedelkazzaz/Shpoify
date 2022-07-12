@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -18,21 +19,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zHC-bq-6ch">
-                                <rect key="frame" x="0.0" y="377.5" width="414" height="435.5"/>
+                                <rect key="frame" x="0.0" y="366.5" width="414" height="446.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="8t4-pX-Jkn">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="5" id="8t4-pX-Jkn">
                                     <size key="itemSize" width="170" height="184"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                                    <inset key="sectionInset" minX="20" minY="10" maxX="20" maxY="10"/>
                                 </collectionViewFlowLayout>
-                                <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="Yyh-cP-1Rf">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="435.5"/>
+                                <view key="backgroundView" contentMode="scaleToFill" id="5cS-DE-P8U" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="446.5"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </activityIndicatorView>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BrandCell" id="M24-VB-pYC" customClass="BrandCell" customModule="Shopify_app" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="10" width="170" height="184"/>
+                                        <rect key="frame" x="20" y="10" width="170" height="184"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="UsI-of-Qk4">
                                             <rect key="frame" x="0.0" y="0.0" width="170" height="184"/>
@@ -58,10 +60,10 @@
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kap-cV-gQJ">
-                                <rect key="frame" x="0.0" y="88" width="414" height="289.5"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="278.5"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wNI-wg-d2D">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="223"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="212"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="K4q-JC-Pjc">
                                             <size key="itemSize" width="128" height="128"/>
@@ -72,8 +74,8 @@
                                         <cells/>
                                     </collectionView>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="KGP-Eu-pmA">
-                                        <rect key="frame" x="149" y="255" width="116" height="26"/>
-                                        <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="149" y="244" width="116" height="26"/>
+                                        <color key="currentPageIndicatorTintColor" name="mainColor"/>
                                     </pageControl>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -92,7 +94,7 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="zHC-bq-6ch" secondAttribute="bottom" constant="83" id="28l-B1-0fK"/>
                             <constraint firstItem="kap-cV-gQJ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="5Kc-nm-m26"/>
-                            <constraint firstItem="zHC-bq-6ch" firstAttribute="height" secondItem="kap-cV-gQJ" secondAttribute="height" multiplier="1.5" constant="1" id="F0a-es-Zaa"/>
+                            <constraint firstItem="zHC-bq-6ch" firstAttribute="height" secondItem="kap-cV-gQJ" secondAttribute="height" multiplier="1.6" constant="1" id="F0a-es-Zaa"/>
                             <constraint firstItem="kap-cV-gQJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XfI-zZ-n1A"/>
                             <constraint firstItem="zHC-bq-6ch" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="YCT-U7-EAq"/>
                             <constraint firstItem="zHC-bq-6ch" firstAttribute="top" secondItem="kap-cV-gQJ" secondAttribute="bottom" id="dCv-LF-cj9"/>
@@ -102,17 +104,20 @@
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="dDE-Kf-zcG">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="VIa-XI-zGJ">
+                            <color key="tintColor" name="mainColor"/>
                             <connections>
                                 <action selector="searchButton:" destination="BYZ-38-t0r" id="ejU-dD-L5h"/>
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="heart" catalog="system" id="hPV-n3-hmx">
+                                <color key="tintColor" name="mainColor"/>
                                 <connections>
                                     <action selector="favoritButton:" destination="BYZ-38-t0r" id="7Jh-7M-DKd"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Item" image="cart" catalog="system" id="rFH-vq-eGN">
+                                <color key="tintColor" name="mainColor"/>
                                 <connections>
                                     <action selector="cartButton:" destination="BYZ-38-t0r" id="Ez0-qb-SP8"/>
                                 </connections>
@@ -122,7 +127,7 @@
                     <connections>
                         <outlet property="adsCollectionView" destination="wNI-wg-d2D" id="ZXX-kw-ARd"/>
                         <outlet property="brandsCollection" destination="zHC-bq-6ch" id="rE7-y6-WM3"/>
-                        <outlet property="loadIndecator" destination="Yyh-cP-1Rf" id="QiI-HT-3sl"/>
+                        <outlet property="loadingIndecator" destination="5cS-DE-P8U" id="QlR-4l-Lme"/>
                         <outlet property="pageControl" destination="KGP-Eu-pmA" id="rgO-Sn-dgO"/>
                     </connections>
                 </viewController>
@@ -158,7 +163,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cDg-lD-A5D">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cDg-lD-A5D">
                                 <rect key="frame" x="20" y="93" width="374" height="32"/>
                                 <segments>
                                     <segment title="Men"/>
@@ -166,6 +171,8 @@
                                     <segment title="Kids"/>
                                     <segment title="sale"/>
                                 </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="selectedSegmentTintColor" name="mainColor"/>
                                 <connections>
                                     <action selector="subCategories:" destination="RTt-FO-kxe" eventType="valueChanged" id="qOk-5G-MDv"/>
                                 </connections>
@@ -173,19 +180,20 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aRv-LS-coQ">
                                 <rect key="frame" x="0.0" y="126" width="414" height="687"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rzB-dg-E67">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="5" id="rzB-dg-E67">
                                     <size key="itemSize" width="170" height="238"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="10" minY="10" maxX="0.0" maxY="10"/>
+                                    <inset key="sectionInset" minX="15" minY="10" maxX="15" maxY="10"/>
                                 </collectionViewFlowLayout>
-                                <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="xIa-5k-jdq">
+                                <view key="backgroundView" contentMode="scaleToFill" id="Tsc-LY-Te4" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </activityIndicatorView>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductCell" id="IsL-kC-eSD" customClass="ProductCell" customModule="Shopify_app" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="10" width="170" height="238"/>
+                                        <rect key="frame" x="15" y="10" width="170" height="238"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="e3x-TC-QXh">
                                             <rect key="frame" x="0.0" y="0.0" width="170" height="238"/>
@@ -201,6 +209,7 @@
                                                         <constraint firstAttribute="height" constant="27" id="ASQ-ao-ZpT"/>
                                                         <constraint firstAttribute="width" constant="28" id="bgJ-4x-cMD"/>
                                                     </constraints>
+                                                    <color key="tintColor" systemColor="systemRedColor"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
                                                 </button>
@@ -255,17 +264,20 @@
                     </view>
                     <navigationItem key="navigationItem" title="Categories" id="gMB-1c-MIQ">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="AjS-LF-e7A">
+                            <color key="tintColor" name="mainColor"/>
                             <connections>
                                 <action selector="SearchButton:" destination="RTt-FO-kxe" id="a2E-7i-hYl"/>
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="heart" catalog="system" id="r4H-jm-OPX">
+                                <color key="tintColor" name="mainColor"/>
                                 <connections>
                                     <action selector="favoritButton:" destination="RTt-FO-kxe" id="9gD-hX-YFO"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Item" image="cart" catalog="system" id="kPX-Ub-mGA">
+                                <color key="tintColor" name="mainColor"/>
                                 <connections>
                                     <action selector="cartButton:" destination="RTt-FO-kxe" id="udy-xe-jrp"/>
                                 </connections>
@@ -274,7 +286,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="SegmentControle" destination="cDg-lD-A5D" id="tqh-Qp-n6s"/>
-                        <outlet property="loadIndecator" destination="xIa-5k-jdq" id="YvX-gW-TJg"/>
+                        <outlet property="loadingIndecator" destination="Tsc-LY-Te4" id="kUh-ou-JT7"/>
                         <outlet property="productsCollection" destination="aRv-LS-coQ" id="Oom-28-UMo"/>
                     </connections>
                 </viewController>
@@ -290,7 +302,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="ON1-KR-GNm">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="ON1-KR-GNm">
                                 <rect key="frame" x="132" y="138" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="Eay-eN-3fd"/>
@@ -372,6 +384,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="My Profile" id="4Re-Xo-EML">
                         <barButtonItem key="rightBarButtonItem" image="cart" catalog="system" id="Pdm-Be-pu9">
+                            <color key="tintColor" name="mainColor"/>
                             <connections>
                                 <action selector="cartButton:" destination="Xfa-4Z-HAH" id="8qY-G2-FwJ"/>
                             </connections>
@@ -431,16 +444,27 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kfZ-Du-Hxj">
-                                        <rect key="frame" x="37" y="71" width="300" height="49.5"/>
-                                        <color key="backgroundColor" red="0.0" green="0.67843137249999996" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="37" y="71" width="300" height="38"/>
+                                        <color key="backgroundColor" name="mainColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="amz-pK-hrT"/>
                                         </constraints>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Procced To Checkout">
-                                            <fontDescription key="titleFontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="22"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Procced To Checkout">
+                                                    <attributes>
+                                                        <font key="NSFont" size="20" name="HelveticaNeue-Bold"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
                                         </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="checkOutButton:" destination="6f9-Zu-ghh" eventType="touchUpInside" id="iAN-gw-qfW"/>
                                         </connections>
@@ -505,24 +529,37 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yPD-xe-zCX">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Payment Method:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRg-ik-WZt">
-                                        <rect key="frame" x="20" y="100" width="278" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRg-ik-WZt">
+                                        <rect key="frame" x="20" y="100" width="321" height="31"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Choose Payment Method:">
+                                                <attributes>
+                                                    <font key="NSFont" size="26" name="HelveticaNeue-Bold"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Neh-l1-SW6">
+
                                         <rect key="frame" x="20" y="150" width="374" height="180"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PayPal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFS-Th-lPp">
                                                 <rect key="frame" x="20" y="50" width="71.5" height="38"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
+
+                                        <rect key="frame" x="20" y="151" width="374" height="300"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Google Pay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFS-Th-lPp">
+                                                <rect key="frame" x="20" y="50" width="113" height="38"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cash on delivery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6WE-1b-hkD">
-                                                <rect key="frame" x="20" y="128" width="178.5" height="38"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <rect key="frame" x="20" y="128" width="164.5" height="38"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -548,6 +585,19 @@
                                                     <action selector="cashBtn:" destination="y4A-xo-SVg" eventType="touchUpInside" id="Ufv-ca-QMW"/>
                                                 </connections>
                                             </button>
+
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coupon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMG-Hw-W7K">
+                                                <rect key="frame" x="20" y="206" width="79" height="27.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the coupon" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tyM-Jt-hTw">
+                                                <rect key="frame" x="129" y="203" width="225" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -565,16 +615,36 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nF-lc-o7g">
+
                                         <rect key="frame" x="96" y="400" width="222" height="49.5"/>
                                         <color key="backgroundColor" red="0.0" green="0.67843137249999996" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+
+                                        <rect key="frame" x="69.5" y="521" width="275" height="43"/>
+                                        <color key="backgroundColor" name="mainColor"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Continue to Checkout">
-                                            <fontDescription key="titleFontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="22"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Continue to Checkout">
+                                                    <attributes>
+                                                        <font key="NSFont" size="24" name="HelveticaNeue-Bold"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
                                         </buttonConfiguration>
+
                                         <connections>
                                             <action selector="checkoutButton:" destination="y4A-xo-SVg" eventType="touchUpInside" id="oUh-kX-N3H"/>
                                         </connections>
+
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -763,6 +833,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="avatar" width="512" height="512"/>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="command.circle" catalog="system" width="128" height="121"/>
         <image name="empty" width="404" height="316"/>
@@ -771,10 +842,15 @@
         <image name="icons8-logout" width="25" height="25"/>
         <image name="icons8-settings" width="25" height="25"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <image name="profile" width="640" height="640"/>
         <image name="radiooff" width="24" height="24"/>
+        <namedColor name="mainColor">
+            <color red="0.15199999511241913" green="0.18400000035762787" blue="0.3449999988079071" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

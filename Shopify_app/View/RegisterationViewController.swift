@@ -33,9 +33,7 @@ class RegisterationViewController: UIViewController {
         viewModel.checkUserIsExist(email: email) { emailIsExist in
             if !emailIsExist{
                 self.viewModel.createNewCustomer(newCustomer: newCustomer) { data, response, error in
-                    guard error == nil else {
-                        return
-                    }
+                    guard error == nil else {return}
                     DispatchQueue.main.async {
                         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
                         let nav = UINavigationController(rootViewController: vc)

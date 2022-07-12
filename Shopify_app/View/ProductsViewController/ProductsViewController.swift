@@ -7,12 +7,12 @@
 
 import UIKit
 import Floaty
+import NVActivityIndicatorView
 
 class ProductsViewController: UIViewController {
 
 
-    
-    @IBOutlet weak var loadIndecator: UIActivityIndicatorView!
+    @IBOutlet weak var loadingIndecator: NVActivityIndicatorView!
     @IBOutlet weak var SegmentControle: UISegmentedControl!
     @IBOutlet weak var productsCollection: UICollectionView!
     var arrayOfProducts = [Product]()
@@ -27,8 +27,7 @@ class ProductsViewController: UIViewController {
         productsCollection.delegate = self
         productsData()
         FloatyButton()
-        loadIndecator.hidesWhenStopped=true
-        loadIndecator.startAnimating()
+        Indectore.createIndecatore(loadingIndecator: loadingIndecator)
 
     }
 
@@ -40,7 +39,7 @@ class ProductsViewController: UIViewController {
             if let products = products{
                 self.arrayOfProducts = products
                 self.productsCollection.reloadData()
-                self.loadIndecator.stopAnimating()
+                self.loadingIndecator.stopAnimating()
             }
             if let error = error {
                 print(error.localizedDescription)
@@ -51,13 +50,13 @@ class ProductsViewController: UIViewController {
     //MARK: FloatyButton
     func FloatyButton(){
         
-        floaty.buttonColor = .orange
+        floaty.buttonColor = UIColor(named: "secodeColor")!
         floaty.paddingX = 20
         floaty.paddingY = 100
         
         floaty.openAnimationType = .pop
         floaty.buttonImage = UIImage(named: "plus")
-        floaty.itemButtonColor = .orange
+        floaty.itemButtonColor = UIColor(named: "secodeColor")!
         floaty.itemTitleColor = .white
 
         floaty.addItem("T-Shirts", icon: UIImage(named: "tshirt")) { _ in
@@ -90,7 +89,8 @@ class ProductsViewController: UIViewController {
     
     //MARK: subCategories
     @IBAction func subCategories(_ sender: Any) {
-        loadIndecator.startAnimating()
+        loadingIndecator.padding = 190
+        loadingIndecator.startAnimating()
         self.arrayFiltered = []
         filtered=false
         switch SegmentControle.selectedSegmentIndex
@@ -126,7 +126,7 @@ class ProductsViewController: UIViewController {
         }
         else{
             let vc = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-            self.navigationController?.pushViewController(vc, animated: true)
+            self.present(vc, animated: true, completion: nil)
         }
     }
     
@@ -137,7 +137,7 @@ class ProductsViewController: UIViewController {
         }
         else{
             let vc = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-            self.navigationController?.pushViewController(vc, animated: true)
+            self.present(vc, animated: true, completion: nil)
         }
     }
     
@@ -150,7 +150,7 @@ class ProductsViewController: UIViewController {
             if let products = products{
                 self.arrayOfProducts = products
                 self.productsCollection.reloadData()
-                self.loadIndecator.stopAnimating()
+                self.loadingIndecator.stopAnimating()
             }
             if let error = error {
                 print(error.localizedDescription)
@@ -174,7 +174,8 @@ extension ProductsViewController:UICollectionViewDelegate,UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell =  productsCollection.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as? ProductCell
-
+//        cell!.layer.borderColor = UIColor.black.cgColor
+//        cell!.layer.borderWidth = 2
         if(filtered){
             cell?.configureCell(productName: arrayFiltered[indexPath.row].title!, productImage: (arrayFiltered[indexPath.row].image?.src!)!, productPrice: arrayFiltered[indexPath.row].variants![0].price ?? "0")
         }
@@ -189,46 +190,14 @@ extension ProductsViewController:UICollectionViewDelegate,UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
      
-        return CGSize(width: self.view.frame.width*0.44, height: self.view.frame.width*0.6)
+        let leftAndRightPaddings: CGFloat = 40
+        let numberOfItemsPerRow: CGFloat = 2.0
+        
+        let width = (collectionView.frame.width-leftAndRightPaddings)/numberOfItemsPerRow
+        return CGSize(width: width, height: width)
+      //  return CGSize(width: self.view.frame.width*0.44, height: self.view.frame.width*0.6)
 
     }
 }
 
 
-
-import Foundation
-import UIKit
-
-extension UICollectionView {
-    
-    func registerCell<Cell: UICollectionViewCell>(cellClass: Cell.Type){
-        //MARK: Generic Register cells
-        self.register(UINib(nibName: String(describing: Cell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: Cell.self))
-    }
-    
-    
-    func dequeue<Cell: UICollectionViewCell>(indexPath: IndexPath) -> Cell{
-        let identifier = String(describing: Cell.self)
-        guard let cell = self.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? Cell else {
-            fatalError("Error in cell")
-        }
-        return cell
-    }
-    
-    func registerHeaderFooter<Cell: UICollectionReusableView>(cellClass: Cell.Type, kind: String){
-        //MARK: Generic Register Header (Header/Footer)
-        self.register(UINib(nibName: String(describing: Cell.self), bundle: nil), forSupplementaryViewOfKind: kind, withReuseIdentifier: String(describing: Cell.self))
-    }
-    
-    //    UICollectionView.elementKindSectionHeader
-    
-    func dequeueHeaderFooter<Cell: UICollectionReusableView>(kind: String, indexPath:IndexPath) -> Cell{
-        let identifier = String(describing: Cell.self)
-        guard let cell = self.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: identifier, for: indexPath) as? Cell else {
-            fatalError("Error in cell")
-        }
-        return cell
-    }
-
-    
-}

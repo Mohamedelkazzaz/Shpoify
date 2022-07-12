@@ -77,6 +77,9 @@
 		FC942864286E572D0059E6D4 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC942863286E572D0059E6D4 /* ProductsViewController.swift */; };
 		FC942866286E57500059E6D4 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC942865286E57500059E6D4 /* ProductCell.swift */; };
 		FCAC1784287855BA00ECC217 /* Orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAC1783287855BA00ECC217 /* Orders.swift */; };
+		FCF58291287CE79D0071EC1B /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = FCF58290287CE79D0071EC1B /* NVActivityIndicatorView */; };
+		FCF58293287CE79D0071EC1B /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = FCF58292287CE79D0071EC1B /* NVActivityIndicatorViewExtended */; };
+		FCF58295287CEA4A0071EC1B /* indecator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF58294287CEA4A0071EC1B /* indecator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +180,7 @@
 		FC942863286E572D0059E6D4 /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		FC942865286E57500059E6D4 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		FCAC1783287855BA00ECC217 /* Orders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orders.swift; sourceTree = "<group>"; };
+		FCF58294287CEA4A0071EC1B /* indecator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = indecator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +188,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCF58293287CE79D0071EC1B /* NVActivityIndicatorViewExtended in Frameworks */,
+				FCF58291287CE79D0071EC1B /* NVActivityIndicatorView in Frameworks */,
 				F909DF73B2562104EE70063F /* Pods_Shopify_app.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				9B1FB35728746F4100D4A476 /* ApplicationUserManger.swift */,
+				FCF58294287CEA4A0071EC1B /* indecator.swift */,
 				9BB7BB132875CF40001A39B7 /* CoreDataManager */,
 				9BA632A12875BEA400775E34 /* Extensions */,
 			);
@@ -455,7 +462,6 @@
 				E898DC3F2871C9C900FCEEF2 /* SettindViewController */,
 				E86D31DB286F24FE007302E1 /* CartsViewController */,
 				E8B21C1C286B8CC00000AABB /* Main.storyboard */,
-				FC4A668328724DAA005D3BBB /* ProductList.storyboard */,
 				E8B21C24286B8CC40000AABB /* LaunchScreen.storyboard */,
 				E89A3A2428720D3400D609B5 /* Adress.storyboard */,
 				FC05F57E28746D1D0026CEE4 /* MyOrder.storyboard */,
@@ -536,6 +542,7 @@
 			children = (
 				FC4A667C2871F68D005D3BBB /* ProductsListViewController.swift */,
 				FC4A667D2871F68E005D3BBB /* ProductListCell.swift */,
+				FC4A668328724DAA005D3BBB /* ProductList.storyboard */,
 			);
 			path = ProductListViewControler;
 			sourceTree = "<group>";
@@ -592,6 +599,10 @@
 			dependencies = (
 			);
 			name = Shopify_app;
+			packageProductDependencies = (
+				FCF58290287CE79D0071EC1B /* NVActivityIndicatorView */,
+				FCF58292287CE79D0071EC1B /* NVActivityIndicatorViewExtended */,
+			);
 			productName = Shopify_app;
 			productReference = E8B21C13286B8CBF0000AABB /* Shopify_app.app */;
 			productType = "com.apple.product-type.application";
@@ -667,6 +678,9 @@
 				Base,
 			);
 			mainGroup = E8B21C0A286B8CBF0000AABB;
+			packageReferences = (
+				FCF5828F287CE79D0071EC1B /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
+			);
 			productRefGroup = E8B21C14286B8CBF0000AABB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -839,6 +853,7 @@
 				E8B21C1B286B8CC00000AABB /* ViewController.swift in Sources */,
 				FC942864286E572D0059E6D4 /* ProductsViewController.swift in Sources */,
 				E8E7FD0B28766BB500B2B1DE /* CartModel.swift in Sources */,
+				FCF58295287CEA4A0071EC1B /* indecator.swift in Sources */,
 				E898DC422871C9FF00FCEEF2 /* SettingViewController.swift in Sources */,
 				E8B21C17286B8CC00000AABB /* AppDelegate.swift in Sources */,
 				FC4A66782871F599005D3BBB /* ProductsByCategoriesViewModel.swift in Sources */,
@@ -1226,6 +1241,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FCF5828F287CE79D0071EC1B /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ninjaprox/NVActivityIndicatorView";
+			requirement = {
+				kind = exactVersion;
+				version = 5.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FCF58290287CE79D0071EC1B /* NVActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FCF5828F287CE79D0071EC1B /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
+			productName = NVActivityIndicatorView;
+		};
+		FCF58292287CE79D0071EC1B /* NVActivityIndicatorViewExtended */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FCF5828F287CE79D0071EC1B /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
+			productName = NVActivityIndicatorViewExtended;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E8B21C1F286B8CC00000AABB /* Shopify_app.xcdatamodeld */ = {

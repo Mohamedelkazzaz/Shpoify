@@ -167,6 +167,10 @@ class NetworkManager: ApiService{
         }
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        session.dataTask(with: request) { (data, response, error) in
+            completion(data, response, error)
+        }.resume()
     }
     
     func deleteAddressForCustomer(customerId: Int,id: Int, completion: @escaping  (Error?) -> ()) {
