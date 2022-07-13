@@ -22,6 +22,7 @@ class SettingViewController: UIViewController {
 
         profileTableView.delegate = self
         profileTableView.dataSource = self
+        nameLabel.text = ApplicationUserManger.shared.getUserName()
     }
     
     @IBAction func logoutButton(_ sender: UIButton) {

@@ -4,7 +4,6 @@
 //
 //  Created by Ahmed Hussien on 02/12/1443 AH.
 //
-
 import UIKit
 import NVActivityIndicatorView
 class ProductsListViewController: UIViewController {
@@ -117,16 +116,18 @@ class ProductsListViewController: UIViewController {
     }
     
     @IBAction func favoritButton(_ sender: Any) {
-        let check =   ApplicationUserManger.shared.getUserStatus()
-        if check == true{
-            
-        }
+        ApplicationUserManger.shared.checkUserIsLogged { loggedIn in
+            if loggedIn {
+                let vc = UIStoryboard(name: "Favorites", bundle: .main).instantiateViewController(withIdentifier: "FavoritesViewController") as! FavoritesViewController
+              self.navigationController?.pushViewController(vc, animated: true)
+            }
         else{
             let vc = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
             self.present(vc, animated: true, completion: nil)
         }
     }
     
+}
 }
 extension ProductsListViewController:UICollectionViewDelegate,UICollectionViewDataSource{
     
@@ -168,10 +169,18 @@ if (filtered){
         return CGSize(width: width, height: width)
 
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        productsCollection.deselectItem(at: indexPath, animated: true)
+        let product = arrayOfFilterdProducts[indexPath.row]
+        let vc = UIStoryboard(name: "ProductDetails", bundle: .main).instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
+        vc.product = product
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 //MARK: searchbar
 extension ProductsListViewController:UISearchBarDelegate{
-//    
+//
 //    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
 //        filtered = true
 //        arrayByPrices = arrayOfFilterdProducts
@@ -181,9 +190,9 @@ extension ProductsListViewController:UISearchBarDelegate{
 //    }
 //        func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
 //            filtered = false
-//           
+//
 //        }
-//    
+//
 //    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 //        arrayByPrices = []
 //        if searchText == ""{
@@ -213,3 +222,4 @@ extension ProductsListViewController:UISearchBarDelegate{
 //        }
 //    }
 }
+

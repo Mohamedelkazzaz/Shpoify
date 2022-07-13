@@ -4,7 +4,6 @@
 //
 //  Created by Ahmed Hussien on 02/12/1443 AH.
 //
-
 import UIKit
 import Floaty
 import NVActivityIndicatorView
@@ -131,14 +130,16 @@ class ProductsViewController: UIViewController {
     }
     
     @IBAction func favoritButton(_ sender: Any) {
-        let check =   ApplicationUserManger.shared.getUserStatus()
-        if check == true{
-            
-        }
+        ApplicationUserManger.shared.checkUserIsLogged { loggedIn in
+            if loggedIn {
+                let vc = UIStoryboard(name: "Favorites", bundle: .main).instantiateViewController(withIdentifier: "FavoritesViewController") as! FavoritesViewController
+              self.navigationController?.pushViewController(vc, animated: true)
+            }
         else{
             let vc = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
             self.present(vc, animated: true, completion: nil)
         }
+    }
     }
     
     //MARK: displayProductsByCategories
@@ -196,8 +197,20 @@ extension ProductsViewController:UICollectionViewDelegate,UICollectionViewDataSo
         let width = (collectionView.frame.width-leftAndRightPaddings)/numberOfItemsPerRow
         return CGSize(width: width, height: width)
       //  return CGSize(width: self.view.frame.width*0.44, height: self.view.frame.width*0.6)
-
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        productsCollection.deselectItem(at: indexPath, animated: true)
+        let vc = UIStoryboard(name: "ProductDetails", bundle: .main).instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
+        if (filtered) {
+            vc.product = arrayFiltered[indexPath.row]
+        }
+        else {
+            vc.product = arrayOfProducts[indexPath.row]
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
+
 
 

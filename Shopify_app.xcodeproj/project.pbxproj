@@ -11,6 +11,8 @@
 		9B0EC06C2873A5EF0076A1EA /* loadingspinner.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B0EC06B2873A5EF0076A1EA /* loadingspinner.json */; };
 		9B0EC06E2873A5F80076A1EA /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0EC06D2873A5F80076A1EA /* SplashViewController.swift */; };
 		9B0EC0702873A76E0076A1EA /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0EC06F2873A76E0076A1EA /* TabBarViewController.swift */; };
+		9B154770287E377800C0E2B0 /* ProductDetailsCollectionViewImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B15476E287E377800C0E2B0 /* ProductDetailsCollectionViewImageCell.swift */; };
+		9B154771287E377800C0E2B0 /* ProductDetailsCollectionViewImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B15476F287E377800C0E2B0 /* ProductDetailsCollectionViewImageCell.xib */; };
 		9B1FB35828746F4100D4A476 /* ApplicationUserManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FB35728746F4100D4A476 /* ApplicationUserManger.swift */; };
 		9B1FB35A28746F5F00D4A476 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FB35928746F5F00D4A476 /* AuthenticationViewModel.swift */; };
 		9B1FB35C28746F7400D4A476 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FB35B28746F7400D4A476 /* UIViewController+Ext.swift */; };
@@ -111,6 +113,8 @@
 		9B0EC06B2873A5EF0076A1EA /* loadingspinner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = loadingspinner.json; path = Shopify_app/View/loadingspinner.json; sourceTree = SOURCE_ROOT; };
 		9B0EC06D2873A5F80076A1EA /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		9B0EC06F2873A76E0076A1EA /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		9B15476E287E377800C0E2B0 /* ProductDetailsCollectionViewImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsCollectionViewImageCell.swift; sourceTree = "<group>"; };
+		9B15476F287E377800C0E2B0 /* ProductDetailsCollectionViewImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailsCollectionViewImageCell.xib; sourceTree = "<group>"; };
 		9B1FB35728746F4100D4A476 /* ApplicationUserManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationUserManger.swift; sourceTree = "<group>"; };
 		9B1FB35928746F5F00D4A476 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		9B1FB35B28746F7400D4A476 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
@@ -230,6 +234,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9B15476D287E375E00C0E2B0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9B15476E287E377800C0E2B0 /* ProductDetailsCollectionViewImageCell.swift */,
+				9B15476F287E377800C0E2B0 /* ProductDetailsCollectionViewImageCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		9B94337128739E1F00779F66 /* AuthenticationView */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,13 +293,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		9BA632A42875C0F000775E34 /* ProductDetailsViewController */ = {
+		9BA632A42875C0F000775E34 /* ProductDetails */ = {
 			isa = PBXGroup;
 			children = (
+				9B15476D287E375E00C0E2B0 /* Cell */,
 				9BA632A52875C11100775E34 /* ProductDetailsViewController.swift */,
 				9BA632A72875C12900775E34 /* ProductDetails.storyboard */,
 			);
-			path = ProductDetailsViewController;
+			path = ProductDetails;
 			sourceTree = "<group>";
 		};
 		9BB7BB112875CF1D001A39B7 /* Helpers */ = {
@@ -455,7 +469,7 @@
 			isa = PBXGroup;
 			children = (
 				E88888D628787BF1006178DD /* PaymentViewController */,
-				9BA632A42875C0F000775E34 /* ProductDetailsViewController */,
+				9BA632A42875C0F000775E34 /* ProductDetails */,
 				9BA632922875AEB200775E34 /* Favorites */,
 				FC94285D286DDA320059E6D4 /* BrandsViewController */,
 				FC942862286E56EE0059E6D4 /* ProductsViewController */,
@@ -568,11 +582,8 @@
 				E896D73C287268ED00E5A5AB /* Customer.swift */,
 				E89982FD2873B06200071339 /* Address.swift */,
 				E8E7FD0A28766BB500B2B1DE /* CartModel.swift */,
-
 				FCAC1783287855BA00ECC217 /* Orders.swift */,
-
 				E88823E9287DB2DD00C78F4D /* Discount.swift */,
-
 			);
 			name = Models;
 			path = Delegates/Models;
@@ -725,6 +736,7 @@
 				9B0EC06C2873A5EF0076A1EA /* loadingspinner.json in Resources */,
 				E89A3A2E2872163500D609B5 /* addAddressCell.xib in Resources */,
 				E8B21C23286B8CC40000AABB /* Assets.xcassets in Resources */,
+				9B154771287E377800C0E2B0 /* ProductDetailsCollectionViewImageCell.xib in Resources */,
 				E86D31E9286F7993007302E1 /* adsCell.xib in Resources */,
 				9B94337028739E0900779F66 /* Authentication.storyboard in Resources */,
 				E8B21C1E286B8CC00000AABB /* Main.storyboard in Resources */,
@@ -909,6 +921,7 @@
 				E88888D828787C10006178DD /* PaymentViewController.swift in Sources */,
 				E89982FB2873656900071339 /* AddressViewModel.swift in Sources */,
 				E86D31E8286F7993007302E1 /* adsCell.swift in Sources */,
+				9B154770287E377800C0E2B0 /* ProductDetailsCollectionViewImageCell.swift in Sources */,
 				E8B21C19286B8CC00000AABB /* SceneDelegate.swift in Sources */,
 				9B0EC0702873A76E0076A1EA /* TabBarViewController.swift in Sources */,
 				E896D73D287268ED00E5A5AB /* Customer.swift in Sources */,

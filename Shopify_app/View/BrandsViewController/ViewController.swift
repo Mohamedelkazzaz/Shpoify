@@ -4,7 +4,6 @@
 //
 //  Created by Mohamed Elkazzaz on 28/06/2022.
 //
-
 import UIKit
 import NVActivityIndicatorView
 
@@ -51,13 +50,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func favoritButton(_ sender: Any) {
-        let check =   ApplicationUserManger.shared.getUserStatus()
-        if check == true{
-        }
+        ApplicationUserManger.shared.checkUserIsLogged { loggedIn in
+            if loggedIn {
+                let vc = UIStoryboard(name: "Favorites", bundle: .main).instantiateViewController(withIdentifier: "FavoritesViewController") as! FavoritesViewController
+              self.navigationController?.pushViewController(vc, animated: true)
+            }
         else{
             let vc = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-            self.present(vc, animated: true, completion: nil)
+                self.navigationController?.pushViewController(vc, animated: true)
         }
+    }
     }
     
     func setupTimer(){
@@ -164,9 +166,15 @@ extension ViewController:UICollectionViewDelegate,UICollectionViewDataSource,UIC
 //        return CGSize(width: width, height: width) // You can change width and height here as pr your requirement
 //
 //    }
-
    
     
 }
 
+
+//
+//  ViewController.swift
+//  Shopify_app
+//
+//  Created by Mohamed Elkazzaz on 28/06/2022.
+//
 

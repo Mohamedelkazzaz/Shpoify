@@ -9,11 +9,10 @@ import Foundation
 
 class FavoritesViewModel{
     
-    var favoritesModel: [Favorites] = []
+    var favoritesModel = [Favorites]()
     
     func getFavoriteProducts(completion: @escaping ([Favorites]?, Error?) -> Void){
         guard let customerID = ApplicationUserManger.shared.getUserID() else {return}
-        print("customerId \(customerID)")
         CoreDataManager.shared.fetchFavoriteProductsForCustomer(customerID: customerID)
         { products, error in
             guard let products = products else {
@@ -33,5 +32,15 @@ class FavoritesViewModel{
             
         }
     }
-    
+    func addFavoriteProducts(completion: @escaping ([Favorites]?, Error?) -> Void){
+        guard let customerID = ApplicationUserManger.shared.getUserID() else {return}
+        CoreDataManager.shared.fetchFavoriteProductsForCustomer(customerID: customerID)
+        { products, error in
+            guard let products = products else {
+                completion(nil, error)
+                return
+            }
+            completion(products, nil)
+        }
+    }
 }

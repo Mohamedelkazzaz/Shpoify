@@ -17,7 +17,7 @@ class ProductDetailsViewModel {
             if saved {
                 print("product saved in Favorites")
             } else {
-                print("Error in saving Producs")
+                print("Error in saving Products")
             }
         }
     }

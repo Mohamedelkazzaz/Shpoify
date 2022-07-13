@@ -13,6 +13,7 @@ class FavoritesCell: UITableViewCell {
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productPrice: UILabel!
     
+    let favoritesDelegate = FavoritesViewController()
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,15 +26,17 @@ class FavoritesCell: UITableViewCell {
     }
     func setData(favorites: Favorites)  {
         
-        let cellProductImage = favorites.productImage ?? ""
-        let cellProductName = favorites.productName
-        let cellProductPrice = favorites.productPrice
-        let dataDecoding: Data = Data(base64Encoded: cellProductImage, options: .ignoreUnknownCharacters)!
-        let datadecoded = UIImage(data: dataDecoding)
-        productImage!.image = datadecoded
-        productPrice?.text = cellProductPrice
-        productName?.text = cellProductName
-        
+     //   let cellProductImage = favorites.productImage ?? ""
+//        let dataDecoding: Data = (Data(base64Encoded: cellProductImage, options: .ignoreUnknownCharacters))!
+//        let datadecoded = UIImage(data: dataDecoding)
+//        productImage!.image = datadecoded
+        let url = URL(string: favorites.productImage!)!
+        if let data = try? Data(contentsOf: url) {
+            productImage.image = UIImage(data: data)
+        }
+        productPrice.text = favorites.productPrice
+        productName.text = favorites.productName
+//        productImage.downloaded(from: favorites?.productImage ?? "")
     }
     
 }

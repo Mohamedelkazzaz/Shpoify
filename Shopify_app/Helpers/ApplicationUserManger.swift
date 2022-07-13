@@ -58,4 +58,12 @@ class ApplicationUserManger{
     func checkFoundAdress()-> Bool{
         return UserDefaults.standard.bool(forKey: "Address_Found")
     }
+    
+    func checkUserIsLogged(completion: @escaping (Bool) -> Void){
+        if getUserStatus() {
+            completion(true)
+        }else{
+            completion(false)
+        }
+    }
 }
