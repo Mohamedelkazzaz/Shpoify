@@ -428,7 +428,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="RXf-Le-Cyo" firstAttribute="centerX" secondItem="vEu-cI-ub8" secondAttribute="centerX" id="Aaf-1P-Eqm"/>
                                     <constraint firstItem="RXf-Le-Cyo" firstAttribute="centerY" secondItem="vEu-cI-ub8" secondAttribute="centerY" multiplier="0.8" id="OXS-mN-zTP"/>
@@ -510,6 +510,7 @@
                     <connections>
                         <outlet property="cardsTableView" destination="Wud-VH-JdB" id="OId-Mf-Ob7"/>
                         <outlet property="checkOutView" destination="mHZ-zJ-qZh" id="gri-zi-ji1"/>
+                        <outlet property="emptyCardImage" destination="RXf-Le-Cyo" id="D1R-VP-XeW"/>
                         <outlet property="emptyView" destination="vEu-cI-ub8" id="VCm-ZJ-FfR"/>
                         <outlet property="priceLabel" destination="JeG-53-GeP" id="06B-EU-fi5"/>
                     </connections>

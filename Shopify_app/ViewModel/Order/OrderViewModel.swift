@@ -11,20 +11,20 @@ import Foundation
 
 class OrderViewModel{
     
-    var bindingAlreadyInCartToView : (()->()) = {}
-    var bindingDeleteCartToView : (()->()) = {}
-    var bindingEmptyCartAlert : (()->()) = {}
+//    var bindingAlreadyInCartToView : (()->()) = {}
+//    var bindingDeleteCartToView : (()->()) = {}
+//    var bindingEmptyCartAlert : (()->()) = {}
     let customerID = ApplicationUserManger.shared.getUserID()
 
-    var showAlreadyExist : (()->()) {
-        self.bindingAlreadyInCartToView
-    }
-    var showDeleteAlert : (()->()) {
-        self.bindingDeleteCartToView
-    }
-    var showEmptyCartAlert : (()->()) {
-        self.bindingEmptyCartAlert
-    }
+//    var showAlreadyExist : (()->()) {
+//        self.bindingAlreadyInCartToView
+//    }
+//    var showDeleteAlert : (()->()) {
+//        self.bindingDeleteCartToView
+//    }
+//    var showEmptyCartAlert : (()->()) {
+//        self.bindingEmptyCartAlert
+//    }
     
     func getItemsInCart(complition: @escaping (([Cart]?,Error?)->Void)){
         do {
@@ -36,39 +36,39 @@ class OrderViewModel{
         }
     }
     
-    func addItemsToCart(product:Product){
-        do {
-            let items = try context.fetch(Cart.fetchRequest())
-            if checkIfItemExist(id: product.id!,itemms: items){
-                print("Already in cart")
-                self.showAlreadyExist()
-            }else{
-                let orderItem = Cart(context: context)
-                orderItem.id = Int64(product.id!)
-                orderItem.title = product.title
-                orderItem.price = product.variants![0].price
-                orderItem.image = product.image?.src
-                orderItem.quantity = 1
-                orderItem.userId = Int64(customerID!)
-                try? context.save()
-                print(orderItem)
-            }
-        } catch let error {
-            print(error)
-        }
-    }
-    
-    func checkIfItemExist(id: Int,itemms:[Cart]) -> Bool {
-        var check : Bool = false
-        for i in itemms {
-            if i.id == id {
-                check = true
-            }else {
-                check = false
-            }
-        }
-        return check
-    }
+//    func addItemsToCart(product:Product){
+//        do {
+//            let items = try context.fetch(Cart.fetchRequest())
+//            if checkIfItemExist(id: product.id!,itemms: items){
+//                print("Already in cart")
+//                self.showAlreadyExist()
+//            }else{
+//                let orderItem = Cart(context: context)
+//                orderItem.id = Int64(product.id!)
+//                orderItem.title = product.title
+//                orderItem.price = product.variants![0].price
+//                orderItem.image = product.image?.src
+//                orderItem.quantity = 1
+//                orderItem.userId = Int64(customerID!)
+//                try? context.save()
+//                print(orderItem)
+//            }
+//        } catch let error {
+//            print(error)
+//        }
+//    }
+//    
+//    func checkIfItemExist(id: Int,itemms:[Cart]) -> Bool {
+//        var check : Bool = false
+//        for i in itemms {
+//            if i.id == id {
+//                check = true
+//            }else {
+//                check = false
+//            }
+//        }
+//        return check
+//    }
     
     func deleteFromCoreData(indexPath:IndexPath,cartItems:[Cart]){
         context.delete(cartItems[indexPath.row])

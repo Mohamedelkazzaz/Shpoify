@@ -92,6 +92,30 @@ class CoreDataManager {
             }
         }
     }
+    
+    func addToCart(appDelegate: AppDelegate,id: Int64,userId: Int64, title: String, image:String, price: String, quantity: Int64){
+        
+        let manageContext = appDelegate.persistentContainer.viewContext
+        
+        if let entity = NSEntityDescription.entity(forEntityName: "Cart", in: manageContext){
+            let cart = NSManagedObject(entity: entity, insertInto: manageContext)
+            cart.setValue(id, forKey: "id")
+            cart.setValue(userId, forKey: "userId")
+            cart.setValue(title, forKey: "title")
+            cart.setValue(image, forKey: "image")
+            cart.setValue(price, forKey: "price")
+            cart.setValue(quantity, forKey: "quantity")
+            
+
+            do {
+                try manageContext.save()
+            }catch let error as NSError {
+                print("Error in saving")
+                print(error.localizedDescription)
+            }
+        }
+    }
+
     func fetchData() -> [Favorites]{
 
         var fetchedList : [Favorites] = []
@@ -99,6 +123,21 @@ class CoreDataManager {
 
         do{
             fetchedList = try context.fetch(fetchRequest) as! [Favorites]
+            print("sucess fetch")
+        }catch let error as NSError {
+            print("Error in saving")
+            print(error.localizedDescription)
+        }
+        return fetchedList
+    }
+    
+    func fetchDataInCart(appDelegate: AppDelegate) -> [Cart]{
+
+        var fetchedList : [Cart] = []
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Cart")
+
+        do{
+            fetchedList = try context.fetch(fetchRequest) as! [Cart]
             print("sucess fetch")
         }catch let error as NSError {
             print("Error in saving")

@@ -12,6 +12,7 @@ class CartsViewController: UIViewController {
     @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var checkOutView: UIView!
     
+    @IBOutlet weak var emptyCardImage: UIImageView!
     @IBOutlet weak var priceLabel: UILabel!
     var cart : [Cart] = []
     let orderViewModel = OrderViewModel()
@@ -20,14 +21,24 @@ class CartsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTotalPrice()
-        checkCart()
+        
         setCartItems()
         cardsTableView.delegate = self
         cardsTableView.dataSource = self
 
         cardsTableView.register(UINib(nibName: "CartsCell", bundle: nil), forCellReuseIdentifier: "cartCell")
         
+        cart = CoreDataManager.shared.fetchDataInCart(appDelegate: appDelegate.self)
+        cardsTableView.reloadData()
+        checkCart()
+        print(cart.count)
+        
     }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        cart = CoreDataManager.shared.fetchDataInCart()
+//        cardsTableView.reloadData()
+//    }
     
    
     func setTotalPrice(){

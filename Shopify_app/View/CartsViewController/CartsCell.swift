@@ -23,11 +23,10 @@ class CartsCell: UITableViewCell {
     @IBAction func deleteItemButton(_ sender: UIButton) {
     }
     @IBAction func minusQuantityButton(_ sender: Any) {
-        addItemQuantity?()
-        
+        subItemQuantity?()
     }
     @IBAction func plusQuantityButton(_ sender: UIButton) {
-        subItemQuantity?()
+        addItemQuantity?()
     }
     
     func setup(cart: Cart?){
@@ -37,3 +36,5 @@ class CartsCell: UITableViewCell {
         itemNameLabel.text = cart?.title
     }
 }
+
+

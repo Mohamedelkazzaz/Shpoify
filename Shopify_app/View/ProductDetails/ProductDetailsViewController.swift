@@ -12,8 +12,11 @@ class ProductDetailsViewController: UIViewController {
     
 
     let productDetailsViewModel = ProductDetailsViewModel()
+    let orderViewModel = OrderViewModel()
     
     var product: Product?
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var productDescription: UITextView!
     @IBOutlet weak var productTitle: UILabel!
@@ -26,6 +29,7 @@ class ProductDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         initView()
+       
         // Do any additional setup after loading the view.
     }
     
@@ -90,6 +94,8 @@ class ProductDetailsViewController: UIViewController {
         }
     }
     
+    
+    
     func addProductToFavorites()    {
         
         guard let product = product, let id = product.id, let variants = product.variants, let customerID = ApplicationUserManger.shared.getUserID() else {return}
@@ -103,7 +109,32 @@ class ProductDetailsViewController: UIViewController {
     }
     
     @IBAction func addToCart(_ sender: Any) {
+        ApplicationUserManger.shared.checkUserIsLogged { userLogged in
+            if userLogged{
+                self.addProductToCard()
+            }else{
+                self.toLogin()
+            }
+        }
+    }
+    
+    func addProductToCard() {
         
+//        for i in CoreDataManager.shared.fetchDataInCart(appDelegate: appDelegate.self){
+//            if i.id == (product?.id)!{
+//                print("Already in cart")
+//                return
+//            }else{
+                guard let product = product, let id = product.id, let variants = product.variants, let customerID = ApplicationUserManger.shared.getUserID() else {return}
+                
+                CoreDataManager.shared.addToCart(appDelegate: appDelegate, id: Int64(id), userId: Int64(customerID), title: product.title!, image: (product.image?.src)!, price: variants[0].price!, quantity: 1)
+//            }
+//        }
+        
+    }
+    
+    func checkItem(){
+       
     }
     }
 
