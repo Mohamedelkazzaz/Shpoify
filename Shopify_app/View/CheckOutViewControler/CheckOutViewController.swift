@@ -20,6 +20,8 @@ class CheckOutViewController: UIViewController {
     var address = ""
     var arratOOrders = [Favorites]()
     var cart : [Cart] = []
+    var viewModel = DiscountViewModel()
+    var discounts: [String] = []
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let favoritesViewModel = FavoritesViewModel()
     override func viewDidLoad() {
@@ -29,16 +31,31 @@ class CheckOutViewController: UIViewController {
         cart = CoreDataManager.shared.fetchDataInCart(appDelegate: appDelegate.self)
         MyOrdersColletion.reloadData()
         
+        viewModel.fetchDiscounts()
+        viewModel.bindingData = { discount, error in
+            DispatchQueue.main.async {
+                self.MyOrdersColletion.reloadData()
+            }
+        
+        if let error = error{
+            print(error.localizedDescription)
+        }
+    }
+            
+        
+        
     }
     
 //    func initOrdesView(){
 //        subTotal.
 //    }
     @IBAction func applyCoupon(_ sender: UIButton) {
+        totalPrice.text = "\(viewModel.applyCoupon(code: couponText.text ?? "", price: Double(totalPrice.text ?? "0") ?? 0))"
     }
     @IBAction func paymentButton(_ sender: Any) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "PaymentViewController") as! PaymentViewController
+        vc.amount = totalPrice.text ?? ""
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

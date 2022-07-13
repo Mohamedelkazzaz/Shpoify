@@ -25,6 +25,7 @@ protocol ApiService{
    
 
     func getDiscounts(priceRuleId: Int,complition: @escaping (DiscountModel?, Error?)->Void)
+    func deleteDiscount(priceRuleId: Int,discountCodeId: Int,completion: @escaping ( Error?)->())
 }
 
 

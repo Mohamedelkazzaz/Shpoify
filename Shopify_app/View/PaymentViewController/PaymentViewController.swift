@@ -14,8 +14,10 @@ class PaymentViewController: UIViewController {
     @IBOutlet weak var cashSelectedBtn: UIButton!
     
 //    var checkoutDelegate:PaymentCheckoutDelegation?
+    
     let authorization = "sandbox_fwfrj4cq_hspcfyx6tzdmdvb9"
     var braintreeAPIClient:BTAPIClient!
+    var amount = ""
     override func viewDidLoad() {
         super.viewDidLoad()
          
@@ -61,10 +63,10 @@ class PaymentViewController: UIViewController {
 //            }
 //        }
 //    }
-    func startCheckout() {
+    func startCheckout(amount: String) {
         self.braintreeAPIClient = BTAPIClient(authorization: authorization)
         let payPalDriver = BTPayPalDriver(apiClient: braintreeAPIClient!)
-        let request = BTPayPalCheckoutRequest(amount: "\(1000)")
+        let request = BTPayPalCheckoutRequest(amount: amount)
         request.currencyCode = "USD"
         var err:Error?
         payPalDriver.tokenizePayPalAccount(with: request) { [weak self] (tokenizedPayPalAccount, error) in
@@ -82,7 +84,7 @@ class PaymentViewController: UIViewController {
 
     @IBAction func checkoutButton(_ sender: Any) {
         if paypalSelectedBtn.isSelected{
-            startCheckout()
+            startCheckout(amount: amount)
         }else{
             
         }

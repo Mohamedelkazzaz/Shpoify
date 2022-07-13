@@ -20,7 +20,8 @@ struct DiscountCode: Codable {
     let id, priceRuleID: Int
     let code: String
     let usageCount: Int
-    let createdAt, updatedAt: Date
+    let createdAt, updatedAt: String
+    var discountPercentage: Int?
 
     enum CodingKeys: String, CodingKey {
         case id
