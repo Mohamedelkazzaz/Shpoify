@@ -13,7 +13,8 @@ target 'Shopify_app' do
    pod 'lottie-ios'
    pod 'Braintree'
    pod 'BraintreeDropIn'
-pod 'Cosmos'
+   pod 'Cosmos'
+   pod 'ProgressHUD'
 
   target 'Shopify_appTests' do
     inherit! :search_paths

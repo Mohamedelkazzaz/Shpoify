@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import ProgressHUD
 
 class ProductDetailsViewController: UIViewController {
     
@@ -15,7 +16,7 @@ class ProductDetailsViewController: UIViewController {
     let orderViewModel = OrderViewModel()
     
     var product: Product?
-    
+    var isFound = false
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var productDescription: UITextView!
@@ -120,22 +121,25 @@ class ProductDetailsViewController: UIViewController {
     
     func addProductToCard() {
         
-//        for i in CoreDataManager.shared.fetchDataInCart(appDelegate: appDelegate.self){
-//            if i.id == (product?.id)!{
-//                print("Already in cart")
-//                return
-//            }else{
-                guard let product = product, let id = product.id, let variants = product.variants, let customerID = ApplicationUserManger.shared.getUserID() else {return}
+        for i in CoreDataManager.shared.fetchDataInCart(appDelegate: appDelegate.self){
+            if i.id == (product?.id)!{
+                isFound = true
+                print("Already in cart")
                 
-                CoreDataManager.shared.addToCart(appDelegate: appDelegate, id: Int64(id), userId: Int64(customerID), title: product.title!, image: (product.image?.src)!, price: variants[0].price!, quantity: 1)
-//            }
-//        }
+            }
+        }
+        if isFound == true{
+            ProgressHUD.showFailed("Already in cart", interaction: true)
+        }else{
+            guard let product = product, let id = product.id, let variants = product.variants, let customerID = ApplicationUserManger.shared.getUserID() else {return}
+            
+            CoreDataManager.shared.addToCart(appDelegate: appDelegate, id: Int64(id), userId: Int64(customerID), title: product.title!, image: (product.image?.src)!, price: variants[0].price!, quantity: 1)
+           ProgressHUD.showSucceed("Product added to the cart", interaction: true)
+        }
         
     }
     
-    func checkItem(){
-       
-    }
+   
     }
 
 extension ProductDetailsViewController {

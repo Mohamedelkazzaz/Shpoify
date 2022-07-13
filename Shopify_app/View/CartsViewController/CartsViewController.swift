@@ -130,6 +130,8 @@ extension CartsViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             Delete(indexPath: indexPath)
+            
+            
     }
     
     
@@ -140,6 +142,7 @@ extension CartsViewController: UITableViewDelegate,UITableViewDataSource{
             self.cart.remove(at: indexPath.row)
             cardsTableView.deleteRows(at: [indexPath], with: .left)
             self.cardsTableView.reloadData()
+            setTotalPrice()
             if self.cart.count == 0 {
                 emptyView.isHidden = false
                 self.cardsTableView.isHidden = true
