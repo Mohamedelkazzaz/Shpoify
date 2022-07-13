@@ -25,6 +25,9 @@ class CheckOutViewController: UIViewController {
     @IBAction func applyCoupon(_ sender: UIButton) {
     }
     @IBAction func paymentButton(_ sender: Any) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "PaymentViewController") as! PaymentViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func initOrdesData() {
