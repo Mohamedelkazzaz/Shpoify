@@ -68,15 +68,19 @@ extension AddressViewController: UITableViewDelegate,UITableViewDataSource{
         
         let alert = UIAlertController(title: "Confirm this address", message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "Yes", style: .default) { (action) in
-                
             let vc = UIStoryboard(name: "MyOrder", bundle: nil).instantiateViewController(withIdentifier: "CheckOutViewController") as! CheckOutViewController
             self.navigationController?.pushViewController(vc, animated: true)
-            }
+            
+            var ad1 = self.viewModel.getAddress(indexPath: indexPath)?.address1
+            var ad2 = self.viewModel.getAddress(indexPath: indexPath)?.country
+            var ad3 = self.viewModel.getAddress(indexPath: indexPath)?.city
+            vc.address = "\(ad1!) \(ad2!) \(ad3!)"
+        }
         let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
-           alert.addAction(action)
-           alert.addAction(cancel)
-
-           present(alert, animated: true, completion: nil)
+        alert.addAction(action)
+        alert.addAction(cancel)
+        
+        present(alert, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
