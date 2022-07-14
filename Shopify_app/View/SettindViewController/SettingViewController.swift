@@ -14,33 +14,52 @@ class SettingViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
     
-
+    @IBOutlet weak var logoutButton: UIButton!
+    
 
     var array: [String] = ["My Orders","My Whishlist","My Adrresses","About us"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        profileTableView.delegate = self
-        profileTableView.dataSource = self
-        nameLabel.text = ApplicationUserManger.shared.getUserName()
+        if (ApplicationUserManger.shared.getUserStatus()){
+            profileTableView.delegate = self
+            profileTableView.dataSource = self
+            logoutButton.setTitle("logout", for: .normal)
+         
+            nameLabel.text = ApplicationUserManger.shared.getUserName()
+        }
+        else{
+            logoutButton.setTitle("login", for: .normal)
+          
+        }
+        
     }
     
+    
     @IBAction func logoutButton(_ sender: UIButton) {
+        
         if (ApplicationUserManger.shared.getUserStatus()){
             ApplicationUserManger.shared.setUserStatus(userIsLogged: false)
             ApplicationUserManger.shared.setUserID(customerID: 0)
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
             let nav = UINavigationController(rootViewController: vc)
             nav.modalPresentationStyle = .fullScreen
+            logoutButton.titleLabel?.text = "logout"
             self.present(nav, animated: true, completion: nil)
         }else{
-        
+            logoutButton.titleLabel?.text = "login"
+            let vc = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     @IBAction func cartButton(_ sender: UIBarButtonItem) {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CartsViewController") as! CartsViewController
-        self.navigationController?.pushViewController(vc, animated: true)
+        if (ApplicationUserManger.shared.getUserStatus()){
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CartsViewController") as! CartsViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else{
+            let vc = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 
 
@@ -49,9 +68,7 @@ class SettingViewController: UIViewController {
 
 extension SettingViewController: UITableViewDelegate,UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
-        
         return 1
-        
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         var title : String?

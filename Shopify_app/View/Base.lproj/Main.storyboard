@@ -316,10 +316,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbV-3U-p7P">
-                                <rect key="frame" x="158" y="378" width="98" height="39"/>
+                                <rect key="frame" x="179.5" y="378" width="55.5" height="39"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="icons8-logout" title=" Logout"/>
+                                <buttonConfiguration key="configuration" style="plain" image="icons8-logout" title="-"/>
                                 <connections>
                                     <action selector="logoutButton:" destination="Xfa-4Z-HAH" eventType="touchUpInside" id="UtP-v1-7Pg"/>
                                 </connections>
@@ -391,6 +391,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="logoutButton" destination="nbV-3U-p7P" id="Eni-Zt-Edu"/>
                         <outlet property="nameLabel" destination="ShI-nO-PCb" id="zgM-sn-SX2"/>
                         <outlet property="profileTableView" destination="fO3-th-IBu" id="zy7-SO-LHz"/>
                     </connections>
