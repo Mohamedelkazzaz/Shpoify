@@ -25,6 +25,8 @@ protocol ApiService{
    
 
     func getDiscounts(priceRuleId: Int,complition: @escaping (DiscountModel?, Error?)->Void)
+    
+    func getCurrency()
 }
 
 

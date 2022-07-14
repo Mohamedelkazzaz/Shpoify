@@ -38,6 +38,18 @@ class ApplicationUserManger{
     func setUserEmail(userEmail: String?){
         UserDefaults.standard.set(userEmail, forKey: "User_Email")
     }
+    func setCurrency(currency: Double?){
+        UserDefaults.standard.set(currency, forKey: "Currency")
+    }
+    func getCurrency()-> Double?{
+        return UserDefaults.standard.double(forKey: "Currency")
+    }
+    func setSelectedCurrency(isUSD: Bool){
+        UserDefaults.standard.set(isUSD, forKey: "USD")
+    }
+    func getSelectedCurrency()-> Bool{
+        return UserDefaults.standard.bool(forKey: "USD")
+    }
     
     func getUserEmail()-> String?{
         return UserDefaults.standard.string(forKey: "User_Email")

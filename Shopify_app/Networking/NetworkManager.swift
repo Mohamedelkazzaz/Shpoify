@@ -13,7 +13,7 @@ import SwiftyJSON
   
 class NetworkManager: ApiService{
     
-   
+    
     func getAllBrands(complition: @escaping (Brands?, Error?)->Void){
         guard let url = Url.shared.getAllBrandsURl() else {return}
         URLSession.shared.dataTask(with: url) { data, response, error in
@@ -266,5 +266,27 @@ class NetworkManager: ApiService{
         }.resume()
     }
 
-    
+    func getCurrency() {
+        guard let url = Url.shared.getCurrency() else {return}
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let data = data{
+                do{
+                    let json = try JSONDecoder().decode(CurrencyModel.self, from: data)
+                    DispatchQueue.main.async{
+//                        complition(json, nil)
+                        print("success to get all brands")
+                        ApplicationUserManger.shared.setCurrency(currency: json.data.egp.value)
+                    }
+                }catch let error{
+                    DispatchQueue.main.async{
+                        print(error)
+//                        complition(nil, error)
+                    }
+                }
+            }
+            if let error = error{
+                print(error.localizedDescription)
+            }
+        }.resume()
+    }
 }

@@ -30,7 +30,8 @@ class CartsCell: UITableViewCell {
     }
     
     func setup(cart: Cart?){
-        priceLabel.text = cart?.price
+//        priceLabel.text = cart?.price
+        priceLabel.text = "\(ConvertPrice.getPrice(price: Double(cart?.price ?? "") ?? 0.0))"
         quantityNumberLabel.text = "\(cart?.quantity ?? 0)"
         itemImage.sd_setImage(with: URL(string: cart?.image ?? ""), completed: nil)
         itemNameLabel.text = cart?.title

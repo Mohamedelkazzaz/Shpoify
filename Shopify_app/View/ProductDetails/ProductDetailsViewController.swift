@@ -51,7 +51,8 @@ class ProductDetailsViewController: UIViewController {
         guard let product = product, let variant = product.variants,
         let price = variant[0].price else {
             return  }
-        productPrice.text = price + " USD"
+//        productPrice.text = price + " USD"
+       productPrice.text = "\(ConvertPrice.getPrice(price: Double(price ?? "") ?? 0.0))"
         productTitle.text = product.title
         productDescription.text = product.body_html
         }

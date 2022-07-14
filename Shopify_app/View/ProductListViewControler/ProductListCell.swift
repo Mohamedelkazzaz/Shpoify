@@ -15,7 +15,9 @@ class ProductListCell: UICollectionViewCell {
     
     func configureCell(productName: String, productImage: String, productPrice:String) {
         self.productName.text = productName
-        self.productPrice.text = productPrice
+//        ConvertPrice.getPrice(price: Double(productPrice ?? "") ?? 0.0)
+        self.productPrice.text = "\(ConvertPrice.getPrice(price: Double(productPrice ?? "") ?? 0.0))"
+        
         let url = URL(string:productImage)
         if let data = try? Data(contentsOf: url!) {
             self.productImage.image = UIImage(data: data)
