@@ -14,6 +14,7 @@ class ProductDetailsViewController: UIViewController {
 
     let productDetailsViewModel = ProductDetailsViewModel()
     let orderViewModel = OrderViewModel()
+    let favoritesViewModel = FavoritesViewModel()
     
     var product: Product?
     var isFound = false
@@ -95,9 +96,7 @@ class ProductDetailsViewController: UIViewController {
     func addProductToFavorites()    {
         
         guard let product = product, let id = product.id, let variants = product.variants, let customerID = ApplicationUserManger.shared.getUserID() else {return}
-
-        orderViewModel.addItemsToCart(product: product)
-        
+        favoritesViewModel.addItemsToFavorite(product: product)
        // CoreDataManager.shared.addToFavorites(id: Int64(customerID), pid: Int64(id), name: product.title!, pimage: (product.image?.src)!, Price: variants[0].price!)
     }
     

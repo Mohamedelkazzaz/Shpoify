@@ -32,6 +32,7 @@ class FavoritesViewModel{
             
         }
     }
+    
     func addFavoriteProducts(completion: @escaping ([Favorites]?, Error?) -> Void){
         guard let customerID = ApplicationUserManger.shared.getUserID() else {return}
         CoreDataManager.shared.fetchFavoriteProductsForCustomer(customerID: customerID)
@@ -42,5 +43,39 @@ class FavoritesViewModel{
             }
             completion(products, nil)
         }
+    }
+    
+    func addItemsToFavorite(product:Product){
+        do {
+            let items = try context.fetch(Favorites.fetchRequest())
+            if isItemExist(productId: product.id!,Items: items){
+                print("Already in favorite")
+                // self.showAlreadyExist()
+            }else{
+                let products = Favorites(context: context)
+                
+                products.productID = Int64(product.id!)
+                products.productName = product.title
+                products.productPrice = product.variants![0].price
+                products.productImage = product.image?.src
+                products.customerID = Int64(ApplicationUserManger.shared.getUserID()!)
+                try? context.save()
+                print("add to favorite")
+            }
+        } catch let error {
+            print(error)
+        }
+    }
+    
+    func isItemExist(productId: Int,Items:[Favorites]) -> Bool {
+        var check : Bool = false
+        for i in Items {
+            if i.productID == productId {
+                check = true
+            }else {
+                check = false
+            }
+        }
+        return check
     }
 }

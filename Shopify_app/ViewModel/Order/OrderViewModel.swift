@@ -43,6 +43,7 @@ class OrderViewModel{
                 order.quantity = 1
                 order.userId = Int64(customerID!)
                 try? context.save()
+               
             }
         } catch let error {
             print(error)

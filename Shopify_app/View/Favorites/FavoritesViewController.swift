@@ -32,7 +32,8 @@ class FavoritesViewController: UIViewController {
 //    }
     
     override func viewDidAppear(_ animated: Bool) {
-        favoriteProducts = CoreDataManager.shared.fetchData()
+        //favoriteProducts = CoreDataManager.shared.fetchData()
+        favoriteProducts = try! context.fetch(Favorites.fetchRequest())
         favoritesTableView.reloadData()
     }
     
@@ -42,7 +43,8 @@ class FavoritesViewController: UIViewController {
     }
     
     func initViewModel() {
-        favoriteProducts = CoreDataManager.shared.fetchData()
+       // favoriteProducts = CoreDataManager.shared.fetchData()
+        favoriteProducts = try! context.fetch(Favorites.fetchRequest())
     }
     
     func tableViewConfig() {
