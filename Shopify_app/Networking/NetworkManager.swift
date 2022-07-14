@@ -194,14 +194,13 @@ class NetworkManager: ApiService{
        }
     
 
-    func getOrdersForCustomer(customerId: Int, completion: @escaping (Customer?, Error?) -> Void) {
+    func getOrdersForCustomer(customerId: Int, completion: @escaping (OrdersFromAPI?, Error?) -> Void) {
         let customerId = ApplicationUserManger.shared.getUserID()
-        guard let url = Url.shared.getAddressForCustomer(customerID: "\(customerId ?? 0)") else {return}
+        guard let url = Url.shared.getOrdersUser(customerId: customerId ?? 0) else {return}
         URLSession.shared.dataTask(with: url) {[weak self] data, response, error in
             if let data = data{
-//                print(String(data: data, encoding: .utf8))
                 do{
-                    let json = try JSONDecoder().decode(Customer.self, from: data)
+                    let json = try JSONDecoder().decode(OrdersFromAPI.self, from: data)
                     DispatchQueue.main.async{
                         completion(json, nil)
                         print("success to get all Addreeses")
@@ -239,6 +238,7 @@ class NetworkManager: ApiService{
         session.dataTask(with: request) { (data,response,error) in
             completion(data, response, error)
         }.resume()
+  
     }
     
     func getDiscounts(priceRuleId: Int, complition: @escaping (DiscountModel?, Error?) -> Void) {

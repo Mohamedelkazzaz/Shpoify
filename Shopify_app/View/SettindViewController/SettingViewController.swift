@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class SettingViewController: UIViewController {
 
     @IBOutlet weak var profileTableView: UITableView!
@@ -29,6 +30,10 @@ class SettingViewController: UIViewController {
         if (ApplicationUserManger.shared.getUserStatus()){
             ApplicationUserManger.shared.setUserStatus(userIsLogged: false)
             ApplicationUserManger.shared.setUserID(customerID: 0)
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
+            let nav = UINavigationController(rootViewController: vc)
+            nav.modalPresentationStyle = .fullScreen
+            self.present(nav, animated: true, completion: nil)
         }else{
         
         }
@@ -41,9 +46,6 @@ class SettingViewController: UIViewController {
 
 }
 
-
-   
-    
 
 extension SettingViewController: UITableViewDelegate,UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -98,7 +100,7 @@ extension SettingViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            let vc = UIStoryboard(name: "Adress", bundle: nil).instantiateViewController(withIdentifier: "AddAddressViewController") as! AddAddressViewController
+            let vc = UIStoryboard(name: "MyLastOreders", bundle: nil).instantiateViewController(withIdentifier: "MyOrdersTV") as! MyOrdersTV 
             self.navigationController?.pushViewController(vc, animated: true)
         case 1:
             let vc = UIStoryboard(name: "Adress", bundle: nil).instantiateViewController(withIdentifier: "AddAddressViewController") as! AddAddressViewController

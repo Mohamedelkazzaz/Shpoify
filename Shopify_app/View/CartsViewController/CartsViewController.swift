@@ -139,7 +139,7 @@ extension CartsViewController: UITableViewDelegate,UITableViewDataSource{
     func Delete(indexPath:IndexPath){
         let alert = UIAlertController(title: "Are you sure?", message: "You will remove this item from the cart", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: { [self] UIAlertAction in
-            orderViewModel.deleteFromCoreData(indexPath: indexPath, cartItems: cart)
+            orderViewModel.deleteItemFromeCart(indexPath: indexPath, cartItems: cart)
             self.cart.remove(at: indexPath.row)
             cardsTableView.deleteRows(at: [indexPath], with: .left)
             self.cardsTableView.reloadData()

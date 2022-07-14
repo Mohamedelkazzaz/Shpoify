@@ -10,7 +10,6 @@ import UIKit
 class CheckOutViewController: UIViewController {
     
     @IBOutlet weak var MyOrdersColletion: UICollectionView!
-    
     @IBOutlet weak var totalPrice: UILabel!
     @IBOutlet weak var couponText: UITextField!
     @IBOutlet weak var discountLable: UILabel!
@@ -24,11 +23,19 @@ class CheckOutViewController: UIViewController {
     var discounts: [String] = []
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let favoritesViewModel = FavoritesViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         MyOrdersColletion.dataSource = self
         MyOrdersColletion.delegate = self
-        cart = CoreDataManager.shared.fetchDataInCart(appDelegate: appDelegate.self)
+        do {
+            cart = try context.fetch(Cart.fetchRequest())
+            
+        } catch let error {
+            print(error)
+        }
+        
+        //CoreDataManager.shared.fetchDataInCart(appDelegate: appDelegate.self)
         MyOrdersColletion.reloadData()
         
         viewModel.fetchDiscounts()
@@ -36,19 +43,14 @@ class CheckOutViewController: UIViewController {
             DispatchQueue.main.async {
                 self.MyOrdersColletion.reloadData()
             }
-        
-        if let error = error{
-            print(error.localizedDescription)
-        }
-    }
             
-        
-        
+            if let error = error{
+                print(error.localizedDescription)
+            }
+        }
+  
     }
     
-//    func initOrdesView(){
-//        subTotal.
-//    }
     @IBAction func applyCoupon(_ sender: UIButton) {
         totalPrice.text = "\(viewModel.applyCoupon(code: couponText.text ?? "", price: Double(totalPrice.text ?? "0") ?? 0))"
     }

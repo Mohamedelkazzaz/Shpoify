@@ -57,6 +57,9 @@ struct Url {
         return URL(string: baseURL + "price_rules/\(priceRuleId)/discount_codes/\(discountCodeId).json")
 
     }
+    func getOrdersUser(customerId:Int)->URL?{
+        return URL(string: baseURL + "customers/\(customerId)/orders.json")
+    }
 
 
 }

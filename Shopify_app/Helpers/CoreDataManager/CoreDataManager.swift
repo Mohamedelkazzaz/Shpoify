@@ -15,7 +15,7 @@ class CoreDataManager {
     private init() {}
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-        func saveFavoritesProducts(completion: @escaping (Bool)-> Void) {
+    func saveFavoritesProducts(completion: @escaping (Bool)-> Void) {
             do {
                 try context.save()
                 completion(true)
@@ -25,7 +25,7 @@ class CoreDataManager {
             }
         }
     
-        func getFavoriteProducts(completion: @escaping ([Favorites]?, Error?) -> Void ) {
+    func getFavoriteProducts(completion: @escaping ([Favorites]?, Error?) -> Void ) {
             do{
                 let favoriteProducts = try context.fetch(Favorites.fetchRequest())
                 print("fetching data from Core DaTa")

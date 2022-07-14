@@ -20,12 +20,14 @@ protocol ApiService{
     func getAddressForCustomer(customerId: Int,completion: @escaping (Customer?, Error?)->Void)
     func deleteAddressForCustomer(customerId: Int,id: Int,completion: @escaping ( Error?)->())
 
-    func getOrdersForCustomer(customerId: Int,completion: @escaping (Customer?, Error?)->Void)
+    func getOrdersForCustomer(customerId: Int, completion: @escaping (OrdersFromAPI?, Error?) -> Void)
     func addOrder(order:OrderToAPI,completion: @escaping (Data?,URLResponse?,Error?)->Void)
    
 
     func getDiscounts(priceRuleId: Int,complition: @escaping (DiscountModel?, Error?)->Void)
     func deleteDiscount(priceRuleId: Int,discountCodeId: Int,completion: @escaping ( Error?)->())
+    
+
 }
 
 

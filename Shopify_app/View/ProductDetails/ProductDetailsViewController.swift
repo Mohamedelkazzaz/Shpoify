@@ -39,7 +39,6 @@ class ProductDetailsViewController: UIViewController {
         collectionViewUpdate()
     }
     
-    
     func collectionViewConfig() {
         productDetailsCollectionView.dataSource = self
         productDetailsCollectionView.delegate = self
@@ -49,8 +48,7 @@ class ProductDetailsViewController: UIViewController {
    func collectionViewUpdate() {
         
         guard let product = product, let variant = product.variants,
-        let price = variant[0].price else {
-            return  }
+        let price = variant[0].price else { return  }
         productPrice.text = price + " USD"
         productTitle.text = product.title
         productDescription.text = product.body_html
@@ -87,7 +85,6 @@ class ProductDetailsViewController: UIViewController {
             self.favoritesBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             addProductToFavorites()
         }
-        
         else{
             print("Product is already selected")
             self.favoritesBtn.setImage(UIImage(systemName: "heart"), for: .normal)
@@ -95,13 +92,13 @@ class ProductDetailsViewController: UIViewController {
         }
     }
     
-    
-    
     func addProductToFavorites()    {
         
         guard let product = product, let id = product.id, let variants = product.variants, let customerID = ApplicationUserManger.shared.getUserID() else {return}
+
+        orderViewModel.addItemsToCart(product: product)
         
-        CoreDataManager.shared.addToFavorites(id: Int64(customerID), pid: Int64(id), name: product.title!, pimage: (product.image?.src)!, Price: variants[0].price!)
+       // CoreDataManager.shared.addToFavorites(id: Int64(customerID), pid: Int64(id), name: product.title!, pimage: (product.image?.src)!, Price: variants[0].price!)
     }
     
     func unselectingProducts(){

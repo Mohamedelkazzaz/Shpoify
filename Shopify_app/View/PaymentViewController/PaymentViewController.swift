@@ -18,6 +18,9 @@ class PaymentViewController: UIViewController {
     let authorization = "sandbox_fwfrj4cq_hspcfyx6tzdmdvb9"
     var braintreeAPIClient:BTAPIClient!
     var amount = ""
+    var ViewModel = OrderViewModel()
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+   
     override func viewDidLoad() {
         super.viewDidLoad()
          
@@ -86,7 +89,8 @@ class PaymentViewController: UIViewController {
         if paypalSelectedBtn.isSelected{
             startCheckout(amount: amount)
         }else{
-            
+            var orders = CoreDataManager.shared.fetchDataInCart(appDelegate: appDelegate.self)
+            ViewModel.postOrdersToApi(cartArray: orders)
         }
     }
     

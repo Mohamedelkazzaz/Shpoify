@@ -106,8 +106,9 @@ class ProductsListViewController: UIViewController {
     @IBAction func cartButton(_ sender: UIBarButtonItem) {
         let check =   ApplicationUserManger.shared.getUserStatus()
         if check == true{
-            let vc = storyboard?.instantiateViewController(withIdentifier: "CartsViewController") as? CartsViewController
-            self.navigationController?.pushViewController(vc!, animated: true)
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CartsViewController") as! CartsViewController
+            //let vc = storyboard?.instantiateViewController(withIdentifier: "CartsViewController") as? CartsViewController
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         else{
             let vc = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController

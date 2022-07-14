@@ -11,22 +11,14 @@ import Foundation
 
 class OrderViewModel{
     
-//    var bindingAlreadyInCartToView : (()->()) = {}
-//    var bindingDeleteCartToView : (()->()) = {}
-//    var bindingEmptyCartAlert : (()->()) = {}
     let customerID = ApplicationUserManger.shared.getUserID()
-
-//    var showAlreadyExist : (()->()) {
-//        self.bindingAlreadyInCartToView
-//    }
-//    var showDeleteAlert : (()->()) {
-//        self.bindingDeleteCartToView
-//    }
-//    var showEmptyCartAlert : (()->()) {
-//        self.bindingEmptyCartAlert
-//    }
+    var order : OrderItem?
+    var orderProduct : [OrderItem] = []
+    var totalOrder = Order()
+    let networking = NetworkManager()
     
-    func getItemsInCart(complition: @escaping (([Cart]?,Error?)->Void)){
+    
+    func fetchItemsFromCart(complition: @escaping (([Cart]?,Error?)->Void)){
         do {
             let cartItems = try context.fetch(Cart.fetchRequest())
             complition(cartItems, nil)
@@ -36,51 +28,49 @@ class OrderViewModel{
         }
     }
     
-//    func addItemsToCart(product:Product){
-//        do {
-//            let items = try context.fetch(Cart.fetchRequest())
-//            if checkIfItemExist(id: product.id!,itemms: items){
-//                print("Already in cart")
-//                self.showAlreadyExist()
-//            }else{
-//                let orderItem = Cart(context: context)
-//                orderItem.id = Int64(product.id!)
-//                orderItem.title = product.title
-//                orderItem.price = product.variants![0].price
-//                orderItem.image = product.image?.src
-//                orderItem.quantity = 1
-//                orderItem.userId = Int64(customerID!)
-//                try? context.save()
-//                print(orderItem)
-//            }
-//        } catch let error {
-//            print(error)
-//        }
-//    }
-//    
-//    func checkIfItemExist(id: Int,itemms:[Cart]) -> Bool {
-//        var check : Bool = false
-//        for i in itemms {
-//            if i.id == id {
-//                check = true
-//            }else {
-//                check = false
-//            }
-//        }
-//        return check
-//    }
+    func addItemsToCart(product:Product){
+        do {
+            let items = try context.fetch(Cart.fetchRequest())
+            if isItemExist(productId: product.id!,cartsItems: items){
+                print("Already in cart")
+                // self.showAlreadyExist()
+            }else{
+                let order = Cart(context: context)
+                order.id = Int64(product.id!)
+                order.title = product.title
+                order.price = product.variants![0].price
+                order.image = product.image?.src
+                order.quantity = 1
+                order.userId = Int64(customerID!)
+                try? context.save()
+            }
+        } catch let error {
+            print(error)
+        }
+    }
     
-    func deleteFromCoreData(indexPath:IndexPath,cartItems:[Cart]){
+    func isItemExist(productId: Int,cartsItems:[Cart]) -> Bool {
+        var check : Bool = false
+        for i in cartsItems {
+            if i.id == productId {
+                check = true
+            }else {
+                check = false
+            }
+        }
+        return check
+    }
+    
+    func deleteItemFromeCart(indexPath:IndexPath,cartItems:[Cart]){
         context.delete(cartItems[indexPath.row])
         try? context.save()
     }
-
+    
 }
-
 
 extension OrderViewModel{
     func getSelectedItemInCart(productId: Int64, completion: @escaping (Cart?, Error?)-> Void){
-        getItemsInCart { orders, error in
+        fetchItemsFromCart { orders, error in
             if error == nil {
                 guard let orders = orders, let customerID = self.customerID else { return }
                 for item in orders {
@@ -93,15 +83,16 @@ extension OrderViewModel{
             }
         }
     }
+    
     func getSelectedProducts(completion: @escaping ([Cart]?, Error?) -> Void){
-//        guard let customerID = ApplicationUserManger.shared.getUserID() else {return}
-//        CoreDataManager.shared.getProductsInCart(customerID: customerID) { carts, error in
-//            guard let carts = carts, error == nil else {
-//                completion(nil, error)
-//                return
-//            }
-//            completion(carts, nil)
-//        }
+        //        guard let customerID = ApplicationUserManger.shared.getUserID() else {return}
+        //        CoreDataManager.shared.getProductsInCart(customerID: customerID) { carts, error in
+        //            guard let carts = carts, error == nil else {
+        //                completion(nil, error)
+        //                return
+        //            }
+        //            completion(carts, nil)
+        //        }
     }
     
     func saveProductToCart(){
@@ -115,13 +106,10 @@ extension OrderViewModel{
     }
 }
 
-   
-
-
 extension OrderViewModel{
     func calcTotalPrice(completion: @escaping (Double?)-> Void){
         var totalPrice: Double = 0.0
-        getItemsInCart { orders, error in
+        fetchItemsFromCart { orders, error in
             if error == nil {
                 guard let orders = orders, let customerID = self.customerID  else { return }
                 for item in orders{
@@ -137,4 +125,70 @@ extension OrderViewModel{
             }
         }
     }
+}
+
+extension OrderViewModel{
+    func getCustomer(completion: @escaping (Customer?)-> Void){
+        networking.getAllCustomers { customers, error in
+            guard let customers = customers, error == nil,let customerID = self.customerID else {return}
+            
+            let filetr = customers.customers.filter { selectedCustomer in
+                return selectedCustomer.id == customerID
+            }
+            if filetr.count != 0{
+                print(filetr.count)
+                completion(filetr[0])
+            }else{
+                completion(nil)
+            }
+        }
+    }
+    
+    func postOrdersToApi(cartArray:[Cart]){
+        if cartArray.count == 0 {
+            print ("self.showEmptyCartAlert()")
+        }
+        else{
+            for item in cartArray {
+                orderProduct.append(OrderItem(variant_id: Int(item.id), quantity: Int(item.quantity), name: nil, price: item.price,title:item.title))
+            }
+            self.calcTotalPrice { total in
+                guard let total = total else {
+                    return
+                }
+                self.totalOrder.current_total_price = String(total)
+            }
+            self.getCustomer { customer in
+                guard let customer = customer else {
+                    return
+                }
+                let order = Order(customer: customer, line_items: self.orderProduct, current_total_price: self.totalOrder.current_total_price)
+                let ordertoAPI = OrderToAPI(order: order)
+                self.networking.addOrder(order: ordertoAPI) { data, urlResponse, error in
+                    if error == nil {
+                        print("Post order success")
+                        if let data = data{
+                            let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! Dictionary<String,Any>
+                            let returnedOrder = json["order"] as? Dictionary<String,Any>
+                            let returnedCustomer = returnedOrder?["customer"] as? Dictionary<String,Any>
+                            let id = returnedCustomer?["id"] as? Int ?? 0
+                            print(json)
+                            print("----------")
+                            print(id)
+                            
+                            for i in cartArray {
+                                context.delete(i)
+                            }
+                            try! context.save()
+                            
+                        }
+                    }else{
+                        print(error)
+                    }
+                }
+            }
+        }
+    }
+    
+    
 }
