@@ -70,10 +70,16 @@ extension CheckOutViewController : UICollectionViewDataSource,UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyOrderItemCell", for: indexPath) as! MyOrderItemCell
+
         cell.setupCell(cart: cart[indexPath.row])
         subTotal.text = "\(ApplicationUserManger.shared.getTotalPrice() ?? 0)"
         totalPrice.text = "\(ApplicationUserManger.shared.getTotalPrice() ?? 0)"
         addressLable.text = address
+
+        let price = arratOOrders[indexPath.row].productPrice
+        let convertPrice = ConvertPrice.getPrice(price: Double(price ?? "") ?? 0.0)
+        cell.priceLable.text = "\(convertPrice)"
+
         return cell
     }
 

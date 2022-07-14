@@ -49,6 +49,9 @@
 		E89A3A2A2872133F00D609B5 /* AddAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89A3A292872133F00D609B5 /* AddAddressViewController.swift */; };
 		E89A3A2D2872163500D609B5 /* addAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89A3A2B2872163500D609B5 /* addAddressCell.swift */; };
 		E89A3A2E2872163500D609B5 /* addAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E89A3A2C2872163500D609B5 /* addAddressCell.xib */; };
+		E8A997EF2880595200344D18 /* Cuurency.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A997EE2880595200344D18 /* Cuurency.swift */; };
+		E8A997F12880667700344D18 /* ConvertPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A997F02880667700344D18 /* ConvertPrice.swift */; };
+		E8AA410C2880546600431574 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AA410B2880546600431574 /* Currency.swift */; };
 		E8B21C17286B8CC00000AABB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B21C16286B8CC00000AABB /* AppDelegate.swift */; };
 		E8B21C19286B8CC00000AABB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B21C18286B8CC00000AABB /* SceneDelegate.swift */; };
 		E8B21C1B286B8CC00000AABB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B21C1A286B8CC00000AABB /* ViewController.swift */; };
@@ -159,6 +162,9 @@
 		E89A3A292872133F00D609B5 /* AddAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewController.swift; sourceTree = "<group>"; };
 		E89A3A2B2872163500D609B5 /* addAddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addAddressCell.swift; sourceTree = "<group>"; };
 		E89A3A2C2872163500D609B5 /* addAddressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addAddressCell.xib; sourceTree = "<group>"; };
+		E8A997EE2880595200344D18 /* Cuurency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cuurency.swift; sourceTree = "<group>"; };
+		E8A997F02880667700344D18 /* ConvertPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertPrice.swift; sourceTree = "<group>"; };
+		E8AA410B2880546600431574 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		E8B21C13286B8CBF0000AABB /* Shopify_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopify_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8B21C16286B8CC00000AABB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8B21C18286B8CC00000AABB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -425,6 +431,15 @@
 			path = Address;
 			sourceTree = "<group>";
 		};
+		E8AA410A2880545400431574 /* Currency */ = {
+			isa = PBXGroup;
+			children = (
+				E8AA410B2880546600431574 /* Currency.swift */,
+				E8A997F02880667700344D18 /* ConvertPrice.swift */,
+			);
+			path = Currency;
+			sourceTree = "<group>";
+		};
 		E8B21C0A286B8CBF0000AABB = {
 			isa = PBXGroup;
 			children = (
@@ -483,7 +498,11 @@
 		E8B21C4A286B8D570000AABB /* View */ = {
 			isa = PBXGroup;
 			children = (
+
 				FC87B0CA287FC1F000A9050F /* MyOrders */,
+
+				E8AA410A2880545400431574 /* Currency */,
+
 				E88888D628787BF1006178DD /* PaymentViewController */,
 				9BA632A42875C0F000775E34 /* ProductDetails */,
 				9BA632922875AEB200775E34 /* Favorites */,
@@ -613,6 +632,7 @@
 				E8E7FD0A28766BB500B2B1DE /* CartModel.swift */,
 				FCAC1783287855BA00ECC217 /* Orders.swift */,
 				E88823E9287DB2DD00C78F4D /* Discount.swift */,
+				E8A997EE2880595200344D18 /* Cuurency.swift */,
 			);
 			name = Models;
 			path = Delegates/Models;
@@ -929,6 +949,7 @@
 				FC4A667E2871F68E005D3BBB /* ProductsListViewController.swift in Sources */,
 				9BB7BB152875CF56001A39B7 /* CoreDataManager.swift in Sources */,
 				9BA6329F2875BCA400775E34 /* FavoritesCell.swift in Sources */,
+				E8A997EF2880595200344D18 /* Cuurency.swift in Sources */,
 				E86D31E4286F25FA007302E1 /* CartsCell.swift in Sources */,
 				9BA632A32875BEBB00775E34 /* TableView+Extensions.swift in Sources */,
 				E88823EA287DB2DD00C78F4D /* Discount.swift in Sources */,
@@ -942,7 +963,9 @@
 				FC87B0DA287FD68400A9050F /* MyOrdersDetailsTableViewController.swift in Sources */,
 				E86D31E4286F25FA007302E1 /* CartsCell.swift in Sources */,
 				E898DC442871D0F600FCEEF2 /* SettingCell.swift in Sources */,
+				E8AA410C2880546600431574 /* Currency.swift in Sources */,
 				FC05F58728746F820026CEE4 /* MyOrderItemCell.swift in Sources */,
+				E8A997F12880667700344D18 /* ConvertPrice.swift in Sources */,
 				E89A3A2D2872163500D609B5 /* addAddressCell.swift in Sources */,
 				E8B21C51286B8DF70000AABB /* ApiService.swift in Sources */,
 				9BA632962875AF0600775E34 /* FavoritesViewController.swift in Sources */,

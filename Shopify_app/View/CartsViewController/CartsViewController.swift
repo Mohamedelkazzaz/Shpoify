@@ -46,7 +46,8 @@ class CartsViewController: UIViewController {
         orderViewModel.calcTotalPrice { totalPrice in
             guard let totalPrice = totalPrice else { return }
             ApplicationUserManger.shared.setTotalPrice(totalPrice:totalPrice)
-            self.priceLabel.text = String(totalPrice) + " USD"
+//            self.priceLabel.text = String(totalPrice) + " USD"
+            self.priceLabel.text = "\(ConvertPrice.getPrice(price: totalPrice.rounded()))"
         }
     }
     

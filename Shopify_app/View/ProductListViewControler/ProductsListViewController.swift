@@ -23,6 +23,7 @@ class ProductsListViewController: UIViewController {
     var searchFiltered = false
     var isCommingFromSearch = false
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         productsCollection.dataSource = self

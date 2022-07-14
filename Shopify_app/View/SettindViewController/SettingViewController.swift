@@ -13,6 +13,7 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var profileTableView: UITableView!
     
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var currecySegment: UISegmentedControl!
     
 
 
@@ -43,6 +44,19 @@ class SettingViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
+    @IBAction func selectSegment(_ sender: UISegmentedControl) {
+        switch currecySegment.selectedSegmentIndex {
+                case 0:
+            print("USD")
+            ApplicationUserManger.shared.setSelectedCurrency(isUSD: true)
+                case 1 :
+            print("EGP")
+            ApplicationUserManger.shared.setSelectedCurrency(isUSD: false)
+                default:
+                    break
+                }
+    }
+    
 
 }
 

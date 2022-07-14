@@ -52,6 +52,7 @@ struct Url {
         return URL(string: baseURL + "price_rules/\(priceRuleId)/discount_codes.json")
 
     }
+
     
     func deleteDiscount(priceRuleId: String,discountCodeId: String) -> URL?{
         return URL(string: baseURL + "price_rules/\(priceRuleId)/discount_codes/\(discountCodeId).json")
@@ -59,6 +60,11 @@ struct Url {
     }
     func getOrdersUser(customerId:Int)->URL?{
         return URL(string: baseURL + "customers/\(customerId)/orders.json")
+    }
+
+
+    func getCurrency() -> URL?{
+        return URL(string: "https://api.currencyapi.com/v3/latest?apikey=PtNixexh5FlMMVO0gzlvNt7Lx9s8nUJ1cvq2u8dK&currencies=EGP")
     }
 
 
