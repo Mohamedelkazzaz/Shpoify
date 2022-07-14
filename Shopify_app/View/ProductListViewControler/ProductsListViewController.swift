@@ -8,6 +8,7 @@ import UIKit
 import NVActivityIndicatorView
 class ProductsListViewController: UIViewController {
 
+    @IBOutlet weak var noDataImage: UIImageView!
     
     @IBOutlet weak var searchBare: UISearchBar!
     @IBOutlet weak var loadingIndecator: NVActivityIndicatorView!
@@ -29,6 +30,7 @@ class ProductsListViewController: UIViewController {
         productsCollection.dataSource = self
         productsCollection.delegate = self
         searchBare.delegate = self
+        noDataImage.isHidden = true
         
         if  brandName != "" {
             initProductsView()
@@ -40,7 +42,6 @@ class ProductsListViewController: UIViewController {
         }
         
         Indectore.createIndecatore(loadingIndecator: loadingIndecator)
-        
         priceLable.isHidden = true
         priceSliderOut.isHidden = true
     }
@@ -104,6 +105,7 @@ class ProductsListViewController: UIViewController {
         }
     }
     
+    //MARK: artButton
     @IBAction func cartButton(_ sender: UIBarButtonItem) {
         let check =   ApplicationUserManger.shared.getUserStatus()
         if check == true{
@@ -117,6 +119,7 @@ class ProductsListViewController: UIViewController {
         }
     }
     
+    //MARK: favoritButton
     @IBAction func favoritButton(_ sender: Any) {
         ApplicationUserManger.shared.checkUserIsLogged { loggedIn in
             if loggedIn {
@@ -131,6 +134,7 @@ class ProductsListViewController: UIViewController {
     
 }
 }
+//MARK: collectionView
 extension ProductsListViewController:UICollectionViewDelegate,UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -146,19 +150,17 @@ extension ProductsListViewController:UICollectionViewDelegate,UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell =  productsCollection.dequeueReusableCell(withReuseIdentifier: "ProductListCell", for: indexPath) as? ProductListCell
-
+        
         cell!.layer.cornerRadius = 25
         cell?.productImage.layer.cornerRadius = 25
         
-if (filtered){
+        if (filtered){
             cell?.configureCell(productName: arrayByPrices[indexPath.row].title!, productImage: (arrayByPrices[indexPath.row].image?.src!)!, productPrice: arrayByPrices[indexPath.row].variants![0].price ?? "0")
         }
         else{
             cell?.configureCell(productName: arrayOfFilterdProducts[indexPath.row].title!, productImage: (arrayOfFilterdProducts[indexPath.row].image?.src!)!, productPrice: arrayOfFilterdProducts[indexPath.row].variants![0].price ?? "0")
         }
-        
-        
-        
+
         return cell!
     }
     
@@ -182,46 +184,49 @@ if (filtered){
 }
 //MARK: searchbar
 extension ProductsListViewController:UISearchBarDelegate{
-//
-//    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-//        filtered = true
-//        arrayByPrices = arrayOfFilterdProducts
-//        DispatchQueue.main.async {
-//            self.productsCollection.reloadData()
-//        }
-//    }
-//        func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-//            filtered = false
-//
-//        }
-//
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        arrayByPrices = []
-//        if searchText == ""{
-//            arrayByPrices = arrayOfFilterdProducts
-//            DispatchQueue.main.async {
-//              //  print(self.arrayOfBrandProducts.count)
-//                self.productsCollection.reloadData()
-//            }
-//        }else{
-//            for product in arrayOfFilterdProducts{
-//                guard let title = product.title else{return}
-//                if title.hasPrefix(searchText) || title.hasPrefix(searchText.uppercased()){
-//                    arrayByPrices.append(product)
-//                   // self.notFoundImage.isHidden = true
-//                    self.productsCollection.isHidden = false
-//                }else{
-//                   // self.notFoundImage.isHidden = false
-//                    self.productsCollection.isHidden = true
-//                    DispatchQueue.main.async {
-//                        self.productsCollection.reloadData()
-//                    }
-//                }
-//            }
-//        }
-//        DispatchQueue.main.async {
-//            self.productsCollection.reloadData()
-//        }
-//    }
+
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        filtered = true
+        arrayByPrices = arrayOfFilterdProducts
+         DispatchQueue.main.async {
+        self.productsCollection.reloadData()
+         }
+    }
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        filtered = false
+    }
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        arrayByPrices = []
+        if searchText == ""{
+            arrayByPrices = arrayOfFilterdProducts
+            self.noDataImage.isHidden = true
+            self.productsCollection.isHidden = false
+            self.productsCollection.reloadData()
+        }else{
+            for product in arrayOfFilterdProducts{
+                guard let title = product.title else{return}
+                if title.hasPrefix(searchText) || title.hasPrefix(searchText.uppercased()){
+                    arrayByPrices.append(product)
+                    self.noDataImage.isHidden = true
+                    self.productsCollection.isHidden = false
+                    self.productsCollection.reloadData()
+                }else{
+                    if (arrayByPrices.count != 0){
+                       
+                    }
+                    else{
+                        self.noDataImage.isHidden = false
+                        self.productsCollection.isHidden = true
+                        self.productsCollection.reloadData()
+                    }
+                   
+                }
+            }
+        }
+      //  DispatchQueue.main.async {
+            self.productsCollection.reloadData()
+       // }
+    }
 }
 

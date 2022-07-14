@@ -315,6 +315,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbV-3U-p7P">
+                                <rect key="frame" x="179.5" y="378" width="55.5" height="39"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="icons8-logout" title="-"/>
+                                <connections>
+                                    <action selector="logoutButton:" destination="Xfa-4Z-HAH" eventType="touchUpInside" id="UtP-v1-7Pg"/>
+                                </connections>
+                            </button>
+
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fO3-th-IBu">
                                 <rect key="frame" x="10" y="424" width="394" height="472"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -403,7 +414,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+
                         <outlet property="currecySegment" destination="NVu-F5-e4Q" id="6Nz-wW-cZE"/>
+
+                        <outlet property="logoutButton" destination="nbV-3U-p7P" id="Eni-Zt-Edu"/>
+
                         <outlet property="nameLabel" destination="ShI-nO-PCb" id="zgM-sn-SX2"/>
                         <outlet property="profileTableView" destination="fO3-th-IBu" id="zy7-SO-LHz"/>
                     </connections>

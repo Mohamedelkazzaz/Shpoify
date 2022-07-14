@@ -26,6 +26,10 @@
                                 <color key="barTintColor" red="0.95305567980000006" green="0.96469980479999995" blue="0.96470612290000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="no-data" translatesAutoresizingMaskIntoConstraints="NO" id="yFj-mQ-kQQ">
+                                <rect key="frame" x="40" y="106" width="334" height="684"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="max" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbA-vy-btK">
                                 <rect key="frame" x="338" y="146" width="71" height="30"/>
                                 <constraints>
@@ -171,6 +175,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="loadingIndecator" destination="yoL-8y-CYy" id="qXW-CI-h2g"/>
+                        <outlet property="noDataImage" destination="yFj-mQ-kQQ" id="TK4-Ch-ZXb"/>
                         <outlet property="priceLable" destination="dbA-vy-btK" id="Zlh-FB-LuS"/>
                         <outlet property="priceSliderOut" destination="C4X-v4-5t9" id="HuJ-cd-hEK"/>
                         <outlet property="productsCollection" destination="bya-Th-Pj0" id="nda-By-rg7"/>
@@ -204,11 +209,12 @@
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="filter" width="512" height="512"/>
         <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="no-data" width="1380" height="920"/>
         <namedColor name="mainColor">
             <color red="0.15199999511241913" green="0.18400000035762787" blue="0.3449999988079071" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="secodeColor">
-            <color red="0.95700079199999999" green="0.73006588220000002" blue="0.29005163909999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.9570000171661377" green="0.73000001907348633" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
