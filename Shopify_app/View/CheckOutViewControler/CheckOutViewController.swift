@@ -72,11 +72,16 @@ extension CheckOutViewController : UICollectionViewDataSource,UICollectionViewDe
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyOrderItemCell", for: indexPath) as! MyOrderItemCell
 
         cell.setupCell(cart: cart[indexPath.row])
-        subTotal.text = "\(ApplicationUserManger.shared.getTotalPrice() ?? 0)"
-        totalPrice.text = "\(ApplicationUserManger.shared.getTotalPrice() ?? 0)"
+        
+        
+        let subtotal = ApplicationUserManger.shared.getTotalPrice() ?? 0
+        subTotal.text = "\(ConvertPrice.getPrice(price: subtotal ))"
+        
+        let totalprice = ApplicationUserManger.shared.getTotalPrice()
+        totalPrice.text = "\(ConvertPrice.getPrice(price: totalprice ?? 0.0 ))"
         addressLable.text = address
 
-        let price = arratOOrders[indexPath.row].productPrice
+        let price = cart[indexPath.row].price
         let convertPrice = ConvertPrice.getPrice(price: Double(price ?? "") ?? 0.0)
         cell.priceLable.text = "\(convertPrice)"
 

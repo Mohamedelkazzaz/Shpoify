@@ -46,21 +46,16 @@ class ProductDetailsViewController: UIViewController {
         productDetailsCollectionView.register(UINib(nibName: "ProductDetailsCollectionViewImageCell", bundle: .main), forCellWithReuseIdentifier: "ProductDetailsCollectionViewImageCell")
     }
     
-   func collectionViewUpdate() {
+    func collectionViewUpdate() {
         
-        guard let product = product, let variant = product.variants,
-
-        let price = variant[0].price else { return  }
-        productPrice.text = price + " USD"
-
-        let price = variant[0].price else {
-            return  }
-//        productPrice.text = price + " USD"
-       productPrice.text = "\(ConvertPrice.getPrice(price: Double(price ?? "") ?? 0.0))"
-
+        guard let product = product, let variant = product.variants,let price = variant[0].price else {return  }
+        
+        productPrice.text = "\(ConvertPrice.getPrice(price: Double(price ?? "") ?? 0.0))"
+        
         productTitle.text = product.title
+        
         productDescription.text = product.body_html
-        }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
