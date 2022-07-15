@@ -91,6 +91,10 @@ class PaymentViewController: UIViewController {
         }else{
             var orders = CoreDataManager.shared.fetchDataInCart(appDelegate: appDelegate.self)
             ViewModel.postOrdersToApi(cartArray: orders)
+            let vc = storyboard?.instantiateViewController(withIdentifier: "DoneViewController") as! DoneViewController
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
+//            navigationController?.setNavigationBarHidden(true, animated: true)
         }
     }
     

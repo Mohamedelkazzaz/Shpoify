@@ -13,7 +13,7 @@
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Shopify_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="Shopify_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -315,9 +315,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-
-                            
-
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fO3-th-IBu">
                                 <rect key="frame" x="10" y="424" width="394" height="472"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -406,11 +403,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-
                         <outlet property="currecySegment" destination="NVu-F5-e4Q" id="6Nz-wW-cZE"/>
-
                         <outlet property="logoutButton" destination="nbV-3U-p7P" id="Eni-Zt-Edu"/>
-
                         <outlet property="nameLabel" destination="ShI-nO-PCb" id="zgM-sn-SX2"/>
                         <outlet property="profileTableView" destination="fO3-th-IBu" id="zy7-SO-LHz"/>
                     </connections>
@@ -670,16 +664,65 @@
             </objects>
             <point key="canvasLocation" x="3643.4782608695655" y="1293.75"/>
         </scene>
-        <!--View Controller-->
+        <!--Done View Controller-->
         <scene sceneID="bnw-jX-agY">
             <objects>
-                <viewController id="u5H-AB-2vx" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DoneViewController" id="u5H-AB-2vx" customClass="DoneViewController" customModule="Shopify_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hFn-8t-Hff">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MSr-jz-cLc">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="done" translatesAutoresizingMaskIntoConstraints="NO" id="pyN-vr-kxu">
+                                        <rect key="frame" x="57" y="126" width="300" height="600"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="G7z-VB-nSk"/>
+                                            <constraint firstAttribute="height" constant="600" id="uej-lv-JbP"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZO-KO-bDf">
+                                        <rect key="frame" x="79" y="751" width="256" height="42"/>
+                                        <color key="backgroundColor" name="mainColor"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Continue to shopping">
+                                                    <attributes>
+                                                        <font key="NSFont" size="24" name="HelveticaNeue"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="continueShopping:" destination="u5H-AB-2vx" eventType="touchUpInside" id="22K-nc-rxD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="pyN-vr-kxu" firstAttribute="centerY" secondItem="MSr-jz-cLc" secondAttribute="centerY" id="9gR-bM-Hrx"/>
+                                    <constraint firstItem="hZO-KO-bDf" firstAttribute="centerX" secondItem="MSr-jz-cLc" secondAttribute="centerX" id="ghz-Ps-PMk"/>
+                                    <constraint firstItem="pyN-vr-kxu" firstAttribute="centerX" secondItem="MSr-jz-cLc" secondAttribute="centerX" id="gyH-0t-HCv"/>
+                                    <constraint firstItem="hZO-KO-bDf" firstAttribute="top" secondItem="pyN-vr-kxu" secondAttribute="bottom" constant="25" id="pVm-n7-b2r"/>
+                                    <constraint firstAttribute="bottom" secondItem="hZO-KO-bDf" secondAttribute="bottom" constant="30" id="yqL-FX-Fk2"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="g4i-9M-K7o"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MSr-jz-cLc" firstAttribute="leading" secondItem="hFn-8t-Hff" secondAttribute="leading" id="FwW-z6-RxO"/>
+                            <constraint firstItem="MSr-jz-cLc" firstAttribute="top" secondItem="g4i-9M-K7o" secondAttribute="top" id="gSX-or-5M7"/>
+                            <constraint firstAttribute="bottom" secondItem="MSr-jz-cLc" secondAttribute="bottom" id="i9g-rJ-y94"/>
+                            <constraint firstAttribute="trailing" secondItem="MSr-jz-cLc" secondAttribute="trailing" id="s5H-sC-Dsf"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="doneImage" destination="pyN-vr-kxu" id="3Py-Bh-kOM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sBJ-7u-MhK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -828,6 +871,7 @@
         <image name="avatar" width="512" height="512"/>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="command.circle" catalog="system" width="128" height="121"/>
+        <image name="done" width="1800" height="1200"/>
         <image name="empty" width="404" height="316"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="icons8-home" width="25" height="25"/>

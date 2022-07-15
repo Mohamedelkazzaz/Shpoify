@@ -13,6 +13,6 @@ class ConvertPrice{
             return price
         }
         print(ApplicationUserManger.shared.getCurrency())
-        return (price * (ApplicationUserManger.shared.getCurrency() ?? 0.0))
+        return (price * (ApplicationUserManger.shared.getCurrency() ?? 0.0)) 
     }
 }
