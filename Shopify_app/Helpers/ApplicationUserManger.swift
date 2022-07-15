@@ -41,8 +41,13 @@ class ApplicationUserManger{
     func setCurrency(currency: Double?){
         UserDefaults.standard.set(currency, forKey: "Currency")
     }
-    func getCurrency()-> Double?{
-        return UserDefaults.standard.double(forKey: "Currency")
+    func getCurrency()-> String?{
+//        return UserDefaults.standard.string(forKey: "Currency")
+        let currency = UserDefaults.standard.string(forKey: "Currency")
+        if currency == "USD"{
+            return "USD"
+        }
+        return currency ?? ""
     }
     func setSelectedCurrency(isUSD: Bool){
         UserDefaults.standard.set(isUSD, forKey: "USD")

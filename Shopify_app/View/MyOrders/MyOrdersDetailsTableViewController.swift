@@ -41,7 +41,8 @@ class MyOrdersDetailsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyOrdersDetailsCell", for: indexPath) as? MyOrdersDetailsCell
 
         cell?.name.text = items[indexPath.row].name
-        cell?.price.text = items[indexPath.row].price
+        let price = ConvertPrice.getPrice(price: Double(items[indexPath.row].price ?? "") ?? 0.0)
+        cell?.price.text = "\(price)"
         cell?.quntity.text =  "\(items[indexPath.row].quantity!)"
         
 

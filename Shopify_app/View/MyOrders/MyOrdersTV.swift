@@ -54,7 +54,8 @@ class MyOrdersTV: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyOrderCell", for: indexPath) as! MyOrderCell
-        cell.price.text = ordersArray[indexPath.row].current_total_price
+        let price = ConvertPrice.getPrice(price: Double(ordersArray[indexPath.row].current_total_price ?? "") ?? 0.0)
+        cell.price.text = "\(price)"
         cell.creationDate.text = ordersArray[indexPath.row].created_at
         cell.stat.text = ordersArray[indexPath.row].financial_status
         

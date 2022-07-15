@@ -17,13 +17,23 @@ class PaymentViewController: UIViewController {
     
     let authorization = "sandbox_fwfrj4cq_hspcfyx6tzdmdvb9"
     var braintreeAPIClient:BTAPIClient!
-    var amount = ""
+    var amount = 0.0
     var ViewModel = OrderViewModel()
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
    
     override func viewDidLoad() {
         super.viewDidLoad()
-         
+        let price = ConvertPrice.convertPrice(price: 500.0)
+        print(price)
+        
+        print(amount)
+        
+        if ConvertPrice.convertPrice(price: amount) >= price{
+            print(amount)
+            cashSelectedBtn.isHidden = true
+        }else{
+            print(amount)
+        }
         
     }
    
@@ -66,10 +76,10 @@ class PaymentViewController: UIViewController {
 //            }
 //        }
 //    }
-    func startCheckout(amount: String) {
+    func startCheckout(amount: Double) {
         self.braintreeAPIClient = BTAPIClient(authorization: authorization)
         let payPalDriver = BTPayPalDriver(apiClient: braintreeAPIClient!)
-        let request = BTPayPalCheckoutRequest(amount: amount)
+        let request = BTPayPalCheckoutRequest(amount: "\(amount)")
 //        request.currencyCode = "USD"
         var err:Error?
         payPalDriver.tokenizePayPalAccount(with: request) { [weak self] (tokenizedPayPalAccount, error) in

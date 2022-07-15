@@ -20,6 +20,7 @@ class SettingViewController: UIViewController {
 
     var array: [String] = ["My Orders","My Whishlist","My Adrresses","About us"]
 
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         if (ApplicationUserManger.shared.getUserStatus()){
@@ -64,6 +65,11 @@ class SettingViewController: UIViewController {
         }else{
             logoutButton.titleLabel?.text = "login"
             let vc = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            let cartArray = CoreDataManager.shared.fetchDataInCart(appDelegate: appDelegate.self)
+            for i in cartArray {
+                context.delete(i)
+            }
+            try! context.save()
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

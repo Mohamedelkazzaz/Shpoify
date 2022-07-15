@@ -57,7 +57,7 @@ class CheckOutViewController: UIViewController {
     @IBAction func paymentButton(_ sender: Any) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "PaymentViewController") as! PaymentViewController
-        vc.amount = totalPrice.text ?? ""
+        vc.amount = ApplicationUserManger.shared.getTotalPrice()!
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
