@@ -14,20 +14,15 @@ struct Url {
     func getAllBrandsURl()-> URL?{
         return URL(string: baseURL + "smart_collections.json")
     }
-    
     func getAllProductsURL()-> URL?{
         return URL(string: baseURL + "products.json")
     }
-
-  
     func getProductsByCategory(collectionId:String)-> URL?{
         return URL(string: baseURL + "products.json?collection_id=\(collectionId)")
     }
-    
     func addAddress(id: String) -> URL? {
             return URL(string: baseURL + "customers/\(id).json")
         }
-    
     func getAddressForCustomer(customerID: String) -> URL? {
         return URL(string: baseURL + "customers/\(customerID)/addresses.json")
     }
@@ -43,8 +38,6 @@ struct Url {
     func deleteAddress(customerID: String, id: String) -> URL?{
             return URL(string: baseURL + "customers/\(customerID)/addresses/\(id).json")
         }
-
-    
     func ordersURL()->URL?{
         return URL(string: baseURL + "orders.json")
     }
@@ -52,8 +45,6 @@ struct Url {
         return URL(string: baseURL + "price_rules/\(priceRuleId)/discount_codes.json")
 
     }
-
-    
     func deleteDiscount(priceRuleId: String,discountCodeId: String) -> URL?{
         return URL(string: baseURL + "price_rules/\(priceRuleId)/discount_codes/\(discountCodeId).json")
 
@@ -61,11 +52,15 @@ struct Url {
     func getOrdersUser(customerId:Int)->URL?{
         return URL(string: baseURL + "customers/\(customerId)/orders.json")
     }
-
-
     func getCurrency() -> URL?{
         return URL(string: "https://api.currencyapi.com/v3/latest?apikey=PtNixexh5FlMMVO0gzlvNt7Lx9s8nUJ1cvq2u8dK&currencies=EGP")
     }
 
-
+    enum Endpoint:String{
+        case customers = "customers.json"
+        case orders = "orders.json"
+        case getLoginPath = "account/login"
+        case Products = "products.json"
+        case Brands = "smart_collections.json"
+    }
 }

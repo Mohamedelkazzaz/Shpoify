@@ -73,12 +73,18 @@
 		FC05F57F28746D1D0026CEE4 /* MyOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC05F57E28746D1D0026CEE4 /* MyOrder.storyboard */; };
 		FC05F58428746F0D0026CEE4 /* CheckOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC05F58328746F0D0026CEE4 /* CheckOutViewController.swift */; };
 		FC05F58728746F820026CEE4 /* MyOrderItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC05F58628746F820026CEE4 /* MyOrderItemCell.swift */; };
+		FC09B0012881B9990053F0C5 /* NetworkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC09B0002881B9990053F0C5 /* NetworkTest.swift */; };
+		FC09B0032881B9E20053F0C5 /* NetworkMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC09B0022881B9E20053F0C5 /* NetworkMocks.swift */; };
+		FC09B0052881C93F0053F0C5 /* jsonDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC09B0042881C93F0053F0C5 /* jsonDecoder.swift */; };
+		FC09B0072881F8670053F0C5 /* NetworkMangerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC09B0062881F8670053F0C5 /* NetworkMangerTest.swift */; };
 		FC3866D7286D1440000EDC64 /*  BrandsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3866D6286D1440000EDC64 /*  BrandsViewModel.swift */; };
 		FC3866D9286D1AE5000EDC64 /* BrandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3866D8286D1AE5000EDC64 /* BrandCell.swift */; };
 		FC4A66782871F599005D3BBB /* ProductsByCategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4A66772871F598005D3BBB /* ProductsByCategoriesViewModel.swift */; };
 		FC4A667E2871F68E005D3BBB /* ProductsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4A667C2871F68D005D3BBB /* ProductsListViewController.swift */; };
 		FC4A667F2871F68E005D3BBB /* ProductListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4A667D2871F68E005D3BBB /* ProductListCell.swift */; };
 		FC4A668428724DAA005D3BBB /* ProductList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC4A668328724DAA005D3BBB /* ProductList.storyboard */; };
+		FC7A1657288206D600982208 /* RegistarationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7A1656288206D600982208 /* RegistarationTest.swift */; };
+		FC7A165928820A4200982208 /* CoreDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7A165828820A4200982208 /* CoreDataTest.swift */; };
 		FC87B0CC287FC6D000A9050F /* MyLastOreders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC87B0CB287FC6D000A9050F /* MyLastOreders.storyboard */; };
 		FC87B0CE287FC71F00A9050F /* MyOrdersTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC87B0CD287FC71F00A9050F /* MyOrdersTV.swift */; };
 		FC87B0D0287FCBD300A9050F /* MyOrdersViewModle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC87B0CF287FCBD300A9050F /* MyOrdersViewModle.swift */; };
@@ -191,12 +197,18 @@
 		FC05F57E28746D1D0026CEE4 /* MyOrder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyOrder.storyboard; sourceTree = "<group>"; };
 		FC05F58328746F0D0026CEE4 /* CheckOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutViewController.swift; sourceTree = "<group>"; };
 		FC05F58628746F820026CEE4 /* MyOrderItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderItemCell.swift; sourceTree = "<group>"; };
+		FC09B0002881B9990053F0C5 /* NetworkTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTest.swift; sourceTree = "<group>"; };
+		FC09B0022881B9E20053F0C5 /* NetworkMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMocks.swift; sourceTree = "<group>"; };
+		FC09B0042881C93F0053F0C5 /* jsonDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jsonDecoder.swift; sourceTree = "<group>"; };
+		FC09B0062881F8670053F0C5 /* NetworkMangerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMangerTest.swift; sourceTree = "<group>"; };
 		FC3866D6286D1440000EDC64 /*  BrandsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = " BrandsViewModel.swift"; path = "Shopify_app/ViewModel/Brands/ BrandsViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		FC3866D8286D1AE5000EDC64 /* BrandCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandCell.swift; sourceTree = "<group>"; };
 		FC4A66772871F598005D3BBB /* ProductsByCategoriesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsByCategoriesViewModel.swift; sourceTree = "<group>"; };
 		FC4A667C2871F68D005D3BBB /* ProductsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsListViewController.swift; sourceTree = "<group>"; };
 		FC4A667D2871F68E005D3BBB /* ProductListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListCell.swift; sourceTree = "<group>"; };
 		FC4A668328724DAA005D3BBB /* ProductList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductList.storyboard; sourceTree = "<group>"; };
+		FC7A1656288206D600982208 /* RegistarationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistarationTest.swift; sourceTree = "<group>"; };
+		FC7A165828820A4200982208 /* CoreDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTest.swift; sourceTree = "<group>"; };
 		FC87B0CB287FC6D000A9050F /* MyLastOreders.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyLastOreders.storyboard; sourceTree = "<group>"; };
 		FC87B0CD287FC71F00A9050F /* MyOrdersTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersTV.swift; sourceTree = "<group>"; };
 		FC87B0CF287FCBD300A9050F /* MyOrdersViewModle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersViewModle.swift; sourceTree = "<group>"; };
@@ -491,7 +503,11 @@
 		E8B21C2F286B8CC40000AABB /* Shopify_appTests */ = {
 			isa = PBXGroup;
 			children = (
+				FC09AFFF2881B9670053F0C5 /* Mocks */,
 				E8B21C30286B8CC40000AABB /* Shopify_appTests.swift */,
+				FC09B0062881F8670053F0C5 /* NetworkMangerTest.swift */,
+				FC7A1656288206D600982208 /* RegistarationTest.swift */,
+				FC7A165828820A4200982208 /* CoreDataTest.swift */,
 			);
 			path = Shopify_appTests;
 			sourceTree = "<group>";
@@ -557,6 +573,7 @@
 			isa = PBXGroup;
 			children = (
 				E8B21C52286B8E240000AABB /* NetworkManager.swift */,
+				FC09B0042881C93F0053F0C5 /* jsonDecoder.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -596,6 +613,15 @@
 				FC05F57E28746D1D0026CEE4 /* MyOrder.storyboard */,
 			);
 			path = CheckOutViewControler;
+			sourceTree = "<group>";
+		};
+		FC09AFFF2881B9670053F0C5 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				FC09B0002881B9990053F0C5 /* NetworkTest.swift */,
+				FC09B0022881B9E20053F0C5 /* NetworkMocks.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		FC3866D1286D06E5000EDC64 /* Delegates */ = {
@@ -966,6 +992,7 @@
 				9BB7BB182875F3F1001A39B7 /* ProductDetailsViewModel.swift in Sources */,
 				E8B21C51286B8DF70000AABB /* ApiService.swift in Sources */,
 				9BA6329B2875BBD700775E34 /* FavoritesViewModel.swift in Sources */,
+				FC09B0052881C93F0053F0C5 /* jsonDecoder.swift in Sources */,
 				E8B21C53286B8E240000AABB /* NetworkManager.swift in Sources */,
 				9B1FB35A28746F5F00D4A476 /* AuthenticationViewModel.swift in Sources */,
 				FC942866286E57500059E6D4 /* ProductCell.swift in Sources */,
@@ -1005,6 +1032,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC7A165928820A4200982208 /* CoreDataTest.swift in Sources */,
+				FC09B0012881B9990053F0C5 /* NetworkTest.swift in Sources */,
+				FC7A1657288206D600982208 /* RegistarationTest.swift in Sources */,
+				FC09B0032881B9E20053F0C5 /* NetworkMocks.swift in Sources */,
+				FC09B0072881F8670053F0C5 /* NetworkMangerTest.swift in Sources */,
 				E8B21C31286B8CC40000AABB /* Shopify_appTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

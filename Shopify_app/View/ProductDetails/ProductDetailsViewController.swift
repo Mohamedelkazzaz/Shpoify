@@ -115,7 +115,7 @@ class ProductDetailsViewController: UIViewController {
     
     func addProductToCard() {
         
-        for i in CoreDataManager.shared.fetchDataInCart(appDelegate: appDelegate.self){
+        for i in CoreDataManager.shared.fetchDataFromCart(){
             if i.id == (product?.id)!{
                 isFound = true
             }

@@ -118,7 +118,7 @@ extension FavoritesViewController: UITableViewDelegate {
 //            favoritesTableView.endUpdates()
 //        }
         CoreDataManager.shared.deleteProduct(Core: favoriteProducts[indexPath.row])
-        favoriteProducts = CoreDataManager.shared.fetchData()
+        favoriteProducts = CoreDataManager.shared.fetchDataFromFavorit()
         favoritesTableView.reloadData()
     }
 }
