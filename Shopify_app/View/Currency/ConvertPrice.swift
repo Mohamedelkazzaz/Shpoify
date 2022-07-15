@@ -10,9 +10,10 @@ import Foundation
 class ConvertPrice{
     static func getPrice(price: Double) -> Double{
         if ApplicationUserManger.shared.getSelectedCurrency(){
-            return price
+            return round(price * 100) / 100.0 
         }
-        print(ApplicationUserManger.shared.getCurrency())
-        return (price * (ApplicationUserManger.shared.getCurrency() ?? 0.0)) 
+//        print(ApplicationUserManger.shared.getCurrency())
+        return round((price * (ApplicationUserManger.shared.getCurrency() ?? 0.0)) * 100) / 100.0
     }
+    
 }

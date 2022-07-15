@@ -16,7 +16,7 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var currecySegment: UISegmentedControl!
     
     @IBOutlet weak var logoutButton: UIButton!
-    
+//    var isSelect = false
 
     var array: [String] = ["My Orders","My Whishlist","My Adrresses","About us"]
 
@@ -32,6 +32,20 @@ class SettingViewController: UIViewController {
         else{
             logoutButton.setTitle("login", for: .normal)
           
+        }
+        
+//        if ApplicationUserManger.shared.getSelectedCurrency(){
+//            ApplicationUserManger.shared.setSelectedCurrency(isUSD: true)
+//            currecySegment.selectedSegmentTintColor = .blue
+//        }else{
+//            ApplicationUserManger.shared.setSelectedCurrency(isUSD: false)
+//            currecySegment.selectedSegmentTintColor = .yellow
+//        }
+        
+        if ApplicationUserManger.shared.getSelectedCurrency(){
+            currecySegment.selectedSegmentIndex = 0
+        }else {
+            currecySegment.selectedSegmentIndex = 1
         }
         
     }
