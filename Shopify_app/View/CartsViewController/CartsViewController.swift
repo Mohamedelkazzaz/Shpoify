@@ -32,7 +32,6 @@ class CartsViewController: UIViewController {
         cart = CoreDataManager.shared.fetchDataInCart(appDelegate: appDelegate.self)
         cardsTableView.reloadData()
         checkCart()
-        print(cart.count)
         
     }
     

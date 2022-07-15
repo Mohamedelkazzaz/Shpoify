@@ -34,10 +34,8 @@ class ProductsListViewController: UIViewController {
         
         if  brandName != "" {
             initProductsView()
-            print("from brand")
 
         }else{
-            print("from search")
             comingFromSearch()
         }
         
@@ -84,7 +82,7 @@ class ProductsListViewController: UIViewController {
                 self.loadingIndecator.stopAnimating()
             }
             if let error = error {
-                print(error.localizedDescription)
+                print(error)
             }
         }
     }
@@ -100,7 +98,7 @@ class ProductsListViewController: UIViewController {
                 self.loadingIndecator.stopAnimating()
             }
             if let error = error {
-                print(error.localizedDescription)
+                print(error)
             }
         }
     }
@@ -150,8 +148,7 @@ extension ProductsListViewController:UICollectionViewDelegate,UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell =  productsCollection.dequeueReusableCell(withReuseIdentifier: "ProductListCell", for: indexPath) as? ProductListCell
-        
-        cell!.layer.cornerRadius = 25
+        cell!.productImage.layer.borderWidth = 0.1
         cell?.productImage.layer.cornerRadius = 25
         
         if (filtered){

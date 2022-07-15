@@ -11,6 +11,7 @@ class MyOrderCell: UITableViewCell {
 
     @IBOutlet weak var price: UILabel!
     
+    @IBOutlet weak var stat: UILabel!
     @IBOutlet weak var creationDate: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

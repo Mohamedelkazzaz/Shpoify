@@ -31,7 +31,7 @@ class MyOrdersDetailsTableViewController: UITableViewController {
         return items.count
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 180
+        return 150
     }
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "My Orders"
@@ -40,10 +40,15 @@ class MyOrdersDetailsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyOrdersDetailsCell", for: indexPath) as? MyOrdersDetailsCell
 
-        cell?.name.text = items[indexPath.row].title
+        cell?.name.text = items[indexPath.row].name
         cell?.price.text = items[indexPath.row].price
         cell?.quntity.text =  "\(items[indexPath.row].quantity!)"
+        
 
+        cell?.layer.borderColor = UIColor.black.cgColor
+        cell?.layer.borderWidth = 1
+        cell?.layer.cornerRadius  = 20
+        cell?.clipsToBounds = true
         return cell!
     }
    

@@ -84,12 +84,10 @@ class ProductDetailsViewController: UIViewController {
     func selectedFavoritesBtn(sender: UIButton){
         sender.isSelected = !sender.isSelected
         if sender.isSelected{
-            print("Product Selected")
             self.favoritesBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             addProductToFavorites()
         }
         else{
-            print("Product is already selected")
             self.favoritesBtn.setImage(UIImage(systemName: "heart"), for: .normal)
             unselectingProducts()
         }
@@ -122,8 +120,6 @@ class ProductDetailsViewController: UIViewController {
         for i in CoreDataManager.shared.fetchDataInCart(appDelegate: appDelegate.self){
             if i.id == (product?.id)!{
                 isFound = true
-                print("Already in cart")
-                
             }
         }
         if isFound == true{

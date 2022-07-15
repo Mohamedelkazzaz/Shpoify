@@ -45,7 +45,7 @@ class CheckOutViewController: UIViewController {
             }
             
             if let error = error{
-                print(error.localizedDescription)
+                print(error)
             }
         }
   

@@ -66,10 +66,8 @@ class SettingViewController: UIViewController {
     @IBAction func selectSegment(_ sender: UISegmentedControl) {
         switch currecySegment.selectedSegmentIndex {
                 case 0:
-            print("USD")
             ApplicationUserManger.shared.setSelectedCurrency(isUSD: true)
                 case 1 :
-            print("EGP")
             ApplicationUserManger.shared.setSelectedCurrency(isUSD: false)
                 default:
                     break
@@ -96,6 +94,8 @@ extension SettingViewController: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SettingCell
+        cell.layer.borderWidth = 0.1
+        cell.layer.cornerRadius = 15
         switch indexPath.row{
         case 0:
             cell.cellImage.image = UIImage(systemName: "bag")

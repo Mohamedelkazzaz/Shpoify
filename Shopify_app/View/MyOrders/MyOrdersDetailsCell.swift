@@ -9,6 +9,7 @@ import UIKit
 
 class MyOrdersDetailsCell: UITableViewCell {
 
+    @IBOutlet weak var title: UILabel!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var quntity: UILabel!
     @IBOutlet weak var name: UILabel!

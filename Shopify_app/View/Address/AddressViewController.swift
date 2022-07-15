@@ -35,7 +35,7 @@ class AddressViewController: UIViewController {
                 }
             
             if let error = error{
-                print(error.localizedDescription)
+                print(error)
             }
         }
     }
@@ -91,7 +91,7 @@ extension AddressViewController: UITableViewDelegate,UITableViewDataSource{
           
           networkManager.deleteAddressForCustomer(customerId: customerId, id: id ?? 0) {  error in
               if let error = error{
-                  print(error.localizedDescription)
+                  print(error)
                  return
               }
 

@@ -12,7 +12,6 @@ class ConvertPrice{
         if ApplicationUserManger.shared.getSelectedCurrency(){
             return price
         }
-        print(ApplicationUserManger.shared.getCurrency())
         return (price * (ApplicationUserManger.shared.getCurrency() ?? 0.0))
     }
 }
