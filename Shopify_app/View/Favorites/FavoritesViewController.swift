@@ -19,6 +19,7 @@ class FavoritesViewController: UIViewController {
         
         initView()
         initViewModel()
+        
     }
     
 //    override func viewWillAppear(_ animated: Bool) {
@@ -50,7 +51,7 @@ class FavoritesViewController: UIViewController {
     func tableViewConfig() {
         favoritesTableView.dataSource = self
         favoritesTableView.delegate = self
-        favoritesTableView.rowHeight = 80
+        favoritesTableView.rowHeight = 120
         favoritesTableView.tableHeaderView = nil
         favoritesTableView.tableFooterView = nil
         favoritesTableView.registerCellNib(cellClass: FavoritesCell.self)
@@ -70,22 +71,26 @@ class FavoritesViewController: UIViewController {
 
 extension FavoritesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(favoriteProducts.count)
         return  favoriteProducts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = favoritesTableView.dequeue() as FavoritesCell
         cell.setData(favorites: favoriteProducts[indexPath.row])
+        
+        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderWidth = 0.1
+        cell.layer.cornerRadius  = 20
+        cell.clipsToBounds = true
+        
         return cell
+        
+        
     }
 }
 
 // Mark: - TableViewDelegate
 extension FavoritesViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        100
-    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         favoritesTableView.deselectRow(at: indexPath, animated: true)
         //    let favorites = favoritesViewModel.favoritesModel[indexPath.row]

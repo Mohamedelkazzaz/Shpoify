@@ -20,7 +20,7 @@ class CoreDataManager {
                 try context.save()
                 completion(true)
             }catch{
-                print("Error in Saving Favorite Products", error.localizedDescription)
+                print("Error in Saving Favorite Products", error)
                 completion(false)
             }
         }
@@ -32,7 +32,7 @@ class CoreDataManager {
                 completion(favoriteProducts, nil)
             } catch {
                 completion(nil, error)
-                print("Error in Fetching Favorite Products: ", error.localizedDescription)
+                print("Error in Fetching Favorite Products: ", error)
             }
         }
     
@@ -48,7 +48,7 @@ class CoreDataManager {
             completion(specifiedFavorites, nil)
         } catch {
             completion(nil, error)
-            print("Error", error.localizedDescription)
+            print("Error", error)
         }
     }
     
@@ -58,7 +58,7 @@ class CoreDataManager {
             try context.save()
             
         }catch {
-            print("Products not deleted", error.localizedDescription)
+            print("Products not deleted", error)
         }
     }
     

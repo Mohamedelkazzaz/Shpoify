@@ -32,11 +32,12 @@ class ViewController: UIViewController {
 
     }
 
+    //MARK: searchButton
     @IBAction func searchButton(_ sender: UIBarButtonItem) {
         let vc = UIStoryboard(name: "ProductList", bundle: nil).instantiateViewController(withIdentifier: "ProductsListViewController") as! ProductsListViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
+    //MARK: cartButton
     @IBAction func cartButton(_ sender: UIBarButtonItem) {
         let check =   ApplicationUserManger.shared.getUserStatus()
         if check == true{
@@ -48,7 +49,7 @@ class ViewController: UIViewController {
             self.present(vc, animated: true, completion: nil)
         }
     }
-    
+    //MARK: favoritButton
     @IBAction func favoritButton(_ sender: Any) {
         ApplicationUserManger.shared.checkUserIsLogged { loggedIn in
             if loggedIn {
@@ -89,7 +90,7 @@ class ViewController: UIViewController {
                 self.loadingIndecator.stopAnimating()
             }
             if let error = error {
-                print(error.localizedDescription)
+                print(error)
             }
         }
     }
@@ -111,18 +112,15 @@ extension ViewController:UICollectionViewDelegate,UICollectionViewDataSource,UIC
         if collectionView == adsCollectionView{
             let cell = adsCollectionView.dequeueReusableCell(withReuseIdentifier: "adsCell", for: indexPath) as! adsCell
             cell.adsImage.image = UIImage(named: arrayOfAds[indexPath.row])
-            cell.adsImage.layer.borderWidth = 1
-            cell.adsImage.layer.borderColor = UIColor.gray.cgColor
-            cell.adsImage.layer.cornerRadius = 25
+            cell.layer.borderWidth = 0.1
             cell.layer.cornerRadius = 25
             return cell
         }else{
             
             let cell =  brandsCollection.dequeueReusableCell(withReuseIdentifier: "BrandCell", for: indexPath) as? BrandCell
             cell?.configureCell(brandName: arrayOfBrands[indexPath.row].title!, brandImage: (arrayOfBrands[indexPath.row].image?.src)!)
-            cell!.brandImage.layer.borderColor = UIColor.black.cgColor
-            cell!.brandImage.layer.borderWidth = 0.5
-            cell!.brandImage.layer.cornerRadius = 25
+            cell!.layer.borderWidth = 0.1
+            cell!.layer.cornerRadius = 25
             return cell!
         }
        
@@ -138,8 +136,7 @@ extension ViewController:UICollectionViewDelegate,UICollectionViewDataSource,UIC
             
             let width = (collectionView.frame.width-leftAndRightPaddings)/numberOfItemsPerRow
             return CGSize(width: width, height: width*0.7)
-          // return CGSize(width: self.view.frame.width*0.44, height: self.view.frame.width*0.35)
-           // return CGSize(width: 170, height: 184)
+
         }
        
     }
@@ -156,25 +153,5 @@ extension ViewController:UICollectionViewDelegate,UICollectionViewDataSource,UIC
         
     }
 
-
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
-//    {
-//        let leftAndRightPaddings: CGFloat = 10
-//        let numberOfItemsPerRow: CGFloat = 2.0
-//
-//        let width = (collectionView.frame.width-leftAndRightPaddings)/numberOfItemsPerRow
-//        return CGSize(width: width, height: width) // You can change width and height here as pr your requirement
-//
-//    }
-   
-    
 }
-
-
-//
-//  ViewController.swift
-//  Shopify_app
-//
-//  Created by Mohamed Elkazzaz on 28/06/2022.
-//
 

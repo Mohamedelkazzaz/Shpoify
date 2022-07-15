@@ -137,7 +137,6 @@ extension OrderViewModel{
                 return selectedCustomer.id == customerID
             }
             if filetr.count != 0{
-                print(filetr.count)
                 completion(filetr[0])
             }else{
                 completion(nil)
@@ -147,7 +146,6 @@ extension OrderViewModel{
     
     func postOrdersToApi(cartArray:[Cart]){
         if cartArray.count == 0 {
-            print ("self.showEmptyCartAlert()")
         }
         else{
             for item in cartArray {
@@ -157,7 +155,10 @@ extension OrderViewModel{
                 guard let total = total else {
                     return
                 }
-                self.totalOrder.current_total_price = String(total)
+                print(total)
+                let ConvertedtotalPrice = "\(ConvertPrice.getPrice(price:total))"
+                self.totalOrder.current_total_price = String(ConvertedtotalPrice)
+                print(self.totalOrder.current_total_price)
             }
             self.getCustomer { customer in
                 guard let customer = customer else {
@@ -173,9 +174,6 @@ extension OrderViewModel{
                             let returnedOrder = json["order"] as? Dictionary<String,Any>
                             let returnedCustomer = returnedOrder?["customer"] as? Dictionary<String,Any>
                             let id = returnedCustomer?["id"] as? Int ?? 0
-                            print(json)
-                            print("----------")
-                            print(id)
                             
                             for i in cartArray {
                                 context.delete(i)

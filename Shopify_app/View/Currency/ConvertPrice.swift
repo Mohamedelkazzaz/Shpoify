@@ -12,8 +12,12 @@ class ConvertPrice{
         if ApplicationUserManger.shared.getSelectedCurrency(){
             return round(price * 100) / 100.0 
         }
+
 //        print(ApplicationUserManger.shared.getCurrency())
         return round((price * (ApplicationUserManger.shared.getCurrency() ?? 0.0)) * 100) / 100.0
+
+        return (price * (ApplicationUserManger.shared.getCurrency() ?? 0.0))
+
     }
     
 }

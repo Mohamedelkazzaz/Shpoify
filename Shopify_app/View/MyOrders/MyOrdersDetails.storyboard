@@ -2,8 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20037"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,7 +14,8 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="JYb-q3-fMs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Color"/>
+                        <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyOrdersDetailsCell" rowHeight="213" id="uYK-vH-I0Z" customClass="MyOrdersDetailsCell" customModule="Shopify_app" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="213"/>
@@ -23,28 +24,70 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="213"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="P1l-OR-BJu">
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="P1l-OR-BJu">
                                             <rect key="frame" x="20" y="11" width="374" height="191"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Y5-15-CMD">
-                                                    <rect key="frame" x="0.0" y="0.0" width="53" height="55.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Y5-15-CMD">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="63.5"/>
                                                     <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="22"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="quantity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZdX-tZ-XM3">
-                                                    <rect key="frame" x="0.0" y="67.5" width="79.5" height="56"/>
-                                                    <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="22"/>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zE1-ZE-ldC">
-                                                    <rect key="frame" x="0.0" y="135.5" width="49" height="55.5"/>
-                                                    <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="22"/>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="o7z-Tu-KG4">
+                                                    <rect key="frame" x="0.0" y="63.5" width="374" height="64"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="quantity:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHj-Dk-cUt">
+                                                            <rect key="frame" x="0.0" y="0.0" width="187" height="64"/>
+                                                            <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="22"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="quantity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZdX-tZ-XM3">
+                                                            <rect key="frame" x="187" y="0.0" width="187" height="64"/>
+                                                            <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="22"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="ZdX-tZ-XM3" secondAttribute="bottom" id="0iq-CK-ZaF"/>
+                                                        <constraint firstItem="ZdX-tZ-XM3" firstAttribute="leading" secondItem="SHj-Dk-cUt" secondAttribute="trailing" id="1yI-tI-dfM"/>
+                                                        <constraint firstItem="ZdX-tZ-XM3" firstAttribute="top" secondItem="o7z-Tu-KG4" secondAttribute="top" id="2Cf-Qd-9dS"/>
+                                                        <constraint firstItem="ZdX-tZ-XM3" firstAttribute="leading" secondItem="SHj-Dk-cUt" secondAttribute="trailing" id="2TG-hc-xAz"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ZdX-tZ-XM3" secondAttribute="trailing" id="DPQ-Be-BmN"/>
+                                                        <constraint firstItem="SHj-Dk-cUt" firstAttribute="leading" secondItem="o7z-Tu-KG4" secondAttribute="leading" id="dU4-iF-Zri"/>
+                                                        <constraint firstItem="SHj-Dk-cUt" firstAttribute="top" secondItem="o7z-Tu-KG4" secondAttribute="top" id="sHd-kz-e7k"/>
+                                                        <constraint firstAttribute="bottom" secondItem="SHj-Dk-cUt" secondAttribute="bottom" id="xCR-uG-aSD"/>
+                                                    </constraints>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="3iN-ln-EgA">
+                                                    <rect key="frame" x="0.0" y="127.5" width="374" height="63.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTf-Xj-iMp">
+                                                            <rect key="frame" x="0.0" y="0.0" width="181" height="63.5"/>
+                                                            <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="22"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zE1-ZE-ldC">
+                                                            <rect key="frame" x="193" y="0.0" width="181" height="63.5"/>
+                                                            <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="22"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="1Y5-15-CMD" firstAttribute="leading" secondItem="P1l-OR-BJu" secondAttribute="leading" id="9aK-t1-tqP"/>
+                                                <constraint firstItem="o7z-Tu-KG4" firstAttribute="leading" secondItem="P1l-OR-BJu" secondAttribute="leading" id="GSa-oE-Xdd"/>
+                                                <constraint firstItem="o7z-Tu-KG4" firstAttribute="top" secondItem="1Y5-15-CMD" secondAttribute="bottom" id="HGe-Bo-DC8"/>
+                                                <constraint firstItem="3iN-ln-EgA" firstAttribute="leading" secondItem="P1l-OR-BJu" secondAttribute="leading" id="PxS-KT-i3C"/>
+                                                <constraint firstAttribute="trailing" secondItem="o7z-Tu-KG4" secondAttribute="trailing" id="etg-7v-H9z"/>
+                                                <constraint firstAttribute="trailing" secondItem="3iN-ln-EgA" secondAttribute="trailing" id="mjc-nm-i7e"/>
+                                                <constraint firstItem="1Y5-15-CMD" firstAttribute="top" secondItem="P1l-OR-BJu" secondAttribute="top" id="oAi-lK-K6m"/>
+                                                <constraint firstAttribute="trailing" secondItem="1Y5-15-CMD" secondAttribute="trailing" id="sNf-4C-13y"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
@@ -73,8 +116,8 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="Color">
+            <color red="0.95300000905990601" green="0.9649999737739563" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
     </resources>
 </document>

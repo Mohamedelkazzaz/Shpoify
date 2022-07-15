@@ -97,7 +97,6 @@ class AddAddressViewController: UIViewController {
         let PHONE_REGEX = "^\\d{11}$"
         let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
         let result = phoneTest.evaluate(with: value)
-        print("RESULT \(result)")
         return result
     }
 }

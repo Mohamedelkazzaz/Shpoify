@@ -79,7 +79,8 @@ class PaymentViewController: UIViewController {
                 print("error is \(error)")
             }
             if err == nil{
-//                self?.checkoutDelegate?.approvePayment(discoun: self?.discount ?? 0)
+                let orders = CoreDataManager.shared.fetchDataInCart(appDelegate: self!.appDelegate.self)
+                self!.ViewModel.postOrdersToApi(cartArray: orders)
                 print("Done")
             }
         }

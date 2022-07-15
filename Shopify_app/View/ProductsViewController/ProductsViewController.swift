@@ -7,6 +7,7 @@
 import UIKit
 import Floaty
 import NVActivityIndicatorView
+import Lottie
 
 class ProductsViewController: UIViewController {
 
@@ -41,7 +42,7 @@ class ProductsViewController: UIViewController {
                 self.loadingIndecator.stopAnimating()
             }
             if let error = error {
-                print(error.localizedDescription)
+                print(error)
             }
         }
     }
@@ -154,7 +155,7 @@ class ProductsViewController: UIViewController {
                 self.loadingIndecator.stopAnimating()
             }
             if let error = error {
-                print(error.localizedDescription)
+                print(error)
             }
         }
     }
@@ -165,7 +166,6 @@ extension ProductsViewController:UICollectionViewDelegate,UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
         if (filtered) {
-            print(arrayFiltered.count)
            return arrayFiltered.count
         }
         else{
@@ -175,8 +175,8 @@ extension ProductsViewController:UICollectionViewDelegate,UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell =  productsCollection.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as? ProductCell
-//        cell!.layer.borderColor = UIColor.black.cgColor
-//        cell!.layer.borderWidth = 2
+        cell!.productImage.layer.borderWidth = 0.1
+        cell!.productImage.layer.cornerRadius = 25
         if(filtered){
             cell?.configureCell(productName: arrayFiltered[indexPath.row].title!, productImage: (arrayFiltered[indexPath.row].image?.src!)!, productPrice: arrayFiltered[indexPath.row].variants![0].price ?? "0")
         }
@@ -196,7 +196,7 @@ extension ProductsViewController:UICollectionViewDelegate,UICollectionViewDataSo
         
         let width = (collectionView.frame.width-leftAndRightPaddings)/numberOfItemsPerRow
         return CGSize(width: width, height: width)
-      //  return CGSize(width: self.view.frame.width*0.44, height: self.view.frame.width*0.6)
+
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
