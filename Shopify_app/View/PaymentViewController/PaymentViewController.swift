@@ -8,6 +8,7 @@
 import UIKit
 import Braintree
 import BraintreeDropIn
+import ProgressHUD
 
 class PaymentViewController: UIViewController {
     @IBOutlet weak var paypalSelectedBtn: UIButton!
@@ -99,13 +100,15 @@ class PaymentViewController: UIViewController {
     @IBAction func checkoutButton(_ sender: Any) {
         if paypalSelectedBtn.isSelected{
             startCheckout(amount: amount)
-        }else{
+        }else if cashSelectedBtn.isSelected {
             var orders = CoreDataManager.shared.fetchDataInCart(appDelegate: appDelegate.self)
             ViewModel.postOrdersToApi(cartArray: orders)
             let vc = storyboard?.instantiateViewController(withIdentifier: "DoneViewController") as! DoneViewController
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true)
 //            navigationController?.setNavigationBarHidden(true, animated: true)
+        }else{
+            ProgressHUD.showFailed("Please choose your payment choise", interaction: true)
         }
     }
     
