@@ -156,7 +156,9 @@ extension OrderViewModel{
                     return
                 }
                 print(total)
-                let ConvertedtotalPrice = "\(ConvertPrice.getPrice(price:total))"
+                var totalPrice = ApplicationUserManger.shared.getTotalPrice() ?? 0.0
+                print(totalPrice)
+                let ConvertedtotalPrice = "\(ConvertPrice.getPrice(price:totalPrice))"
                 self.totalOrder.current_total_price = String(ConvertedtotalPrice)
                 print(self.totalOrder.current_total_price)
             }

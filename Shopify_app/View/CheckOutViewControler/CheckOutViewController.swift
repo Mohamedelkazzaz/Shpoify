@@ -52,7 +52,12 @@ class CheckOutViewController: UIViewController {
     }
     
     @IBAction func applyCoupon(_ sender: UIButton) {
-        totalPrice.text = "\(viewModel.applyCoupon(code: couponText.text ?? "", price: Double(totalPrice.text ?? "0") ?? 0))"
+        print(totalPrice.text)
+        let price = viewModel.applyCoupon(code: couponText.text ?? "", price: ApplicationUserManger.shared.getTotalPrice() ?? 0.0)
+        print(price)
+        totalPrice.text = "\(round(price * 100) / 100)"
+        ApplicationUserManger.shared.setTotalPrice(totalPrice: Double(totalPrice.text ?? "") ?? 0.0)
+        print(totalPrice.text)
     }
     @IBAction func paymentButton(_ sender: Any) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)

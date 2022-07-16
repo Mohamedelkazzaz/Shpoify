@@ -50,7 +50,7 @@ class DiscountViewModel {
     
     func applyCoupon(code: String, price: Double) -> Double {
        
-        return price - (price * checkCouponCode(code: code))
+        return  price - (price * checkCouponCode(code: code))
     }
     
     private func checkCouponCode(code: String) -> Double {
