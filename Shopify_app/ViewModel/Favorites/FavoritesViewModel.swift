@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import ProgressHUD
 class FavoritesViewModel{
     
     var favoritesModel = [Favorites]()
@@ -49,18 +49,17 @@ class FavoritesViewModel{
         do {
             let items = try context.fetch(Favorites.fetchRequest())
             if isItemExist(productId: product.id!,Items: items){
-                print("Already in favorite")
-                // self.showAlreadyExist()
+               // print("Already in favorite")
             }else{
                 let products = Favorites(context: context)
-                
                 products.productID = Int64(product.id!)
                 products.productName = product.title
                 products.productPrice = product.variants![0].price
                 products.productImage = product.image?.src
                 products.customerID = Int64(ApplicationUserManger.shared.getUserID()!)
                 try? context.save()
-                print("add to favorite")
+                ProgressHUD.colorAnimation = .systemRed
+                ProgressHUD.show("Add to favorite", icon: .heart)
             }
         } catch let error {
             print(error)

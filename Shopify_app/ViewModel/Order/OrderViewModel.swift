@@ -152,9 +152,7 @@ extension OrderViewModel{
                 orderProduct.append(OrderItem(variant_id: Int(item.id), quantity: Int(item.quantity), name: nil, price: item.price,title:item.title))
             }
             self.calcTotalPrice { total in
-                guard let total = total else {
-                    return
-                }
+                guard let total = total else { return }
                 print(total)
                 var totalPrice = ApplicationUserManger.shared.getTotalPrice() ?? 0.0
                 print(totalPrice)
@@ -176,7 +174,6 @@ extension OrderViewModel{
                             let returnedOrder = json["order"] as? Dictionary<String,Any>
                             let returnedCustomer = returnedOrder?["customer"] as? Dictionary<String,Any>
                             let id = returnedCustomer?["id"] as? Int ?? 0
-                            
                             for i in cartArray {
                                 context.delete(i)
                             }

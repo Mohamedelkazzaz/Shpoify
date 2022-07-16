@@ -154,7 +154,7 @@ extension SettingViewController: UITableViewDelegate,UITableViewDataSource{
             let vc = UIStoryboard(name: "MyLastOreders", bundle: nil).instantiateViewController(withIdentifier: "MyOrdersTV") as! MyOrdersTV 
             self.navigationController?.pushViewController(vc, animated: true)
         case 1:
-            let vc = UIStoryboard(name: "Adress", bundle: nil).instantiateViewController(withIdentifier: "AddAddressViewController") as! AddAddressViewController
+            let vc = UIStoryboard(name: "Favorites", bundle: nil).instantiateViewController(withIdentifier: "FavoritesViewController") as! FavoritesViewController
             self.navigationController?.pushViewController(vc, animated: true)
         case 2:
             let vc = UIStoryboard(name: "Adress", bundle: nil).instantiateViewController(withIdentifier: "AddressViewController") as! AddressViewController

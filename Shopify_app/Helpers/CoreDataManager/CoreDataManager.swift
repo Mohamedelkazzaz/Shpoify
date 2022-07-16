@@ -116,7 +116,7 @@ class CoreDataManager {
         }
     }
 
-    func fetchData() -> [Favorites]{
+    func fetchDataFromFavorit() -> [Favorites]{
 
         var fetchedList : [Favorites] = []
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Favorites")
@@ -131,7 +131,7 @@ class CoreDataManager {
         return fetchedList
     }
     
-    func fetchDataInCart(appDelegate: AppDelegate) -> [Cart]{
+    func fetchDataFromCart() -> [Cart]{
 
         var fetchedList : [Cart] = []
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Cart")

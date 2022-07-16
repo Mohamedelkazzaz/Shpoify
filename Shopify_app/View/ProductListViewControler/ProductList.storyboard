@@ -6,7 +6,6 @@
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -50,11 +49,6 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="15" minY="10" maxX="15" maxY="10"/>
                                 </collectionViewFlowLayout>
-                                <view key="backgroundView" contentMode="scaleToFill" id="yoL-8y-CYy" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="684"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                </view>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductListCell" id="bat-XR-Hq7" customClass="ProductListCell" customModule="Shopify_app" customModuleProvider="target">
                                         <rect key="frame" x="15" y="10" width="192" height="238"/>
@@ -175,7 +169,6 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="loadingIndecator" destination="yoL-8y-CYy" id="qXW-CI-h2g"/>
                         <outlet property="noDataImage" destination="yFj-mQ-kQQ" id="TK4-Ch-ZXb"/>
                         <outlet property="priceLable" destination="dbA-vy-btK" id="Zlh-FB-LuS"/>
                         <outlet property="priceSliderOut" destination="C4X-v4-5t9" id="HuJ-cd-hEK"/>
@@ -217,8 +210,5 @@
         <namedColor name="secodeColor">
             <color red="0.9570000171661377" green="0.73000001907348633" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

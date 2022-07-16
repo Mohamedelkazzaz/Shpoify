@@ -5,13 +5,12 @@
 //  Created by Ahmed Hussien on 02/12/1443 AH.
 //
 import UIKit
-import NVActivityIndicatorView
+import ProgressHUD
 class ProductsListViewController: UIViewController {
 
     @IBOutlet weak var noDataImage: UIImageView!
     
     @IBOutlet weak var searchBare: UISearchBar!
-    @IBOutlet weak var loadingIndecator: NVActivityIndicatorView!
     @IBOutlet weak var priceSliderOut: UISlider!
     @IBOutlet weak var productsCollection: UICollectionView!
     @IBOutlet weak var priceLable: UILabel!
@@ -39,7 +38,7 @@ class ProductsListViewController: UIViewController {
             comingFromSearch()
         }
         
-        Indectore.createIndecatore(loadingIndecator: loadingIndecator)
+        Indectore.initIndecatore()
         priceLable.isHidden = true
         priceSliderOut.isHidden = true
     }
@@ -79,7 +78,7 @@ class ProductsListViewController: UIViewController {
                 }
                 self.arrayOfFilterdProducts = filterArray
                 self.productsCollection.reloadData()
-                self.loadingIndecator.stopAnimating()
+                ProgressHUD.dismiss()
             }
             if let error = error {
                 print(error)
@@ -95,7 +94,7 @@ class ProductsListViewController: UIViewController {
             if let products = products{
                 self.arrayOfFilterdProducts = products
                 self.productsCollection.reloadData()
-                self.loadingIndecator.stopAnimating()
+                ProgressHUD.dismiss()
             }
             if let error = error {
                 print(error)

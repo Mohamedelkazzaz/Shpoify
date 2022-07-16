@@ -7,15 +7,12 @@
 
 import Foundation
 import UIKit
-import NVActivityIndicatorView
+import ProgressHUD
 
 struct Indectore{
-    static func createIndecatore(loadingIndecator:NVActivityIndicatorView){
-            loadingIndecator.color =  UIColor(named: "mainColor")!
-            loadingIndecator.type = .ballSpinFadeLoader
-            loadingIndecator.padding = 120
-            loadingIndecator.startAnimating()
-       // loadingIndecator.frame =  CGRect(x: 0, y: 0, width: 150, height: 150)
-       // center = view.center
+    static func initIndecatore(){
+        ProgressHUD.animationType = .circleSpinFade
+        ProgressHUD.colorAnimation = UIColor(named: "mainColor")!
+        ProgressHUD.show()
     }
 }

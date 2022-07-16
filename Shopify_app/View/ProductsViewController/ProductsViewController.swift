@@ -8,6 +8,7 @@ import UIKit
 import Floaty
 import NVActivityIndicatorView
 import Lottie
+import ProgressHUD
 
 class ProductsViewController: UIViewController {
 
@@ -25,28 +26,26 @@ class ProductsViewController: UIViewController {
         super.viewDidLoad()
         productsCollection.dataSource = self
         productsCollection.delegate = self
-        productsData()
+        initproducts()
         FloatyButton()
-        Indectore.createIndecatore(loadingIndecator: loadingIndecator)
+        Indectore.initIndecatore()
 
     }
-
     //MARK: productsData
-    func productsData(){
+    func initproducts(){
         let ViewModel = ProductsViewModel()
         ViewModel.fetchData()
         ViewModel.updateData = { products , error in
             if let products = products{
                 self.arrayOfProducts = products
                 self.productsCollection.reloadData()
-                self.loadingIndecator.stopAnimating()
+                ProgressHUD.dismiss()
             }
             if let error = error {
                 print(error)
             }
         }
     }
-    
     //MARK: FloatyButton
     func FloatyButton(){
         
@@ -86,11 +85,9 @@ class ProductsViewController: UIViewController {
         view.addSubview(floaty)
        
     }
-    
     //MARK: subCategories
     @IBAction func subCategories(_ sender: Any) {
-        loadingIndecator.padding = 190
-        loadingIndecator.startAnimating()
+        ProgressHUD.show()
         self.arrayFiltered = []
         filtered=false
         switch SegmentControle.selectedSegmentIndex
@@ -112,12 +109,12 @@ class ProductsViewController: UIViewController {
                 break
         }
     }
-    
+    //MARK: SearchButton
     @IBAction func SearchButton(_ sender: UIBarButtonItem) {
         let vc = UIStoryboard(name: "ProductList", bundle: nil).instantiateViewController(withIdentifier: "ProductsListViewController") as! ProductsListViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
+    //MARK: cartButton
     @IBAction func cartButton(_ sender: UIBarButtonItem) {
         let check =   ApplicationUserManger.shared.getUserStatus()
         if check == true{
@@ -129,7 +126,7 @@ class ProductsViewController: UIViewController {
             self.present(vc, animated: true, completion: nil)
         }
     }
-    
+    //MARK: favoritButton
     @IBAction func favoritButton(_ sender: Any) {
         ApplicationUserManger.shared.checkUserIsLogged { loggedIn in
             if loggedIn {
@@ -142,7 +139,6 @@ class ProductsViewController: UIViewController {
         }
     }
     }
-    
     //MARK: displayProductsByCategories
     func displayProductsByCategories(collectionId:String){
         
@@ -152,7 +148,7 @@ class ProductsViewController: UIViewController {
             if let products = products{
                 self.arrayOfProducts = products
                 self.productsCollection.reloadData()
-                self.loadingIndecator.stopAnimating()
+                ProgressHUD.dismiss()
             }
             if let error = error {
                 print(error)

@@ -29,7 +29,7 @@ class CartsViewController: UIViewController {
 
         cardsTableView.register(UINib(nibName: "CartsCell", bundle: nil), forCellReuseIdentifier: "cartCell")
         
-        cart = CoreDataManager.shared.fetchDataInCart(appDelegate: appDelegate.self)
+        cart = CoreDataManager.shared.fetchDataFromCart()
         cardsTableView.reloadData()
         checkCart()
         

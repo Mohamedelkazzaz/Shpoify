@@ -90,7 +90,7 @@ class PaymentViewController: UIViewController {
                 print("error is \(error)")
             }
             if err == nil{
-                let orders = CoreDataManager.shared.fetchDataInCart(appDelegate: self!.appDelegate.self)
+                let orders = CoreDataManager.shared.fetchDataFromCart()
                 self!.ViewModel.postOrdersToApi(cartArray: orders)
                 print("Done")
             }
@@ -100,8 +100,13 @@ class PaymentViewController: UIViewController {
     @IBAction func checkoutButton(_ sender: Any) {
         if paypalSelectedBtn.isSelected{
             startCheckout(amount: amount)
+
         }else if cashSelectedBtn.isSelected {
             var orders = CoreDataManager.shared.fetchDataInCart(appDelegate: appDelegate.self)
+
+        }else{
+            var orders = CoreDataManager.shared.fetchDataFromCart()
+
             ViewModel.postOrdersToApi(cartArray: orders)
             let vc = storyboard?.instantiateViewController(withIdentifier: "DoneViewController") as! DoneViewController
             vc.modalPresentationStyle = .fullScreen
