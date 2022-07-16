@@ -25,15 +25,10 @@ class PaymentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let price = ConvertPrice.convertPrice(price: 500.0)
-        print(price)
-        
-        print(amount)
         
         if ConvertPrice.convertPrice(price: amount) >= price{
-            print(amount)
             cashSelectedBtn.isHidden = true
         }else{
-            print(amount)
         }
         
     }
@@ -92,7 +87,9 @@ class PaymentViewController: UIViewController {
             if err == nil{
                 let orders = CoreDataManager.shared.fetchDataFromCart()
                 self!.ViewModel.postOrdersToApi(cartArray: orders)
-                print("Done")
+                let vc = self?.storyboard?.instantiateViewController(withIdentifier: "DoneViewController") as! DoneViewController
+                vc.modalPresentationStyle = .fullScreen
+                self!.present(vc, animated: true)
             }
         }
     }
@@ -101,12 +98,9 @@ class PaymentViewController: UIViewController {
         if paypalSelectedBtn.isSelected{
             startCheckout(amount: amount)
 
-        }else if cashSelectedBtn.isSelected {
-            var orders = CoreDataManager.shared.fetchDataInCart(appDelegate: appDelegate.self)
-
-        }else{
-            var orders = CoreDataManager.shared.fetchDataFromCart()
-
+        }else if cashSelectedBtn.isSelected{
+            
+            let orders = try! context.fetch(Cart.fetchRequest())//CoreDataManager.shared.fetchDataFromCart()
             ViewModel.postOrdersToApi(cartArray: orders)
             let vc = storyboard?.instantiateViewController(withIdentifier: "DoneViewController") as! DoneViewController
             vc.modalPresentationStyle = .fullScreen

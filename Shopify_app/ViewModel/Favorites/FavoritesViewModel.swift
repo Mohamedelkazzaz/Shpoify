@@ -49,7 +49,7 @@ class FavoritesViewModel{
         do {
             let items = try context.fetch(Favorites.fetchRequest())
             if isItemExist(productId: product.id!,Items: items){
-               // print("Already in favorite")
+                print("Already in favorite")
             }else{
                 let products = Favorites(context: context)
                 products.productID = Int64(product.id!)
@@ -71,6 +71,7 @@ class FavoritesViewModel{
         for i in Items {
             if i.productID == productId {
                 check = true
+                break
             }else {
                 check = false
             }

@@ -56,7 +56,11 @@ extension AddressViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! addAddressCell
         cell.setup(address: viewModel.getAddress(indexPath: indexPath))
+        
         cell.selectionStyle = .none
+        cell.layer.cornerRadius = 10
+        cell.layer.borderColor = UIColor.darkGray.cgColor
+        cell.layer.borderWidth = 0.5
         return cell
     }
     
@@ -71,9 +75,9 @@ extension AddressViewController: UITableViewDelegate,UITableViewDataSource{
             let vc = UIStoryboard(name: "MyOrder", bundle: nil).instantiateViewController(withIdentifier: "CheckOutViewController") as! CheckOutViewController
             self.navigationController?.pushViewController(vc, animated: true)
             
-            var ad1 = self.viewModel.getAddress(indexPath: indexPath)?.address1
-            var ad2 = self.viewModel.getAddress(indexPath: indexPath)?.country
-            var ad3 = self.viewModel.getAddress(indexPath: indexPath)?.city
+            let ad1 = self.viewModel.getAddress(indexPath: indexPath)?.address1
+            let ad2 = self.viewModel.getAddress(indexPath: indexPath)?.country
+            let ad3 = self.viewModel.getAddress(indexPath: indexPath)?.city
             vc.address = "\(ad1!) \(ad2!) \(ad3!)"
         }
         let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)

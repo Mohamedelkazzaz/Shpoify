@@ -13,7 +13,7 @@ class MyOrderItemCell: UICollectionViewCell {
     @IBOutlet weak var priceLable: UILabel!
     @IBOutlet weak var amoutLable: UILabel!
     func setupCell(cart: Cart?){
-        priceLable.text = cart?.price
+       // priceLable.text = cart?.price
         amoutLable.text = "\(cart!.quantity)"
         
         let url = URL(string:(cart?.image)!)!

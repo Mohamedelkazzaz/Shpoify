@@ -13,7 +13,7 @@ class OrderViewModel{
     
     let customerID = ApplicationUserManger.shared.getUserID()
     var order : OrderItem?
-    var orderProduct : [OrderItem] = []
+    var orderProducts : [OrderItem] = []
     var totalOrder = Order()
     let networking = NetworkManager()
     
@@ -110,16 +110,18 @@ extension OrderViewModel{
 extension OrderViewModel{
     func calcTotalPrice(completion: @escaping (Double?)-> Void){
         var totalPrice: Double = 0.0
+        
         fetchItemsFromCart { orders, error in
             if error == nil {
-                guard let orders = orders, let customerID = self.customerID  else { return }
+               guard let orders = orders, let customerID = self.customerID  else { return }
                 for item in orders{
                     if item.userId == customerID {
                         guard let priceStr = item.price, let price = Double(priceStr) else { return }
                         totalPrice += Double(item.quantity) * price
                     }
                 }
-                ApplicationUserManger.shared.setTotalPrice(totalPrice: totalPrice)
+                print("line 123 \(totalPrice)")
+               // ApplicationUserManger.shared.setTotalPrice(totalPrice: totalPrice)
                 completion(totalPrice)
             }else{
                 completion(nil)
@@ -149,22 +151,28 @@ extension OrderViewModel{
         }
         else{
             for item in cartArray {
-                orderProduct.append(OrderItem(variant_id: Int(item.id), quantity: Int(item.quantity), name: nil, price: item.price,title:item.title))
+                orderProducts.append(OrderItem(variant_id: Int(item.id), quantity: Int(item.quantity), name: nil, price: item.price,title:item.title))
             }
-            self.calcTotalPrice { total in
-                guard let total = total else { return }
-                print(total)
-                var totalPrice = ApplicationUserManger.shared.getTotalPrice() ?? 0.0
-                print(totalPrice)
-                let ConvertedtotalPrice = "\(ConvertPrice.getPrice(price:totalPrice))"
-                self.totalOrder.current_total_price = String(ConvertedtotalPrice)
-                print(self.totalOrder.current_total_price)
-            }
+//            self.calcTotalPrice { total in
+//                guard let total = total else { return }
+//                var totalPrice = ApplicationUserManger.shared.getTotalPrice() ?? 0.0
+//             //   print("line 157 \(totalPrice)")
+//                let ConvertedtotalPrice = "\(ConvertPrice.getPrice(price:totalPrice))"
+//              //  print(ConvertedtotalPrice)
+//                self.totalOrder.current_total_price = String(ConvertedtotalPrice)
+//
+//            }
+            var totalPrice = ApplicationUserManger.shared.getTotalPrice() ?? 0.0
+            print("line 66 \(totalPrice)")
+            let ConvertedtotalPrice = "\(ConvertPrice.getPrice(price:totalPrice))"
+            print("line 66 \(ConvertedtotalPrice )")
+            self.totalOrder.current_total_price = String(ConvertedtotalPrice)
+            
             self.getCustomer { customer in
-                guard let customer = customer else {
-                    return
-                }
-                let order = Order(customer: customer, line_items: self.orderProduct, current_total_price: self.totalOrder.current_total_price)
+                guard let customer = customer else {return}
+             
+                let order = Order(customer: customer, line_items: self.orderProducts, current_total_price: self.totalOrder.current_total_price)
+                print("line 169 \(self.totalOrder.current_total_price)")
                 let ordertoAPI = OrderToAPI(order: order)
                 self.networking.addOrder(order: ordertoAPI) { data, urlResponse, error in
                     if error == nil {
@@ -172,6 +180,7 @@ extension OrderViewModel{
                         if let data = data{
                             let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! Dictionary<String,Any>
                             let returnedOrder = json["order"] as? Dictionary<String,Any>
+                          print("\(returnedOrder!["current_total_price"])")
                             let returnedCustomer = returnedOrder?["customer"] as? Dictionary<String,Any>
                             let id = returnedCustomer?["id"] as? Int ?? 0
                             for i in cartArray {

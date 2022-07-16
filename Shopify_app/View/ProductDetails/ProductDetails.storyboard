@@ -61,9 +61,11 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="31" id="HMC-1Z-LSC"/>
                                                                 </constraints>
-                                                                <color key="tintColor" systemColor="systemRedColor"/>
+                                                                <color key="tintColor" name="Color"/>
                                                                 <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" image="heart"/>
+                                                                <buttonConfiguration key="configuration" style="plain" image="heart">
+                                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </buttonConfiguration>
                                                                 <connections>
                                                                     <action selector="addToWishListBtn:" destination="IiY-gS-OZd" eventType="touchUpInside" id="nM8-eE-S7Y"/>
                                                                 </connections>
@@ -352,9 +354,6 @@
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

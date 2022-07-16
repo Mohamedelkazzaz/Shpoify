@@ -22,29 +22,21 @@ class CartsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTotalPrice()
-        
         setCartItems()
         cardsTableView.delegate = self
         cardsTableView.dataSource = self
-
         cardsTableView.register(UINib(nibName: "CartsCell", bundle: nil), forCellReuseIdentifier: "cartCell")
-        
         cart = CoreDataManager.shared.fetchDataFromCart()
         cardsTableView.reloadData()
         checkCart()
         
     }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        cart = CoreDataManager.shared.fetchDataInCart()
-//        cardsTableView.reloadData()
-//    }
-    
-   
+
     func setTotalPrice(){
         orderViewModel.calcTotalPrice { totalPrice in
             guard let totalPrice = totalPrice else { return }
             ApplicationUserManger.shared.setTotalPrice(totalPrice:totalPrice)
+            print(totalPrice)
 //            self.priceLabel.text = String(totalPrice) + " USD"
             self.priceLabel.text = "\(ConvertPrice.getPrice(price: totalPrice.rounded()))"
         }
@@ -119,13 +111,15 @@ extension CartsViewController: UITableViewDelegate,UITableViewDataSource{
             self.setTotalPrice()
         }
         
-        
+        cell.layer.borderColor = UIColor.darkGray.cgColor
+        cell.layer.borderWidth = 0.5
+        cell.layer.cornerRadius  = 10
         cell.quantityNumberLabel.text = String(cart[indexPath.row].quantity)
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 190
+        return 150
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

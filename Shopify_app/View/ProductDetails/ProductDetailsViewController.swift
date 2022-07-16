@@ -29,13 +29,26 @@ class ProductDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         initView()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        
+        checkProductInFavorites()
+    }
+    func checkProductInFavorites() {
+        guard let productID = product?.id else {return}
+        productDetailsViewModel.checkProductsInFavorites(productID: productID) {
+            productFoundInFavorites in
+            if productFoundInFavorites { self.favoritesBtn.isSelected = true
+                self.favoritesBtn.setImage(UIImage(named: "heartfill"), for: .normal)
+            }
+        }
     }
     
     func initView() {
         collectionViewConfig()
         collectionViewUpdate()
+      
     }
     
     func collectionViewConfig() {
@@ -52,10 +65,7 @@ class ProductDetailsViewController: UIViewController {
         productDescription.text = product.body_html
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.checkProductInFavorites()
-    }
+
     
     @IBAction func moreProductsBtn(_ sender: Any) {
         self.navigationController?.popViewController(animated: false)
@@ -64,7 +74,8 @@ class ProductDetailsViewController: UIViewController {
     @IBAction func addToWishListBtn(_ sender: UIButton) {
         ApplicationUserManger.shared.checkUserIsLogged { userLogged in
             if userLogged{
-                self.selectedFavoritesBtn(sender: sender)
+                self.favoritesBtn.setImage(UIImage(named: "heartfill"), for: .normal)
+                self.addProductToFavorites()
             }else{
                 self.toLogin()
             }
@@ -76,22 +87,22 @@ class ProductDetailsViewController: UIViewController {
         self.navigationController?.pushViewController(loginVC, animated: true)
     }
     
-    func selectedFavoritesBtn(sender: UIButton){
-        sender.isSelected = !sender.isSelected
-        if sender.isSelected{
-            self.favoritesBtn.setImage(UIImage(named: "heartfill"), for: .normal)
-            addProductToFavorites()
-        }
-        else{
-            //self.favoritesBtn.setImage(UIImage(named: "heart"), for: .normal)
-           // unselectingProducts()
-        }
-    }
-    
-    func unselectingProducts(){
-        guard let productId = product?.id else {return}
-        productDetailsViewModel.deletefromFavorites(productID: productId)
-    }
+//    func selectedFavoritesBtn(sender: UIButton){
+//      //  sender.isSelected = !sender.isSelected
+//        if sender.isSelected{
+////            self.favoritesBtn.setImage(UIImage(named: "heartfill"), for: .normal)
+////            addProductToFavorites()
+//        }
+////        else{
+////            //self.favoritesBtn.setImage(UIImage(named: "heart"), for: .normal)
+////           // unselectingProducts()
+////        }
+//    }
+//
+////    func unselectingProducts(){
+////        guard let productId = product?.id else {return}
+////        productDetailsViewModel.deletefromFavorites(productID: productId)
+////    }
     
     func addProductToFavorites()    {
         
@@ -134,17 +145,9 @@ class ProductDetailsViewController: UIViewController {
    
  }
 
-extension ProductDetailsViewController {
-    func checkProductInFavorites() {
-        guard let productID = product?.id else {return}
-        productDetailsViewModel.checkProductsInFavorites(productID: productID) {
-            productFoundInFavorites in
-            if productFoundInFavorites { self.favoritesBtn.isSelected = true
-                self.favoritesBtn.setImage(UIImage(systemName: " heart.fill"), for: .normal)
-            }
-        }
-    }
-}
+
+
+
 
 extension ProductDetailsViewController: UICollectionViewDelegate {
     

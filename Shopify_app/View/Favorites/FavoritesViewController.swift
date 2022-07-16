@@ -12,8 +12,10 @@ class FavoritesViewController: UIViewController {
     let favoritesViewModel = FavoritesViewModel()
     var favoriteProducts: [Favorites] = []
     
+    @IBOutlet weak var emptywish: UIImageView!
     @IBOutlet weak var favoritesTableView: UITableView!
     @IBOutlet weak var noItemsLabel: UILabel!
+    var favioriteArray = try! context.fetch(Favorites.fetchRequest())
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,7 +42,7 @@ class FavoritesViewController: UIViewController {
     
     func initView() {
         tableViewConfig()
-      //  handleEmpty()
+        handleEmpty()
     }
     
     func initViewModel() {
@@ -58,13 +60,13 @@ class FavoritesViewController: UIViewController {
     }
     
     func handleEmpty() {
-        if  favoritesViewModel.favoritesModel.isEmpty {
+        if  favioriteArray.isEmpty {
             favoritesTableView.isHidden = true
-            noItemsLabel.isHidden = false
+            emptywish.isHidden = false
         }
         else {
             favoritesTableView.isHidden = false
-            noItemsLabel.isHidden = true
+            emptywish.isHidden = true
         }
     }
 }

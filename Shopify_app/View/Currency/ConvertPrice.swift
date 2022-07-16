@@ -12,6 +12,7 @@ class ConvertPrice{
       
         if ApplicationUserManger.shared.getSelectedCurrency(){
             let price = round(price * 100) / 100
+            print("converted total \(price)")
             return "\(price) USD"
         }
 

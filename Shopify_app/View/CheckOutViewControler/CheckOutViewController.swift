@@ -15,6 +15,7 @@ class CheckOutViewController: UIViewController {
     @IBOutlet weak var discountLable: UILabel!
     @IBOutlet weak var subTotal: UILabel!
     @IBOutlet weak var addressLable: UILabel!
+    
     var totlaprice = ""
     var address = ""
     var arratOOrders = [Favorites]()
@@ -52,12 +53,10 @@ class CheckOutViewController: UIViewController {
     }
     
     @IBAction func applyCoupon(_ sender: UIButton) {
-        print(totalPrice.text)
         let price = viewModel.applyCoupon(code: couponText.text ?? "", price: ApplicationUserManger.shared.getTotalPrice() ?? 0.0)
-        print(price)
         totalPrice.text = "\(round(price * 100) / 100)"
+        print("lin58 in chout \(round(price * 100) / 100)")
         ApplicationUserManger.shared.setTotalPrice(totalPrice: Double(totalPrice.text ?? "") ?? 0.0)
-        print(totalPrice.text)
     }
     @IBAction func paymentButton(_ sender: Any) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)

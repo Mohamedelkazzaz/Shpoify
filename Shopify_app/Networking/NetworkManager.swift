@@ -196,30 +196,55 @@ class NetworkManager: ApiService{
     func getOrdersForCustomer(customerId: Int, completion: @escaping (OrdersFromAPI?, Error?) -> Void) {
         let customerId = ApplicationUserManger.shared.getUserID()
         guard let url = Url.shared.getOrdersUser(customerId: customerId ?? 0) else {return}
-        URLSession.shared.dataTask(with: url) {[weak self] data, response, error in
-            if let data = data{
-                do{
-                    let json = try JSONDecoder().decode(OrdersFromAPI.self, from: data)
-                    DispatchQueue.main.async{
-                        completion(json, nil)
-                        print("success to get all Addreeses")
-                    }
-                }catch let error{
-                    DispatchQueue.main.async{
-                        print(error)
-                        completion(nil, error)
-                        print(error.localizedDescription)
-                    }
+        
+        do {
+            let data = try Data(contentsOf: url)
+            do {
+                let json = try JSONDecoder().decode(OrdersFromAPI.self, from: data)
+                DispatchQueue.main.async
+                {
+                    completion(json,nil)
+                }
+                
+            } catch let jsonError {
+                DispatchQueue.main.async
+                {
+                    completion(nil,jsonError)
                 }
             }
 
-        }.resume()
+        } catch let urlError {
+            DispatchQueue.main.async
+            {
+                completion(nil,urlError)
+            }
+        }
+        
+//        URLSession.shared.dataTask(with: url) {[weak self] data, response, error in
+//            if let data = data{
+//                do{
+//                    let json = try JSONDecoder().decode(OrdersFromAPI.self, from: data)
+//                    DispatchQueue.main.async{
+//                        completion(json, nil)
+//                        print("success to get all Addreeses")
+//                    }
+//                }catch let error{
+//                    DispatchQueue.main.async{
+//                        print(error)
+//                        completion(nil, error)
+//                        print(error.localizedDescription)
+//                    }
+//                }
+//            }
+//
+//        }.resume()
 
     }
 
     
     
     func addOrder(order:OrderToAPI,completion: @escaping (Data?,URLResponse?,Error?)->Void){
+        print("line 223  network \(order.order.current_total_price)")
         guard let url = Url.shared.ordersURL() else {return}
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -228,9 +253,9 @@ class NetworkManager: ApiService{
         
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: order.asDictionary(), options: .prettyPrinted)
-            print(try! order.asDictionary())
+            print("line 232  network \(order.order.current_total_price)")
         }catch let error {
-            print(error.localizedDescription)
+            print(error)
         }
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")

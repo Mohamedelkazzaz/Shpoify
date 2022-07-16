@@ -65,11 +65,19 @@ class SettingViewController: UIViewController {
         }else{
             logoutButton.titleLabel?.text = "login"
             let vc = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-            let cartArray = CoreDataManager.shared.fetchDataInCart(appDelegate: appDelegate.self)
+            //empty cart
+            let cartArray = CoreDataManager.shared.fetchDataFromCart()
             for i in cartArray {
                 context.delete(i)
             }
             try! context.save()
+            //empty favrit
+            let favoritArray = CoreDataManager.shared.fetchDataFromFavorit()
+            for i in favoritArray {
+                context.delete(i)
+            }
+            try! context.save()
+            
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

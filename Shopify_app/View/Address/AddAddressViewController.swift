@@ -21,8 +21,8 @@ class AddAddressViewController: UIViewController {
     }
     
     @IBAction func addAddressButton(_ sender: UIButton) {
-        checkData()
         
+        checkData()
         if addressTextField.text != "" && cityTextField.text != "" && countryTextField.text != "" && phoneTextField.text != ""
         {
             guard let customerId = ApplicationUserManger.shared.getUserID(), let name = ApplicationUserManger.shared.getUserName() ,let address = addressTextField.text, !address.isEmpty, let country = countryTextField.text, !country.isEmpty, let city = cityTextField.text, !city.isEmpty, let phone = phoneTextField.text, !phone.isEmpty, phone.count == 11 else {
