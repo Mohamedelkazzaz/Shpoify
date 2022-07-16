@@ -524,20 +524,20 @@
 		E8B21C4A286B8D570000AABB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E8AF61802880F08900BEDFB5 /* Done */,
-				FC87B0CA287FC1F000A9050F /* MyOrders */,
-				E8AA410A2880545400431574 /* Currency */,
-				E88888D628787BF1006178DD /* PaymentViewController */,
-				9BA632A42875C0F000775E34 /* ProductDetails */,
-				9BA632922875AEB200775E34 /* Favorites */,
 				FC94285D286DDA320059E6D4 /* BrandsViewController */,
 				FC942862286E56EE0059E6D4 /* ProductsViewController */,
 				FC4A667B2871F667005D3BBB /* ProductListViewControler */,
+				9BA632A42875C0F000775E34 /* ProductDetails */,
+				E898DC3F2871C9C900FCEEF2 /* SettindViewController */,
+				FC87B0CA287FC1F000A9050F /* MyOrders */,
+				E8AA410A2880545400431574 /* Currency */,
+				E88888D628787BF1006178DD /* PaymentViewController */,
+				9BA632922875AEB200775E34 /* Favorites */,
 				9B94337128739E1F00779F66 /* AuthenticationView */,
 				FC05F58028746E510026CEE4 /* CheckOutViewControler */,
 				E89A3A26287212D200D609B5 /* Address */,
-				E898DC3F2871C9C900FCEEF2 /* SettindViewController */,
 				E86D31DB286F24FE007302E1 /* CartsViewController */,
+				E8AF61802880F08900BEDFB5 /* Done */,
 				E8B21C1C286B8CC00000AABB /* Main.storyboard */,
 				E8B21C24286B8CC40000AABB /* LaunchScreen.storyboard */,
 			);

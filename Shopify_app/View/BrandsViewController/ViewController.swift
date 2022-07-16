@@ -6,7 +6,7 @@
 //
 import UIKit
 import NVActivityIndicatorView
-
+import ProgressHUD
 class ViewController: UIViewController {
 
     @IBOutlet weak var brandsCollection: UICollectionView!
@@ -25,13 +25,14 @@ class ViewController: UIViewController {
         adsCollectionView.register(UINib(nibName: "adsCell", bundle: nil), forCellWithReuseIdentifier: "adsCell")
         adsCollectionView.delegate = self
         adsCollectionView.dataSource = self
-        
-        Indectore.createIndecatore(loadingIndecator: loadingIndecator)
+
+        Indectore.initIndecatore()
         initbrandsView()
         setupTimer()
 
     }
 
+    
     //MARK: searchButton
     @IBAction func searchButton(_ sender: UIBarButtonItem) {
         let vc = UIStoryboard(name: "ProductList", bundle: nil).instantiateViewController(withIdentifier: "ProductsListViewController") as! ProductsListViewController
@@ -87,15 +88,13 @@ class ViewController: UIViewController {
             if let brands = brands{
                 self.arrayOfBrands = brands
                 self.brandsCollection.reloadData()
-                self.loadingIndecator.stopAnimating()
+                ProgressHUD.dismiss()
             }
             if let error = error {
                 print(error)
             }
         }
     }
-    
-    
 }
 extension ViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     

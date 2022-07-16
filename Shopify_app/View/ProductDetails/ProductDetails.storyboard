@@ -54,16 +54,16 @@
                                                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="pDw-9n-Xw6">
                                                                 <rect key="frame" x="0.0" y="237" width="193" height="25"/>
                                                                 <color key="pageIndicatorTintColor" systemColor="systemGrayColor"/>
-                                                                <color key="currentPageIndicatorTintColor" red="0.0" green="0.67843137249999996" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="currentPageIndicatorTintColor" name="mainColor"/>
                                                             </pageControl>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0lL-mV-OWM">
-                                                                <rect key="frame" x="339" y="28" width="31" height="30.666666666666671"/>
+                                                                <rect key="frame" x="339" y="28" width="31" height="46"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="31" id="HMC-1Z-LSC"/>
                                                                 </constraints>
                                                                 <color key="tintColor" systemColor="systemRedColor"/>
                                                                 <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
+                                                                <buttonConfiguration key="configuration" style="plain" image="heart"/>
                                                                 <connections>
                                                                     <action selector="addToWishListBtn:" destination="IiY-gS-OZd" eventType="touchUpInside" id="nM8-eE-S7Y"/>
                                                                 </connections>
@@ -119,7 +119,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <color key="backgroundColor" name="Color"/>
                                                                 <constraints>
                                                                     <constraint firstItem="JYg-ip-73r" firstAttribute="top" secondItem="ePd-mX-48L" secondAttribute="top" constant="22" id="OWP-9v-KFb"/>
                                                                     <constraint firstAttribute="bottom" secondItem="JYg-ip-73r" secondAttribute="bottom" constant="22" id="Ruf-1R-N2V"/>
@@ -306,7 +306,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HQS-n5-cJj"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Color"/>
                         <constraints>
                             <constraint firstItem="Pmn-pY-HbL" firstAttribute="trailing" secondItem="HQS-n5-cJj" secondAttribute="trailing" id="2sn-On-gKs"/>
                             <constraint firstItem="Pmn-pY-HbL" firstAttribute="top" secondItem="HQS-n5-cJj" secondAttribute="top" id="Q6A-GK-7bQ"/>
@@ -337,7 +337,10 @@
         </designable>
     </designables>
     <resources>
-        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="heart" width="32" height="32"/>
+        <namedColor name="Color">
+            <color red="0.95300000905990601" green="0.9649999737739563" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="mainColor">
             <color red="0.15199999511241913" green="0.18400000035762787" blue="0.3449999988079071" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

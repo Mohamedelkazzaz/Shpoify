@@ -7,7 +7,7 @@
 
 import UIKit
 import NVActivityIndicatorView
-
+import ProgressHUD
 class LoginViewController: UIViewController {
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
@@ -18,15 +18,19 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configreView ()
-        Indectore.createIndecatore(loadingIndecator: loadingIndecator)
-        loadingIndecator.stopAnimating()
+        ProgressHUD.animationType = .circleRotateChase
+        
+        
+       // Indectore.createIndecatore(loadingIndecator: loadingIndecator)
+       // loadingIndecator.stopAnimating()
     }
     func configreView () {
         logintButton.layer.cornerRadius = 10
     }
     @IBAction func tapLoginButton(_ sender: UIButton) {
-        loadingIndecator.padding = 190
-        loadingIndecator.startAnimating()
+       // loadingIndecator.padding = 190
+      //  loadingIndecator.startAnimating()
+        ProgressHUD.show()
         loginUser()
     }
     @IBAction func tapToCreateAccountButton(_ sender: UIButton) {
@@ -48,9 +52,11 @@ class LoginViewController: UIViewController {
                     let nav = UINavigationController(rootViewController: vc)
                     nav.modalPresentationStyle = .fullScreen
                     self.present(nav, animated: true, completion: nil)
-                    loadingIndecator.stopAnimating()
+                    ProgressHUD.dismiss()
+                   // loadingIndecator.stopAnimating()
                 }
             }else{
+                ProgressHUD.dismiss()
                 ApplicationUserManger.shared.setUserStatus(userIsLogged: false)
                 self.showAlertError(title: "failed to login", message: "please check your email or password")
             }

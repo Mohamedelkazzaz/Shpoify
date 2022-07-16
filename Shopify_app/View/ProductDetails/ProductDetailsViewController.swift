@@ -31,8 +31,6 @@ class ProductDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         initView()
-       
-        // Do any additional setup after loading the view.
     }
     
     func initView() {
@@ -49,7 +47,6 @@ class ProductDetailsViewController: UIViewController {
     func collectionViewUpdate() {
         
         guard let product = product, let variant = product.variants,let price = variant[0].price else {return  }
-        
         productPrice.text = "\(ConvertPrice.getPrice(price: Double(price ?? "") ?? 0.0))"
         productTitle.text = product.title
         productDescription.text = product.body_html
@@ -82,13 +79,18 @@ class ProductDetailsViewController: UIViewController {
     func selectedFavoritesBtn(sender: UIButton){
         sender.isSelected = !sender.isSelected
         if sender.isSelected{
-            self.favoritesBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            self.favoritesBtn.setImage(UIImage(named: "heartfill"), for: .normal)
             addProductToFavorites()
         }
         else{
-            self.favoritesBtn.setImage(UIImage(systemName: "heart"), for: .normal)
-            unselectingProducts()
+            //self.favoritesBtn.setImage(UIImage(named: "heart"), for: .normal)
+           // unselectingProducts()
         }
+    }
+    
+    func unselectingProducts(){
+        guard let productId = product?.id else {return}
+        productDetailsViewModel.deletefromFavorites(productID: productId)
     }
     
     func addProductToFavorites()    {
@@ -98,10 +100,7 @@ class ProductDetailsViewController: UIViewController {
        // CoreDataManager.shared.addToFavorites(id: Int64(customerID), pid: Int64(id), name: product.title!, pimage: (product.image?.src)!, Price: variants[0].price!)
     }
     
-    func unselectingProducts(){
-        guard let productId = product?.id else {return}
-        productDetailsViewModel.deletefromFavorites(productID: productId)
-    }
+  
     
     @IBAction func addToCart(_ sender: Any) {
         ApplicationUserManger.shared.checkUserIsLogged { userLogged in
@@ -114,25 +113,26 @@ class ProductDetailsViewController: UIViewController {
     }
     
     func addProductToCard() {
-        
         for i in CoreDataManager.shared.fetchDataFromCart(){
             if i.id == (product?.id)!{
                 isFound = true
             }
         }
         if isFound == true{
+            ProgressHUD.colorAnimation = .systemRed
             ProgressHUD.showFailed("Already in cart", interaction: true)
         }else{
             guard let product = product, let id = product.id, let variants = product.variants, let customerID = ApplicationUserManger.shared.getUserID() else {return}
             
             CoreDataManager.shared.addToCart(appDelegate: appDelegate, id: Int64(id), userId: Int64(customerID), title: product.title!, image: (product.image?.src)!, price: variants[0].price!, quantity: 1)
-           ProgressHUD.showSucceed("Product added to the cart", interaction: true)
+            ProgressHUD.colorAnimation = .systemGreen
+            ProgressHUD.show("Add to cart", icon: .cart)
         }
         
     }
     
    
-    }
+ }
 
 extension ProductDetailsViewController {
     func checkProductInFavorites() {

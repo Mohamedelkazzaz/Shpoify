@@ -27,11 +27,6 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="20" minY="10" maxX="20" maxY="10"/>
                                 </collectionViewFlowLayout>
-                                <view key="backgroundView" contentMode="scaleToFill" id="5cS-DE-P8U" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="446.5"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                </view>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BrandCell" id="M24-VB-pYC" customClass="BrandCell" customModule="Shopify_app" customModuleProvider="target">
                                         <rect key="frame" x="20" y="10" width="170" height="184"/>
@@ -127,7 +122,6 @@
                     <connections>
                         <outlet property="adsCollectionView" destination="wNI-wg-d2D" id="ZXX-kw-ARd"/>
                         <outlet property="brandsCollection" destination="zHC-bq-6ch" id="rE7-y6-WM3"/>
-                        <outlet property="loadingIndecator" destination="5cS-DE-P8U" id="QlR-4l-Lme"/>
                         <outlet property="pageControl" destination="KGP-Eu-pmA" id="rgO-Sn-dgO"/>
                     </connections>
                 </viewController>
@@ -186,11 +180,6 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="15" minY="10" maxX="15" maxY="10"/>
                                 </collectionViewFlowLayout>
-                                <view key="backgroundView" contentMode="scaleToFill" id="Tsc-LY-Te4" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                </view>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductCell" id="IsL-kC-eSD" customClass="ProductCell" customModule="Shopify_app" customModuleProvider="target">
                                         <rect key="frame" x="15" y="10" width="170" height="238"/>
@@ -300,7 +289,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="SegmentControle" destination="cDg-lD-A5D" id="tqh-Qp-n6s"/>
-                        <outlet property="loadingIndecator" destination="Tsc-LY-Te4" id="kUh-ou-JT7"/>
                         <outlet property="productsCollection" destination="aRv-LS-coQ" id="Oom-28-UMo"/>
                     </connections>
                 </viewController>
@@ -806,9 +794,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This our final project in iTi 3-Month track iOS mobile application development" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lf0-0b-abU">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This our final project in iTi 3-Month track iOS mobile application development" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lf0-0b-abU">
                                 <rect key="frame" x="20" y="177" width="374" height="166.5"/>
                                 <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="22"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Our Team : " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1u-eT-Jgd">
@@ -817,21 +806,25 @@
                                     <constraint firstAttribute="height" constant="113" id="NBE-1E-qRF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="22"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mohamed Elkazzaz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wci-4S-Zxe">
                                 <rect key="frame" x="20" y="451" width="374" height="24"/>
                                 <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="20"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ahmed Hussien" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYo-Qf-9WT">
                                 <rect key="frame" x="20" y="538" width="374" height="25"/>
                                 <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="21"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ahmed Ashraf" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nI6-mU-PMZ">
                                 <rect key="frame" x="20" y="495" width="374" height="23"/>
                                 <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="19"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
