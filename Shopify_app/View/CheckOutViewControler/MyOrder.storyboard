@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,14 +28,14 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dsa-lL-ody">
                                         <rect key="frame" x="20" y="595" width="374" height="58"/>
-                                        <color key="backgroundColor" red="0.95305567980000006" green="0.96469980479999995" blue="0.96470612290000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" name="Color"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="58" id="f7P-NQ-q7W"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Payment Method" cornerStyle="capsule">
                                             <backgroundConfiguration key="background"/>
-                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="baseForegroundColor" name="Color"/>
                                             <color key="baseBackgroundColor" name="mainColor"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -45,7 +44,7 @@
                                     </button>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hF3-gS-feb">
                                         <rect key="frame" x="0.0" y="56" width="414" height="215"/>
-                                        <color key="backgroundColor" red="0.96399193999999999" green="0.97145468000000001" blue="0.97178679700000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" name="Color"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RKV-Eq-ojk">
                                             <size key="itemSize" width="389" height="160"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -180,7 +179,7 @@
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.95294117649999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" name="Color"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="q9x-eS-s4Z" secondAttribute="trailing" id="4BA-ec-IMv"/>
                                             <constraint firstItem="q9x-eS-s4Z" firstAttribute="top" secondItem="8RW-bI-1AM" secondAttribute="top" id="XLS-3U-bBi"/>
@@ -228,7 +227,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.95294117649999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="Color"/>
                                 <constraints>
                                     <constraint firstItem="hF3-gS-feb" firstAttribute="height" secondItem="rFz-dh-Ewu" secondAttribute="height" multiplier="0.3" id="0we-va-BaE"/>
                                     <constraint firstItem="8RW-bI-1AM" firstAttribute="top" secondItem="hCX-47-ZjJ" secondAttribute="bottom" constant="8" id="3ha-Bs-UNM"/>
@@ -269,7 +268,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Color"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="oye-SB-Mfz" secondAttribute="trailing" constant="109" id="EYc-6i-3J4"/>
                             <constraint firstItem="oye-SB-Mfz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="83" id="Lfl-kY-YHA"/>
@@ -303,8 +302,5 @@
         <namedColor name="secodeColor">
             <color red="0.9570000171661377" green="0.73000001907348633" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

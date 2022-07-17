@@ -95,11 +95,19 @@ class SettingViewController: UIViewController {
         switch currecySegment.selectedSegmentIndex {
                 case 0:
             ApplicationUserManger.shared.setSelectedCurrency(isUSD: true)
-                case 1 :
+            SettingViewController.changeRoot()
+        case 1 :
             ApplicationUserManger.shared.setSelectedCurrency(isUSD: false)
+            SettingViewController.changeRoot()
                 default:
                     break
                 }
+    }
+    
+    static func changeRoot(){
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = mainStoryboard.instantiateViewController(withIdentifier: "SplashViewController") as! SplashViewController
+        UIApplication.shared.keyWindow?.rootViewController = viewController
     }
     
 

@@ -15,7 +15,7 @@ class SplashViewController: UIViewController {
         var charIndex = 0.0
         let titleText = "Shopify app"
         for letter in titleText {
-            Timer.scheduledTimer(withTimeInterval: 0.3 * charIndex, repeats: false) { (timer) in
+            Timer.scheduledTimer(withTimeInterval: 0.2 * charIndex, repeats: false) { (timer) in
                 self.titleLabel.text?.append(letter)
             }
             charIndex += 1
@@ -36,7 +36,7 @@ class SplashViewController: UIViewController {
     }
     func handleAuthenticationNavigation() {
         let accessID = ApplicationUserManger.shared.getUserID()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
 //            if accessID != 0 {
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
                 let nav = UINavigationController(rootViewController: vc)
