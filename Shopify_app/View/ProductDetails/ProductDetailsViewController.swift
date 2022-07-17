@@ -67,9 +67,7 @@ class ProductDetailsViewController: UIViewController {
     
 
     
-    @IBAction func moreProductsBtn(_ sender: Any) {
-        self.navigationController?.popViewController(animated: false)
-    }
+    
     
     @IBAction func addToWishListBtn(_ sender: UIButton) {
         ApplicationUserManger.shared.checkUserIsLogged { userLogged in
