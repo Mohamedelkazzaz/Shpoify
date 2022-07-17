@@ -340,6 +340,7 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="e2h-w6-iPV" secondAttribute="trailing" constant="10" id="wU1-xB-SYK"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="Color"/>
                                         <connections>
                                             <outlet property="cellImage" destination="paS-zV-ZxV" id="dHN-gH-JoB"/>
                                             <outlet property="cellName" destination="e2h-w6-iPV" id="xNU-2l-YB8"/>
@@ -861,13 +862,10 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shopify app" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5v-bw-U0O">
-                                <rect key="frame" x="20" y="650" width="374" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="7rf-cy-xRW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
+                                <rect key="frame" x="20" y="650" width="374" height="55"/>
+                                <fontDescription key="fontDescription" name="Charter-Bold" family="Charter" pointSize="45"/>
+                                <color key="textColor" red="0.28746816520000001" green="0.35231345889999999" blue="0.38824117180000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="highlightedColor" red="0.28746816520000001" green="0.35231345889999999" blue="0.38824117180000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4cd-6w-IuJ"/>

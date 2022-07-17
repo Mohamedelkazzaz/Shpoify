@@ -20,9 +20,9 @@
                         <subviews>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Product name" translatesAutoresizingMaskIntoConstraints="NO" id="0a6-Vz-CaG">
                                 <rect key="frame" x="20" y="90" width="330" height="51"/>
-                                <color key="backgroundColor" red="0.95305567980000006" green="0.96469980479999995" blue="0.96470612290000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="Color"/>
                                 <color key="tintColor" name="mainColor"/>
-                                <color key="barTintColor" red="0.95305567980000006" green="0.96469980479999995" blue="0.96470612290000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="barTintColor" name="Color"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="no-data" translatesAutoresizingMaskIntoConstraints="NO" id="yFj-mQ-kQQ">
@@ -41,7 +41,7 @@
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bya-Th-Pj0">
                                 <rect key="frame" x="0.0" y="178" width="414" height="684"/>
-                                <color key="backgroundColor" red="0.95305567980000006" green="0.96469980479999995" blue="0.96470612290000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="Color"/>
                                 <inset key="scrollIndicatorInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="BuK-K2-Hek">
                                     <size key="itemSize" width="186" height="250"/>
@@ -59,7 +59,7 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Btc-4J-qTI">
                                                     <rect key="frame" x="0.0" y="0.0" width="192" height="158"/>
-                                                    <color key="backgroundColor" red="0.95305567980000006" green="0.96469980479999995" blue="0.96470612290000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="158" id="NXx-rw-pvB"/>
                                                         <constraint firstAttribute="width" constant="192" id="dBY-s4-tGQ"/>
@@ -70,22 +70,23 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hnv-67-EsI">
                                                             <rect key="frame" x="0.0" y="0.0" width="192" height="54"/>
-                                                            <color key="backgroundColor" red="0.95305567980000006" green="0.96469980479999995" blue="0.96470612290000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <color key="backgroundColor" name="Color"/>
                                                             <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0T5-lL-ESY">
                                                             <rect key="frame" x="0.0" y="54" width="192" height="26"/>
-                                                            <color key="backgroundColor" red="0.95305567980000006" green="0.96469980479999995" blue="0.96470612290000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <color key="backgroundColor" name="Color"/>
                                                             <fontDescription key="fontDescription" name="DevanagariSangamMN-Bold" family="Devanagari Sangam MN" pointSize="19"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </stackView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.95305567980000006" green="0.96469980479999995" blue="0.96470612290000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="backgroundColor" name="Color"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="cQF-JX-uQo" secondAttribute="bottom" id="9iT-V3-Zrs"/>
                                                 <constraint firstItem="cQF-JX-uQo" firstAttribute="top" secondItem="Btc-4J-qTI" secondAttribute="bottom" id="DCi-OA-K86"/>
@@ -96,7 +97,7 @@
                                                 <constraint firstItem="cQF-JX-uQo" firstAttribute="leading" secondItem="PPl-Od-sVe" secondAttribute="leading" id="h8s-pJ-1fD"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="Color"/>
                                         <size key="customSize" width="192" height="238"/>
                                         <connections>
                                             <outlet property="productImage" destination="Btc-4J-qTI" id="jti-MC-Dhg"/>
@@ -134,7 +135,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tXj-Sc-H7g"/>
-                        <color key="backgroundColor" red="0.95305567980000006" green="0.96469980479999995" blue="0.96470612290000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" name="Color"/>
                         <constraints>
                             <constraint firstItem="C4X-v4-5t9" firstAttribute="top" secondItem="dbA-vy-btK" secondAttribute="top" id="1z3-5L-HS3"/>
                             <constraint firstItem="tXj-Sc-H7g" firstAttribute="trailing" secondItem="dbA-vy-btK" secondAttribute="trailing" constant="5" id="3lt-k9-uvg"/>
@@ -204,6 +205,9 @@
         <image name="filter" width="512" height="512"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="no-data" width="1380" height="920"/>
+        <namedColor name="Color">
+            <color red="0.95300000905990601" green="0.9649999737739563" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="mainColor">
             <color red="0.15199999511241913" green="0.18400000035762787" blue="0.3449999988079071" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

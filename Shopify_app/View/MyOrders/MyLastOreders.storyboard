@@ -75,6 +75,7 @@
                                         <constraint firstItem="gOg-vG-BSK" firstAttribute="top" secondItem="3eZ-5V-F6c" secondAttribute="top" id="sIx-WV-nQE"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" name="Color"/>
                                 <connections>
                                     <outlet property="creationDate" destination="pDX-c6-0ML" id="2Yk-t4-sKl"/>
                                     <outlet property="price" destination="ty1-oT-ClS" id="X4z-9h-2Vk"/>

@@ -138,17 +138,14 @@
                                                 <rect key="frame" x="0.0" y="506.99999999999994" width="414" height="539.66666666666652"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wik-1E-EXC">
-                                                        <rect key="frame" x="16" y="16" width="382" height="47"/>
+                                                        <rect key="frame" x="16" y="15.999999999999998" width="382" height="27.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="23"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Product Descritption" translatesAutoresizingMaskIntoConstraints="NO" id="pdv-OH-Zjl">
-                                                        <rect key="frame" x="16" y="78" width="382" height="300"/>
+                                                        <rect key="frame" x="16" y="58.333333333333371" width="382" height="319.66666666666669"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="300" id="dZY-w7-E2a"/>
-                                                        </constraints>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -317,6 +314,11 @@
             <point key="canvasLocation" x="1151" y="80"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="9NG-tD-evh">
+            <size key="intrinsicContentSize" width="195" height="35"/>
+        </designable>
+    </designables>
     <resources>
         <image name="heart" width="32" height="32"/>
         <namedColor name="Color">

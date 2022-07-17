@@ -97,6 +97,7 @@
                                         <constraint firstItem="P1l-OR-BJu" firstAttribute="top" secondItem="QHA-gE-DGZ" secondAttribute="topMargin" id="ygL-6d-E1V"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" name="Color"/>
                                 <connections>
                                     <outlet property="name" destination="1Y5-15-CMD" id="H5c-3a-kKh"/>
                                     <outlet property="price" destination="zE1-ZE-ldC" id="27f-3O-OIz"/>
