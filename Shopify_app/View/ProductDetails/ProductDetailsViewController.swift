@@ -174,7 +174,7 @@ extension ProductDetailsViewController: UICollectionViewDataSource {
         let imageSource = product?.images?[indexPath.row].src ?? ""
         cell.productDetailsImage.sd_setImage(with: URL(string: imageSource), completed: nil)
         cell.productDetailsImage.layer.masksToBounds = true
-        cell.productDetailsImage.layer.cornerRadius =  cell.productDetailsImage.frame.height/2
+       cell.productDetailsImage.layer.cornerRadius = 15 //cell.productDetailsImage.frame.height/2
         cell.productDetailsImage.clipsToBounds = true
         if isFromBookmarks {
             let image = passedFav?.productImage ?? ""
