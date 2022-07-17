@@ -75,8 +75,9 @@ class PaymentViewController: UIViewController {
     func startCheckout(amount: Double) {
         self.braintreeAPIClient = BTAPIClient(authorization: authorization)
         let payPalDriver = BTPayPalDriver(apiClient: braintreeAPIClient!)
-        let request = BTPayPalCheckoutRequest(amount: "\(amount)")
-//        request.currencyCode = "USD"
+        let price = ConvertPrice.getPrice(price: amount)
+        let request = BTPayPalCheckoutRequest(amount: "\(price)")
+        request.currencyCode = ""
         var err:Error?
         payPalDriver.tokenizePayPalAccount(with: request) { [weak self] (tokenizedPayPalAccount, error) in
             if tokenizedPayPalAccount != nil {

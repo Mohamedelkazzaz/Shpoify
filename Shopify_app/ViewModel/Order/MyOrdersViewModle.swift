@@ -30,7 +30,7 @@ class MyOrdersViewModle{
         ApiService.getOrdersForCustomer(customerId: id ?? 0) { orders, error in
             if let orders = orders {
                 self.OrdersArray = orders.orders
-                print("line 33 in myorder \(orders.orders[0].current_total_price)")
+//                print("line 33 in myorder \(orders.orders[0].current_total_price)")
             }
             else{
                 self.error = error

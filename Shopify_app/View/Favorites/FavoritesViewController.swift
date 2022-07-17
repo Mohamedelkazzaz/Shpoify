@@ -98,7 +98,7 @@ extension FavoritesViewController: UITableViewDelegate {
         //    let favorites = favoritesViewModel.favoritesModel[indexPath.row]
         let vc = UIStoryboard(name: "ProductDetails", bundle: .main).instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
         self.navigationController?.pushViewController(vc, animated: true)
-        
+
     }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
