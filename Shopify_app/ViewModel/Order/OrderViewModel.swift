@@ -167,6 +167,8 @@ extension OrderViewModel{
             let ConvertedtotalPrice = "\(ConvertPrice.getPrice(price:totalPrice))"
             print("line 66 \(ConvertedtotalPrice )")
             self.totalOrder.current_total_price = String(ConvertedtotalPrice)
+//            self.totalOrder.current_total_discounts = "9.0"
+//            self.totalOrder.current_subtotal_price = "\(ConvertedtotalPrice)"
             
             self.getCustomer { customer in
                 guard let customer = customer else {return}

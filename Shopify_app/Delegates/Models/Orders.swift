@@ -21,7 +21,9 @@ struct Order : Codable{
     var line_items:[OrderItem]?
     var created_at:String?
     var financial_status: String = "paid"
-    var current_total_price:String?
+    var current_subtotal_price:String?
+    var current_total_discounts: String?
+    var current_total_price: String?
 }
 
 struct OrderToAPI : Codable{
