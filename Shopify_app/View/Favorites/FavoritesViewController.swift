@@ -95,8 +95,10 @@ extension FavoritesViewController: UITableViewDataSource {
 extension FavoritesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         favoritesTableView.deselectRow(at: indexPath, animated: true)
-        //    let favorites = favoritesViewModel.favoritesModel[indexPath.row]
+        let favorites = favoriteProducts[indexPath.row]
         let vc = UIStoryboard(name: "ProductDetails", bundle: .main).instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
+        vc.passedFav = favorites
+        vc.isFromBookmarks = true
         self.navigationController?.pushViewController(vc, animated: true)
 
     }
