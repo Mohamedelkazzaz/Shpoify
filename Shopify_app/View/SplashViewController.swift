@@ -2,12 +2,24 @@ import UIKit
 import Lottie
 
 class SplashViewController: UIViewController {
+    @IBOutlet weak var gifImage: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
     let animationView = AnimationView()
-    static let animation = "loadingspinner"
+    static let animation = "shop gif"
     override func viewDidLoad() {
         super.viewDidLoad()
         startAnimation()
         handleAuthenticationNavigation()
+        
+        titleLabel .text = ""
+        var charIndex = 0.0
+        let titleText = "Shopify app"
+        for letter in titleText {
+            Timer.scheduledTimer(withTimeInterval: 0.3 * charIndex, repeats: false) { (timer) in
+                self.titleLabel.text?.append(letter)
+            }
+            charIndex += 1
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -24,7 +36,7 @@ class SplashViewController: UIViewController {
     }
     func handleAuthenticationNavigation() {
         let accessID = ApplicationUserManger.shared.getUserID()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
 //            if accessID != 0 {
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
                 let nav = UINavigationController(rootViewController: vc)

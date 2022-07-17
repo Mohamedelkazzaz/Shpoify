@@ -852,9 +852,38 @@
                     <view key="view" contentMode="scaleToFill" id="Mv8-MH-0Lj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="rfC-lI-DzJ">
+                                <rect key="frame" x="57" y="298" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="MWn-19-RSC"/>
+                                    <constraint firstAttribute="height" constant="300" id="hBj-F7-FhR"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shopify app" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5v-bw-U0O">
+                                <rect key="frame" x="20" y="650" width="374" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="7rf-cy-xRW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="4cd-6w-IuJ"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Color"/>
+                        <constraints>
+                            <constraint firstItem="rfC-lI-DzJ" firstAttribute="centerY" secondItem="Mv8-MH-0Lj" secondAttribute="centerY" id="7zg-yT-Mx7"/>
+                            <constraint firstItem="e5v-bw-U0O" firstAttribute="leading" secondItem="4cd-6w-IuJ" secondAttribute="leading" constant="20" id="CAx-1h-wsl"/>
+                            <constraint firstItem="4cd-6w-IuJ" firstAttribute="trailing" secondItem="e5v-bw-U0O" secondAttribute="trailing" constant="20" id="UEA-h9-avC"/>
+                            <constraint firstItem="e5v-bw-U0O" firstAttribute="top" secondItem="rfC-lI-DzJ" secondAttribute="bottom" constant="52" id="crP-Op-xQt"/>
+                            <constraint firstItem="rfC-lI-DzJ" firstAttribute="centerX" secondItem="Mv8-MH-0Lj" secondAttribute="centerX" id="hfj-MK-rev"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="gifImage" destination="rfC-lI-DzJ" id="cTw-jK-Uhc"/>
+                        <outlet property="titleLabel" destination="e5v-bw-U0O" id="PAN-fD-sVm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wiz-Dz-3aq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -868,6 +897,7 @@
         <image name="done" width="1800" height="1200"/>
         <image name="empty" width="404" height="316"/>
         <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="icon" width="512" height="512"/>
         <image name="icons8-home" width="25" height="25"/>
         <image name="icons8-logout" width="25" height="25"/>
         <image name="icons8-settings" width="25" height="25"/>

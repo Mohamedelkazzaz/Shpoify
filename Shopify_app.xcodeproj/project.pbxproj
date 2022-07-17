@@ -53,6 +53,9 @@
 		E8A997F12880667700344D18 /* ConvertPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A997F02880667700344D18 /* ConvertPrice.swift */; };
 		E8AA410C2880546600431574 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AA410B2880546600431574 /* Currency.swift */; };
 		E8AF61822880F0A700BEDFB5 /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF61812880F0A700BEDFB5 /* DoneViewController.swift */; };
+		E8B0E7FF288388B700C44FD7 /* shop gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = E8B0E7FE288388B700C44FD7 /* shop gif.gif */; };
+		E8B0E801288388E600C44FD7 /* Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B0E800288388E600C44FD7 /* Gif.swift */; };
+		E8B0E8032883892100C44FD7 /* GifViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B0E8022883892100C44FD7 /* GifViewController.swift */; };
 		E8B21C17286B8CC00000AABB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B21C16286B8CC00000AABB /* AppDelegate.swift */; };
 		E8B21C19286B8CC00000AABB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B21C18286B8CC00000AABB /* SceneDelegate.swift */; };
 		E8B21C1B286B8CC00000AABB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B21C1A286B8CC00000AABB /* ViewController.swift */; };
@@ -173,6 +176,9 @@
 		E8A997F02880667700344D18 /* ConvertPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertPrice.swift; sourceTree = "<group>"; };
 		E8AA410B2880546600431574 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		E8AF61812880F0A700BEDFB5 /* DoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
+		E8B0E7FE288388B700C44FD7 /* shop gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "shop gif.gif"; sourceTree = "<group>"; };
+		E8B0E800288388E600C44FD7 /* Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gif.swift; sourceTree = "<group>"; };
+		E8B0E8022883892100C44FD7 /* GifViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifViewController.swift; sourceTree = "<group>"; };
 		E8B21C13286B8CBF0000AABB /* Shopify_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopify_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8B21C16286B8CC00000AABB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8B21C18286B8CC00000AABB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -462,6 +468,16 @@
 			path = Done;
 			sourceTree = "<group>";
 		};
+		E8B0E7FD288388A500C44FD7 /* gif */ = {
+			isa = PBXGroup;
+			children = (
+				E8B0E7FE288388B700C44FD7 /* shop gif.gif */,
+				E8B0E800288388E600C44FD7 /* Gif.swift */,
+				E8B0E8022883892100C44FD7 /* GifViewController.swift */,
+			);
+			path = gif;
+			sourceTree = "<group>";
+		};
 		E8B21C0A286B8CBF0000AABB = {
 			isa = PBXGroup;
 			children = (
@@ -487,6 +503,7 @@
 		E8B21C15286B8CBF0000AABB /* Shopify_app */ = {
 			isa = PBXGroup;
 			children = (
+				E8B0E7FD288388A500C44FD7 /* gif */,
 				FC94285A286DD6DE0059E6D4 /* Models */,
 				E8B21C4C286B8D830000AABB /* ApiServices */,
 				E8B21C4D286B8DB60000AABB /* Networking */,
@@ -818,6 +835,7 @@
 				E86D31E5286F25FA007302E1 /* CartsCell.xib in Resources */,
 				FC4A668428724DAA005D3BBB /* ProductList.storyboard in Resources */,
 				9B0EC06C2873A5EF0076A1EA /* loadingspinner.json in Resources */,
+				E8B0E7FF288388B700C44FD7 /* shop gif.gif in Resources */,
 				E89A3A2E2872163500D609B5 /* addAddressCell.xib in Resources */,
 				E8B21C23286B8CC40000AABB /* Assets.xcassets in Resources */,
 				9B154771287E377800C0E2B0 /* ProductDetailsCollectionViewImageCell.xib in Resources */,
@@ -978,6 +996,7 @@
 				FC4A66782871F599005D3BBB /* ProductsByCategoriesViewModel.swift in Sources */,
 				FC942866286E57500059E6D4 /* ProductCell.swift in Sources */,
 				9B1FB35828746F4100D4A476 /* ApplicationUserManger.swift in Sources */,
+				E8B0E8032883892100C44FD7 /* GifViewController.swift in Sources */,
 				9BA632A62875C11100775E34 /* ProductDetailsViewController.swift in Sources */,
 				E83C578A2873130F0068CDAE /* Encodable+Extensions.swift in Sources */,
 				9B1FB35C28746F7400D4A476 /* UIViewController+Ext.swift in Sources */,
@@ -1010,6 +1029,7 @@
 				E8B21C53286B8E240000AABB /* NetworkManager.swift in Sources */,
 				E89A3A28287212FC00D609B5 /* AddressViewController.swift in Sources */,
 				FC942861286E56D00059E6D4 /* ProductsViewModel.swift in Sources */,
+				E8B0E801288388E600C44FD7 /* Gif.swift in Sources */,
 				E8B21C21286B8CC00000AABB /* Shopify_app.xcdatamodeld in Sources */,
 				9B94337328739E3300779F66 /* RegisterationViewController.swift in Sources */,
 				E88888D828787C10006178DD /* PaymentViewController.swift in Sources */,
