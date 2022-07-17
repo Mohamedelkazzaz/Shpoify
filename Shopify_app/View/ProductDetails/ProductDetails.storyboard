@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="a5e-Nx-qVy">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1190.6666666666667"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eNK-Xh-QGg">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="296"/>
@@ -226,32 +226,26 @@
                                                 <edgeInsets key="layoutMargins" top="16" left="16" bottom="16" right="16"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TeF-cf-3dw">
-                                                <rect key="frame" x="0.0" y="1046.6666666666667" width="414" height="253.33333333333326"/>
+                                                <rect key="frame" x="0.0" y="1046.6666666666667" width="414" height="144"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="hNw-mE-ofM">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="253.33333333333334"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="lhe-DY-Jdr">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="144"/>
                                                         <subviews>
-                                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6VW-fz-ATm" customClass="CosmosView" customModule="Cosmos">
-                                                                <rect key="frame" x="16" y="16" width="185" height="221.33333333333334"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User One Review" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5K-ZR-36I">
+                                                                <rect key="frame" x="16" y="16" width="382" height="50"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" id="C1W-aj-Nqm"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9NG-tD-evh" customClass="CosmosView" customModule="Cosmos">
+                                                                <rect key="frame" x="16" y="78" width="382" height="50"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="starSize">
-                                                                        <real key="value" value="32"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
-                                                                        <real key="value" value="5"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
-                                                                        <integer key="value" value="5"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </view>
-                                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gSQ-gk-3Io" customClass="CosmosView" customModule="Cosmos">
-                                                                <rect key="frame" x="213" y="16" width="185" height="221.33333333333334"/>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="starSize">
-                                                                        <real key="value" value="32"/>
+                                                                        <real key="value" value="35"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="rating">
                                                                         <real key="value" value="5"/>
@@ -265,12 +259,6 @@
                                                         <edgeInsets key="layoutMargins" top="16" left="16" bottom="16" right="16"/>
                                                     </stackView>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="hNw-mE-ofM" secondAttribute="bottom" id="2W6-M0-FJL"/>
-                                                    <constraint firstAttribute="trailing" secondItem="hNw-mE-ofM" secondAttribute="trailing" id="Ghb-IX-HFN"/>
-                                                    <constraint firstItem="hNw-mE-ofM" firstAttribute="top" secondItem="TeF-cf-3dw" secondAttribute="top" id="o77-Lo-k9D"/>
-                                                    <constraint firstItem="hNw-mE-ofM" firstAttribute="leading" secondItem="TeF-cf-3dw" secondAttribute="leading" id="wQ2-ps-Mw5"/>
-                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <constraints>
@@ -286,7 +274,6 @@
                                             <constraint firstAttribute="trailing" secondItem="eNK-Xh-QGg" secondAttribute="trailing" id="eym-VV-xHy"/>
                                             <constraint firstAttribute="bottom" secondItem="TeF-cf-3dw" secondAttribute="bottom" id="fu2-bA-FVv"/>
                                             <constraint firstItem="YSs-rE-pvp" firstAttribute="leading" secondItem="a5e-Nx-qVy" secondAttribute="leading" id="iqb-G1-Qqy"/>
-                                            <constraint firstAttribute="height" constant="1300" id="jbo-dp-tRF"/>
                                             <constraint firstItem="JaV-DR-xfK" firstAttribute="top" secondItem="YSs-rE-pvp" secondAttribute="bottom" id="joN-zA-oBU"/>
                                             <constraint firstAttribute="trailing" secondItem="YSs-rE-pvp" secondAttribute="trailing" id="mLD-7X-Gbb"/>
                                             <constraint firstItem="eNK-Xh-QGg" firstAttribute="leading" secondItem="a5e-Nx-qVy" secondAttribute="leading" id="tKE-GC-ptr"/>
@@ -330,14 +317,6 @@
             <point key="canvasLocation" x="1151" y="80"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="6VW-fz-ATm">
-            <size key="intrinsicContentSize" width="180" height="32"/>
-        </designable>
-        <designable name="gSQ-gk-3Io">
-            <size key="intrinsicContentSize" width="180" height="32"/>
-        </designable>
-    </designables>
     <resources>
         <image name="heart" width="32" height="32"/>
         <namedColor name="Color">

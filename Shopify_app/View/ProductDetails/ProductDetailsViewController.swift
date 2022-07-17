@@ -15,11 +15,11 @@ class ProductDetailsViewController: UIViewController {
     let productDetailsViewModel = ProductDetailsViewModel()
     let orderViewModel = OrderViewModel()
     let favoritesViewModel = FavoritesViewModel()
-    
+    var isFromBookmarks = false
     var product: Product?
     var isFound = false
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
+    var passedFav: Favorites?
     @IBOutlet weak var productDescription: UITextView!
     @IBOutlet weak var productTitle: UILabel!
     @IBOutlet weak var productPrice: UILabel!
@@ -156,11 +156,18 @@ extension ProductDetailsViewController: UICollectionViewDelegate {
 extension ProductDetailsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if isFromBookmarks {
+            guard let product = passedFav,  let images = product.productImage else {
+                return 0 }
+            imageControl.numberOfPages = 4
+            return images.count
+        } else {
         guard let product = product,    let images = product.images else {
             return 0 }
         imageControl.numberOfPages = images.count
         return images.count
         }
+    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = productDetailsCollectionView.dequeueReusableCell(withReuseIdentifier: "ProductDetailsCollectionViewImageCell", for: indexPath) as! ProductDetailsCollectionViewImageCell
@@ -171,6 +178,13 @@ extension ProductDetailsViewController: UICollectionViewDataSource {
         cell.productDetailsImage.layer.masksToBounds = true
         cell.productDetailsImage.layer.cornerRadius =  cell.productDetailsImage.frame.height/2
         cell.productDetailsImage.clipsToBounds = true
+        if isFromBookmarks {
+            let image = passedFav?.productImage ?? ""
+            cell.productDetailsImage.sd_setImage(with: URL(string: image), completed: nil)
+        } else {
+            let imageSource = product?.images?[indexPath.row].src ?? ""
+            cell.productDetailsImage.sd_setImage(with: URL(string: imageSource), completed: nil)
+        }
         return cell
     }
     
