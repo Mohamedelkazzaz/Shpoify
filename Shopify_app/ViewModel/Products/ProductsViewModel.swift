@@ -27,7 +27,14 @@ class ProductsViewModel{
     }
     
     func fetchData(){
-        ApiService.getAllProducts { products, error in
+//        ApiService.getAllProducts { products, error in
+//            if let products = products{
+//                self.productsArray = products.products
+//            }else{
+//                self.error = error
+//            }
+//        }
+        ApiService.getAll(url: Url.shared.getAllProductsURL(), modelType: Products.self) { products, error in
             if let products = products{
                 self.productsArray = products.products
             }else{

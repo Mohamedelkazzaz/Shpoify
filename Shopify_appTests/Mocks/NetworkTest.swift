@@ -26,6 +26,7 @@ class NetworkManagerTests: XCTestCase {
           //  XCTAssertNotNil(customers)
             XCTAssertEqual(customers?.customers.count ?? 0, 1)
         }
+        
 
     }
     

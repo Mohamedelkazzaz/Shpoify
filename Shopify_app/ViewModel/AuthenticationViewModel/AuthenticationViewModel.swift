@@ -34,9 +34,29 @@ class AuthenticationViewModel {
     }
     
     func checkUserIsLogged(email: String, password: String, completion: @escaping (Customer?)-> Void){
-        ApiService.getAllCustomers { customers, error in
+//        ApiService.getAllCustomers { customers, error in
+//            guard let customers = customers, error == nil else {return}
+//
+//            let filetr = customers.customers.filter { selectedCustomer in
+//                return selectedCustomer.email == email && selectedCustomer.tags == password
+//            }
+//            if filetr.count != 0{
+//                ApplicationUserManger.shared.setUserStatus(userIsLogged: true)
+//                guard let customerID = filetr[0].id, let userFirstName = filetr[0].first_name, let userLastName = filetr[0].last_name, let userEmail = filetr[0].email  else {return}
+//                ApplicationUserManger.shared.setUserID(customerID: customerID)
+//                ApplicationUserManger.shared.setUserName(userName: "\(userFirstName) \(userLastName)")
+//                ApplicationUserManger.shared.setUserEmail(userEmail: userEmail)
+//                if !filetr[0].addresses!.isEmpty {
+//                    ApplicationUserManger.shared.setFoundAdress(isFoundAddress: true)
+//                }
+//                completion(filetr[0])
+//            }else{
+//                completion(nil)
+//            }
+//        }
+        ApiService.getAll(url: Url.shared.customersURl(), modelType: Customers.self){customers, error in
             guard let customers = customers, error == nil else {return}
-            
+
             let filetr = customers.customers.filter { selectedCustomer in
                 return selectedCustomer.email == email && selectedCustomer.tags == password
             }
@@ -53,22 +73,36 @@ class AuthenticationViewModel {
             }else{
                 completion(nil)
             }
+ 
         }
     }
     
     func checkUserIsLogged(email: String, completion: @escaping (Customer?)-> Void){
-        ApiService.getAllCustomers { customers, error in
+        //        ApiService.getAllCustomers { customers, error in
+        //            guard let customers = customers, error == nil else {return}
+        //
+        //            let filetr = customers.customers.filter { selectedCustomer in
+        //                return selectedCustomer.email == email
+        //            }
+        //            if filetr.count != 0{
+        //                print(filetr.count)
+        //                completion(filetr[0])
+        //            }else{
+        //                completion(nil)
+        //            }
+        //        }
+        ApiService.getAll(url: Url.shared.customersURl(), modelType: Customers.self){customers, error in
             guard let customers = customers, error == nil else {return}
             
             let filetr = customers.customers.filter { selectedCustomer in
                 return selectedCustomer.email == email
             }
             if filetr.count != 0{
-                print(filetr.count)
                 completion(filetr[0])
             }else{
                 completion(nil)
             }
+            
         }
     }
     

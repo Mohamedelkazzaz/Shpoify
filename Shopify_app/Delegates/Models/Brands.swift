@@ -10,11 +10,10 @@
 import Foundation
 
 struct Brands : Codable {
-    
     let smart_collections : [Smart_collections]?
-
 }
 
+//Brand
 struct Smart_collections : Codable {
     let id : Int?
     let handle : String?

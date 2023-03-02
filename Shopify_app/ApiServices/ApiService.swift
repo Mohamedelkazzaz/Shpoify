@@ -8,15 +8,20 @@
 import Foundation
 import CloudKit
 
+// typealias Handler = ((Brands?, Error?)->Void)
+typealias Handler<T> = (T?, Error?) -> Void
+
 protocol ApiService{
-    func getAllBrands(complition: @escaping (Brands?, Error?)->Void)
-    func getAllProducts(complition: @escaping (Products?, Error?)->Void)
+    
+   //getAll Brands/Products/Customers
+    func getAll<T:Codable>(url:URL?,modelType: T.Type,complition:@escaping Handler<T>)
+    
     func getProductsByCategory(collectionId:String,complition: @escaping (Products?, Error?)->Void)
-    func addAddress(customerId: Int, address: Address, completion: @escaping(Data?, URLResponse?, Error?)->())
+   
 
     func register(newCustomer:NewCustomer, completion:@escaping (Data?, URLResponse? , Error?)->())
-    func getAllCustomers(complition: @escaping (Customers?, Error?)->Void)
-
+    
+    func addAddress(customerId: Int, address: Address, completion: @escaping(Data?, URLResponse?, Error?)->())
     func getAddressForCustomer(customerId: Int,completion: @escaping (Customer?, Error?)->Void)
     func deleteAddressForCustomer(customerId: Int,id: Int,completion: @escaping ( Error?)->())
 
@@ -25,7 +30,6 @@ protocol ApiService{
    
 
     func getDiscounts(priceRuleId: Int,complition: @escaping (DiscountModel?, Error?)->Void)
-
     func deleteDiscount(priceRuleId: Int,discountCodeId: Int,completion: @escaping ( Error?)->())
     
 

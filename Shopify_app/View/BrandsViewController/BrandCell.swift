@@ -18,7 +18,5 @@ class BrandCell: UICollectionViewCell {
         if let data = try? Data(contentsOf: url!) {
             self.brandImage.image = UIImage(data: data)
         }
-        
-       
     }
 }

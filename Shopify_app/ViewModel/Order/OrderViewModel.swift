@@ -132,7 +132,19 @@ extension OrderViewModel{
 
 extension OrderViewModel{
     func getCustomer(completion: @escaping (Customer?)-> Void){
-        networking.getAllCustomers { customers, error in
+//        networking.getAllCustomers { customers, error in
+//            guard let customers = customers, error == nil,let customerID = self.customerID else {return}
+//
+//            let filetr = customers.customers.filter { selectedCustomer in
+//                return selectedCustomer.id == customerID
+//            }
+//            if filetr.count != 0{
+//                completion(filetr[0])
+//            }else{
+//                completion(nil)
+//            }
+//        }
+        networking.getAll(url: Url.shared.customersURl(), modelType: Customers.self){customers, error in
             guard let customers = customers, error == nil,let customerID = self.customerID else {return}
             
             let filetr = customers.customers.filter { selectedCustomer in
@@ -143,6 +155,7 @@ extension OrderViewModel{
             }else{
                 completion(nil)
             }
+            
         }
     }
     

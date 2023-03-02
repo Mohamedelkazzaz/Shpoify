@@ -27,7 +27,15 @@ class BrandsViewModel{
     }
 
     func fetchData(){
-        ApiService.getAllBrands { brands, error in
+//        ApiService.getAllBrands { brands, error in
+//            if let brands = brands{
+//                self.brandsArray = brands.smart_collections
+//            }else{
+//                self.error = error
+//            }
+//        }
+        
+        ApiService.getAll(url: Endpoints.smart_collections.url, modelType: Brands.self) { brands, error in
             if let brands = brands{
                 self.brandsArray = brands.smart_collections
             }else{

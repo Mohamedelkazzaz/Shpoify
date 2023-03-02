@@ -30,7 +30,7 @@ class ProductDetailsViewModel {
             
             for specifiedProduct in FavoriteProducts{
                 if specifiedProduct.customerID == customerID && specifiedProduct.productID == productID {
-                    CoreDataManager.shared.delete(returnType: Favorites.self, delete: favoritesModel.self)
+                    CoreDataManager.shared.delete(delete: favoritesModel.self)
                 }
             }
         }

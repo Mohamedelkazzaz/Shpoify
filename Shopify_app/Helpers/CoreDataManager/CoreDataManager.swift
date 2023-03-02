@@ -52,11 +52,10 @@ class CoreDataManager {
         }
     }
     
-    func delete<T: NSManagedObject>(returnType: T.Type, delete: T) {
+    func delete<T: NSManagedObject>(delete: T) {
         context.delete(delete.self)
         do {
             try context.save()
-            
         }catch {
             print("Products not deleted", error)
         }
@@ -64,9 +63,7 @@ class CoreDataManager {
     
     func fetch<T: NSManagedObject>(returnType: T.Type , completion: @escaping ([T]) -> Void) {
         do {
-            guard let result = try context.fetch(returnType.fetchRequest()) as? [T] else {
-                return
-            }
+            guard let result = try context.fetch(returnType.fetchRequest()) as? [T] else {return}
             completion(result)
         } catch {
             //

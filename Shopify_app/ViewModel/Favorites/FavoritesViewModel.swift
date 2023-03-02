@@ -25,7 +25,7 @@ class FavoritesViewModel{
     
     func deleteFavoriteProducts(indexPath: IndexPath) {
         let deletedProduct = favoritesModel[indexPath.row]
-        CoreDataManager.shared.delete(returnType: Favorites.self, delete: deletedProduct)
+        CoreDataManager.shared.delete(delete: deletedProduct)
         CoreDataManager.shared.fetch(returnType: Favorites.self) {
             (deletion) in
             self.favoritesModel = deletion
