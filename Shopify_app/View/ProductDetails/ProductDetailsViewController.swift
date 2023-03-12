@@ -17,7 +17,7 @@ class ProductDetailsViewController: UIViewController {
     let favoritesViewModel = FavoritesViewModel()
     var isFromBookmarks = false
     var product: Product?
-    var isFound = false
+    //var isFound = false
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var passedFav: Favorites?
     @IBOutlet weak var productDescription: UITextView!
@@ -122,22 +122,17 @@ class ProductDetailsViewController: UIViewController {
     }
     
     func addProductToCard() {
-        for i in CoreDataManager.shared.fetchDataFromCart(){
-            if i.id == (product?.id)!{
-                isFound = true
-            }
-        }
+        guard let id = product?.id else {return}
+        var isFound = orderViewModel.isItemInCart(productId: id)
         if isFound == true{
             ProgressHUD.colorAnimation = .systemRed
             ProgressHUD.showFailed("Already in cart", interaction: true)
         }else{
             guard let product = product, let id = product.id, let variants = product.variants, let customerID = ApplicationUserManger.shared.getUserID() else {return}
-            
-            CoreDataManager.shared.addToCart(appDelegate: appDelegate, id: Int64(id), userId: Int64(customerID), title: product.title!, image: (product.image?.src)!, price: variants[0].price!, quantity: 1)
+            CoreDataManager.shared.addToCart(id: Int64(id), userId: Int64(customerID), title: product.title!, image: (product.image?.src)!, price: variants[0].price!, quantity: 1)
             ProgressHUD.colorAnimation = .systemGreen
             ProgressHUD.show("Add to cart", icon: .cart)
         }
-        
     }
     
    

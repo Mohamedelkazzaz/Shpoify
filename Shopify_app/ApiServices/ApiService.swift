@@ -21,7 +21,7 @@ protocol ApiService{
 
     func register(newCustomer:NewCustomer, completion:@escaping (Data?, URLResponse? , Error?)->())
     
-    func addAddress(customerId: Int, address: Address, completion: @escaping(Data?, URLResponse?, Error?)->())
+    func addAddress(customerId: Int, address: Address, completion: @escaping(Data?, HTTPURLResponse?, Error?)->())
     func getAddressForCustomer(customerId: Int,completion: @escaping (Customer?, Error?)->Void)
     func deleteAddressForCustomer(customerId: Int,id: Int,completion: @escaping ( Error?)->())
 

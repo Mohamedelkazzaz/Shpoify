@@ -73,7 +73,6 @@ class CoreDataManager {
     func addToFavorites(id: Int64, pid: Int64, name: String, pimage: String,Price: String){
 
         if let entity = NSEntityDescription.entity(forEntityName: "Favorites", in: context){
-
             let CoreProduct = NSManagedObject(entity: entity, insertInto: context)
             CoreProduct.setValue(id, forKey: "customerID")
             CoreProduct.setValue(pid, forKey: "productID")
@@ -90,22 +89,19 @@ class CoreDataManager {
         }
     }
     
-    func addToCart(appDelegate: AppDelegate,id: Int64,userId: Int64, title: String, image:String, price: String, quantity: Int64){
+    func addToCart(id: Int64,userId: Int64, title: String, image:String, price: String, quantity: Int64){
         
-        let manageContext = appDelegate.persistentContainer.viewContext
-        
-        if let entity = NSEntityDescription.entity(forEntityName: "Cart", in: manageContext){
-            let cart = NSManagedObject(entity: entity, insertInto: manageContext)
+        if let entity = NSEntityDescription.entity(forEntityName: "Cart", in: context){
+            let cart = NSManagedObject(entity: entity, insertInto: context)
+            
             cart.setValue(id, forKey: "id")
             cart.setValue(userId, forKey: "userId")
             cart.setValue(title, forKey: "title")
             cart.setValue(image, forKey: "image")
             cart.setValue(price, forKey: "price")
             cart.setValue(quantity, forKey: "quantity")
-            
-
             do {
-                try manageContext.save()
+                try context.save()
             }catch let error as NSError {
                 print("Error in saving")
                 print(error.localizedDescription)

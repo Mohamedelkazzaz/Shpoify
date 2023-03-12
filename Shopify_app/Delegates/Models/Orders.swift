@@ -7,6 +7,7 @@
 
 import Foundation
 
+//orderItem == orderIn Cart
 struct OrderItem : Codable{
     var variant_id : Int?
     var quantity:Int?

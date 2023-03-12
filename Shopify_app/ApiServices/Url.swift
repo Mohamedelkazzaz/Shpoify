@@ -64,7 +64,6 @@ enum Endpoints {
     case Products
     case customers
     case orders
-    
     case getLoginPath
     case getCurrency
     case getAddressForCustomer(String)

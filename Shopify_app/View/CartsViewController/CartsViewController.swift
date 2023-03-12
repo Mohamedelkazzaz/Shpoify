@@ -16,6 +16,7 @@ class CartsViewController: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     var cart : [Cart] = []
     let orderViewModel = OrderViewModel()
+    let cartViewModel = CartViewModel()
     
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -33,10 +34,20 @@ class CartsViewController: UIViewController {
     }
 
     func setTotalPrice(){
+        
+//        cartViewModel.calcTotalPrice
+//        { totalPrice in
+//            guard let totalPrice = totalPrice else { return }
+//          //  ApplicationUserManger.shared.setTotalPrice(totalPrice:totalPrice)
+//       //     print(totalPrice)
+////            self.priceLabel.text = String(totalPrice) + " USD"
+//            self.priceLabel.text = "\(ConvertPrice.getPrice(price: totalPrice.rounded()))"
+//        }
+        
         orderViewModel.calcTotalPrice { totalPrice in
             guard let totalPrice = totalPrice else { return }
-            ApplicationUserManger.shared.setTotalPrice(totalPrice:totalPrice)
-            print(totalPrice)
+          //  ApplicationUserManger.shared.setTotalPrice(totalPrice:totalPrice)
+       //     print(totalPrice)
 //            self.priceLabel.text = String(totalPrice) + " USD"
             self.priceLabel.text = "\(ConvertPrice.getPrice(price: totalPrice.rounded()))"
         }
@@ -55,6 +66,7 @@ class CartsViewController: UIViewController {
     }
     
     func setCartItems(){
+        
         orderViewModel.getSelectedProducts { orders, error in
             guard let orders = orders else {return}
             self.cart = orders

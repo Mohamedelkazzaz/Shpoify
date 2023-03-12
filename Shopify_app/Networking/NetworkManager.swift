@@ -36,76 +36,6 @@ class NetworkManager: ApiService{
         }.resume()
     }
 
-//    func getAllBrands(complition: @escaping (Brands?, Error?)->Void){
-//        guard let url = Url.shared.getAllBrandsURl() else {return}
-//        URLSession.shared.dataTask(with: url) { data, response, error in
-//            if let data = data{
-//                do{
-//                    let json = try JSONDecoder().decode(Brands.self, from: data)
-//                    DispatchQueue.main.async{
-//                        complition(json, nil)
-//                        print("success to get all brands")
-//                    }
-//                }catch let error{
-//                    DispatchQueue.main.async{
-//                        print("error when get All brands")
-//                        complition(nil, error)
-//                    }
-//                }
-//            }
-//            if let error = error{
-//                print(error.localizedDescription)
-//            }
-//        }.resume()
-//
-//    }
-
-//    func getAllCustomers(complition: @escaping (Customers?, Error?)->Void){
-//        guard let url = Url.shared.customersURl() else {return}
-//        AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).response { res in
-//
-//            switch res.result{
-//            case .failure(let error):
-//                print("error")
-//                complition(nil, error)
-//            case .success(_):
-//
-//                guard let data = res.data else { return }
-//                do{
-//                    let json = try JSONDecoder().decode(Customers.self, from: data)
-//                    complition(json, nil)
-//                    print("success to get customers")
-//                }catch let error{
-//                    print("error when get customers")
-//                    complition(nil, error)
-//                }
-//            }
-//        }
-//    }
-    
-//    func getAllProducts(complition: @escaping (Products?, Error?) -> Void) {
-//        guard let url = Url.shared.getAllProductsURL() else {return}
-//        URLSession.shared.dataTask(with: url) { data, response, error in
-//            if let data = data{
-//                do{
-//                    let json = try JSONDecoder().decode(Products.self, from: data)
-//                    DispatchQueue.main.async{
-//                        complition(json, nil)
-//                        print("success to get all products")
-//                    }
-//                }catch let error{
-//                    DispatchQueue.main.async{
-//                        print("error when get All products")
-//                        complition(nil, error)
-//                    }
-//                }
-//            }
-//            if let error = error{
-//                print(error)
-//            }
-//        }.resume()
-//    }
-
     func getProductsByCategory(collectionId:String,complition: @escaping (Products?, Error?) -> Void) {
         guard let url = Url.shared.getProductsByCategory(collectionId: collectionId) else {return}
         URLSession.shared.dataTask(with: url) { data, response, error in
@@ -129,28 +59,38 @@ class NetworkManager: ApiService{
         }.resume()
     }
     
-    func addAddress(customerId: Int, address: Address, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-            let customer = CustomerAddress(addresses: [address])
-            let putObject = PutAddress(customer: customer)
-            guard let url = Url.shared.addAddress(id: "\(customerId)") else {return}
-            print(url)
-            var request = URLRequest(url: url)
-            request.httpMethod = "PUT"
-            let session = URLSession.shared
-            do {
-                request.httpBody = try JSONSerialization.data(withJSONObject: putObject.asDictionary(), options: .prettyPrinted)
-            } catch let error {
-                print(error.localizedDescription)
+    func addAddress(customerId: Int, address: Address, completion: @escaping (Data?, HTTPURLResponse?, Error?) -> ()) {
+        let customer = CustomerAddress(addresses: [address])
+        let putObject = PutAddress(customer: customer)
+        guard let url = Url.shared.addAddress(id: "\(customerId)") else {return}
+        AF.request(url,method: .put,parameters: putObject).responseData{response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    guard let jsonObject = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+                        print("Error: Cannot convert data to JSON object")
+                        return
+                    }
+                    guard let prettyJsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted) else {
+                        print("Error: Cannot convert JSON object to Pretty JSON data")
+                        return
+                    }
+                    guard let prettyPrintedJson = String(data: prettyJsonData, encoding: .utf8) else {
+                                            print("Error: Could print JSON in String")
+                                            return
+                                        }
+                    print("prettyJsonData = \(prettyPrintedJson)")
+                    completion(response.data,response.response,response.error)
+                } catch {
+                    print("Error: Trying to convert JSON data to string")
+                    return
+                }
+            case .failure(let error):
+                print(error)
             }
-            //HTTP Headers
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.addValue("application/json", forHTTPHeaderField: "Accept")
-            
-            session.dataTask(with: request) { (data, response, error) in
-            completion(data, response, error)
-            }.resume()
         }
-    
+        
+    }
     func getAddressForCustomer(customerId: Int, completion: @escaping (Customer?, Error?) -> Void) {
         let customerId = ApplicationUserManger.shared.getUserID()
         guard let url = Url.shared.getAddressForCustomer(customerID: "\(customerId ?? 0)") else {return}
@@ -267,7 +207,7 @@ class NetworkManager: ApiService{
     
     
     func addOrder(order:OrderToAPI,completion: @escaping (Data?,URLResponse?,Error?)->Void){
-        print("line 223  network \(order.order.current_total_price)")
+       // print("line 223  network \(order.order.current_total_price)")
         guard let url = Url.shared.ordersURL() else {return}
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -276,7 +216,7 @@ class NetworkManager: ApiService{
         
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: order.asDictionary(), options: .prettyPrinted)
-            print("line 232  network \(order.order.current_total_price)")
+         //   print("line 232  network \(order.order.current_total_price)")
         }catch let error {
             print(error)
         }
@@ -286,6 +226,7 @@ class NetworkManager: ApiService{
             completion(data, response, error)
         }.resume()
   
+        
     }
     
     func getDiscounts(priceRuleId: Int, complition: @escaping (DiscountModel?, Error?) -> Void) {
